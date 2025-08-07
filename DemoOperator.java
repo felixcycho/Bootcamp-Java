@@ -99,6 +99,7 @@ public class DemoOperator {
     // But, if the number of a year can be divided by 100 -> Not a leap year (i.e. 2100)
     // Next, if the number of a year can be divided by 400 -> Leap year (i.e. 2000)
     int year = 2024;
+    // "boolean isLeapYear = false" defaults isLeapYear is defined as false.
     boolean isLeapYear = false;
     if (year % 4 == 0) {
       if (year % 100 == 0) {
@@ -110,12 +111,21 @@ public class DemoOperator {
       } else {
         isLeapYear = true;
       }
-    } else {
-      isLeapYear = false;
-    }
+    } // else {
+      // isLeapYear = false;
+    // because isLeapYear has already been designated as "false", in line 103,
+    // just need to define in which situation isLeapYear would be "true", up to line 113,
+    // Otherwise, if isLeapYear has not already been designated as "false",
+    // The programming from line 114 to 115 should be written.
+    // !false = true
+    // !true = false
+    
     System.out.println("Leap year? " + isLeapYear);
 
+    isLeapYear = (year % 4) == 0 && (year % 100 == 0) && (year % 400 == 0)
+        || (year % 4 == 0) && (year % 100 != 0);
 
+    System.out.println("Leap year? " + isLeapYear);
 
   }
   
