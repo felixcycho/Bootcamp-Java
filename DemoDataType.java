@@ -1,6 +1,6 @@
 public class DemoDataType {
   public static void main(String[] args) {
-    // int, double, String, char
+    // int, double, String, char, boolean, byte, short, long, float (Primitive)
     // "Hello world" => String value
     // s1 => String variable
     String s1 = "Hello world";
@@ -29,7 +29,7 @@ public class DemoDataType {
     int chAscii = ch;
     System.out.println(chAscii);
     char ch2 = '我';
-    int ch2Ascii = ch;
+    int ch2Ascii = ch2;
     System.out.println(ch2Ascii);
     char ch3 = '体';
     int ch3Ascii = ch3;
@@ -163,10 +163,16 @@ public class DemoDataType {
     // Step 3: auto-convert char value to ascii code
     System.out.println(asciiForA);    // 65
 
-    char letterForZ = 'A' + 25;    // ! explicit char value
+    char letterForZ = 'A' + 25;    // ! explicit char value + explicit int value
     System.out.println(letterForZ);    // Z
 
-    
+    int distance = 2;
+    // char letterForC = 'A' + distance;
+    // explicit char value + int variable
+    // ! risk that letterForC may be over limit of 65530
+    char letterForC = (char)('A' + distance);
+    System.out.println(letterForC);    // 'C'
+
 
     
   }

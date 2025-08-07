@@ -1,2 +1,8 @@
-# bootcamp
-bootcamp
+{
+  "folders":[
+    {
+      "path": "../github/bootcamp"
+    }
+  ],
+  "settings": {}
+}
