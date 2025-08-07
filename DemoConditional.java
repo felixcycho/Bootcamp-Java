@@ -56,18 +56,29 @@ public class DemoConditional {
     // 2) Smoker --> 15% extra premium
     // 3) Age > 50 and Male --> 8% extra premium
     // Please calculate the amount of premium.
+
+    // Female && Smoker --> 25%
+    // Female && Non-smoker --> 10%
+    // Male + 50 aged + Smoker --> 15%
+    // Male + 51 aged + Smoker --> 23%
+    // Male + 50 aged + Non-smoker --> 0%
+    // Male + 51 aged + Non-smoker --> 8%
     double extraPremiumPercent = 0.0;
-    if (isMale) {
+    if (isMale) {     // "if (isMale)" defaults "if (isMale == true)"
+       // if (!isMale) checks if isMale is false
       if (age > 50) {
-        extraPremiumPercent = extraPremiumPercent + 8.0;
-      } if (isSmoker) {
-        extraPremiumPercent = extraPremiumPercent + 15.0;
+        // extraPremiumPercent = extraPremiumPercent + 8.0;
+        extraPremiumPercent += 8.0;
       }
     } else {    // Female
-      extraPremiumPercent = extraPremiumPercent + 10.0;
-      if (isSmoker) {
-        extraPremiumPercent = extraPremiumPercent + 15.0;
-      }
+      // extraPremiumPercent = extraPremiumPercent + 10.0;
+      extraPremiumPercent += 10.0;
+    }
+
+    if (isSmoker) {    // "if(isSmoker)" defaults "if (isSmoker == true)"
+      // if (!isSmoker) defaults checking if isSmoker is false
+      // extraPremiumPercent = extraPremiumPercent + 15.0;
+      extraPremiumPercent += 15.0;
     }
     premium = premium * (100 + extraPremiumPercent) / 100.0;
     System.out.println(premium);
@@ -75,3 +86,5 @@ public class DemoConditional {
   }
 
 }
+
+// Program:  Run time?  readability?  Development time?
