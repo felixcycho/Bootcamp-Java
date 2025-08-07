@@ -25,13 +25,17 @@ public class DemoOperator {
     // Comparison operators: >, <, >=, <=, !=, ==
     int age = 70;
     // Approach 1:
-    boolean isElderly = age > 65;
+    // because, age = 70 > 65
+    // so, isElderly = (age > 65) => true
+    // Otherwise, if age changes to ie. 60 < 65
+    // isElderly = (age > 65) => false
+    boolean isElderly = (age > 65);
     // Approach 2:
     if (age > 65) {
       isElderly = true;
     }
     char ch = 'a';
-    boolean isCharEqualsToA = ch == 65;
+    boolean isCharEqualsToA = (ch == 65);
     System.out.println(isCharEqualsToA);    // true
 
     char grade = 'R';    // A, B, C, D, E, F
@@ -44,7 +48,7 @@ public class DemoOperator {
           isGradeValid = true;
     }
     // Approach 3:  ASCII value range check
-    isGradeValid = grade >= 'A' && grade <= 'F';
+    isGradeValid = ( grade >= 'A' && grade <= 'F');
     // ! because we are using comparison operator (>=, <=, >, <),
     // ! convert char value to int value before comparison
 
@@ -89,7 +93,30 @@ public class DemoOperator {
       maxNumber = d;
     }
     System.out.println("Max value = " + maxNumber );    // Max value = 10
-    
+
+    // leap year
+    // the number of leap year can be divided by 4
+    // But, if the number of a year can be divided by 100 -> Not a leap year (i.e. 2100)
+    // Next, if the number of a year can be divided by 400 -> Leap year (i.e. 2000)
+    int year = 2024;
+    boolean isLeapYear = false;
+    if (year % 4 == 0) {
+      if (year % 100 == 0) {
+        if (year % 400 == 0) {
+          isLeapYear = true;
+        } else {
+          isLeapYear = false;
+        }
+      } else {
+        isLeapYear = true;
+      }
+    } else {
+      isLeapYear = false;
     }
+    System.out.println("Leap year? " + isLeapYear);
+
+
+
+  }
   
 }

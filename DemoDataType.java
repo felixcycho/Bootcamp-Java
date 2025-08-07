@@ -12,7 +12,7 @@ public class DemoDataType {
     boolean isMale = true;
 
     int age = 66;
-    boolean isElderly = age >= 65;
+    boolean isElderly = (age >= 65);
     // Step 1: age >= 65  =>  true value
     // Step 2: assign true value into boolean variable
     System.out.println(isElderly);    // true

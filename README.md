@@ -1,7 +1,7 @@
 {
   "folders":[
     {
-      "path": "../github/bootcamp"
+      "path": "../github"
     }
   ],
   "settings": {}
