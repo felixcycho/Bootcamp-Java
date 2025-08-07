@@ -113,6 +113,8 @@ public class DemoLoop {
     }
 
     // Contains 屬於 methods 其中一種, 開箱即用
+    // Contains 用於 check whether s2 contains targetString or not.
     System.out.println(s2.contains(targetString));    // true
+
   }
 }
