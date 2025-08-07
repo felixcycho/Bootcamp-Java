@@ -93,14 +93,26 @@ public class DemoLoop {
     String s2 = "hello";
     String targetString = "ll";
 
-    for (int i = 0; i < s2.length(); i++) {
-      for (int j = 0;  ; j++) {
-
+    boolean isMatched = true;
+    boolean isEverMatched = false;
+    for (int i = 0; i < s2.length() - targetString.length() + 1; i++) {
+      isMatched = true;
+      for (int j = 0; j < targetString.length(); j++) {
+        if (s2.charAt(i + j) != targetString.charAt(j)) {
+          isMatched = false;
+        }
+      }
+      if (isMatched) {
+        isEverMatched = true;
       }
     }
-    
+    if (isEverMatched) {
+      System.err.println("Pattern " + targetString + " is found.");
+    } else {
+      System.err.println("Pattern " + targetString + "is not found.");
+    }
 
-
-  
+    // Contains 屬於 methods 其中一種, 開箱即用
+    System.out.println(s2.contains(targetString));    // true
   }
 }

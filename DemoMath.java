@@ -88,9 +88,5 @@ public class DemoMath {
     System.out.println(i6);    //672
 
     
-
-
-
-    // try +,-,*,/
   }
 }
