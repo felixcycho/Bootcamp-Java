@@ -1,5 +1,10 @@
 import java.util.Arrays;
 
+// String.length()    // need to add blanket
+// Array.length    // no need to add blanket
+// Array can only use one chain method. This is length'
+// String can use great deal methods, not only length.
+
 public class DemoArray2 {
     public static void main(String[] args) {
    // loop array
@@ -30,5 +35,25 @@ public class DemoArray2 {
    // -8 + 1 => -7
    // 1
    long[] array2 = new long[4];
+
+   for (int i = 0; i < array.length; i++) {
+      if (i == array.length -1) {
+        array2[i] = array[1] + array[i + 1];
+      }
+   }
+   System.out.println(Arrays.toString(array2));
+
+   // String[]
+   String[] names = new String[3];
+   names[0] = "Peter";
+   names[1] = "Jennie";
+   names[2] = "Lucas";
+   // how may names contain 'e'?
+
+
+
+
+
+
   }
 }
