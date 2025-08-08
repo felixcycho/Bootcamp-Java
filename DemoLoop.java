@@ -73,6 +73,7 @@ public class DemoLoop {
     char targetCh = 'l';
     // ! i -> index
     // boolean isFound = false;
+    
     int counter = 0;
     for (int i = 0; i < s1.length(); i++) {    // length
       // if + charAt()
@@ -88,7 +89,7 @@ public class DemoLoop {
     } else {
       System.out.println(targetCh + " is not found.");
     }
-    
+
     // Searching pattern
     String s2 = "hello";
     String targetString = "ll";
@@ -115,6 +116,12 @@ public class DemoLoop {
     // Contains 屬於 methods 其中一種, 開箱即用
     // Contains 用於 check whether s2 contains targetString or not.
     System.out.println(s2.contains(targetString));    // true
+    // In this case, s2, "hello", contains value of targetString "ll", thus true.
 
+    System.out.println("abc".contains("ab"));    // true
+    // In this case, "abc" contains "ab", thus true.
+
+    System.out.println("abc".contains("abc"));    // true
+    System.out.println("abc".contains("abcd"));    // false
   }
 }
