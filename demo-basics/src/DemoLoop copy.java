@@ -123,5 +123,52 @@ public class DemoLoop {
 
     System.out.println("abc".contains("abc"));    // true
     System.out.println("abc".contains("abcd"));    // false
+
+    for (int i = 0; i < 10; i++) {
+      int i1 = i + 1;
+      System.out.println(i1);
+    }
+
+    // print 2, 4, 6, 8, 10
+    for (int i = 0; i < 10; i++) {
+      int i1 = i + 1;
+      if (i1 % 2 == 0) {
+         System.out.println(i1);
+      }
+    }
+
+    for (int i = 1; i < 11; i++) {
+      if (i % 2 != 0) {
+        continue;    // continue means go to next iteration -> i++
+                     // if odd, go to next iteration directly -> i++
+                     // if even, go to system.out.println, then continue the loop.
+      }
+      System.out.println(i);
+    }
+    // continue
+    // 1000 lines of a code
+    // For example, only prohibit the access to server on a certain date (ie. Christmas) in a year.
+    // For example, when computing days of attendance, HR should exclude the days of 8 Signal or black rainstorm.
+    // continue is useful.
+
+    // break -> searching, exit earlier
+    // Search the name containing J character
+    String name = "John";
+    boolean isFound = false;
+    int intName1 = 0;
+    int intNameLength1 = name.length();
+    for (int i = 0; i < intNameLength1; i++) {
+      if (name.charAt(i) == 'J') {
+      isFound = true;
+      break;    // exit the loop.
+      // break is common to be used in searching.
+      // But, if counting, break cannot be used.
+      // break is faster than continue.
+    }
+    System.out.println(isFound);    // true
+
+
+
+
   }
 }

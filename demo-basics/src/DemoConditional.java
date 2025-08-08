@@ -1,6 +1,7 @@
 public class DemoConditional {
   public static void main(String[] args) {
     // if else -> control program flow
+    // if, if-else, if-else if, if-else if-else
     int x = 10;
     if (x > 12) {
       System.out.println("hello");
@@ -82,6 +83,88 @@ public class DemoConditional {
     }
     premium = premium * (100 + extraPremiumPercent) / 100.0;
     System.out.println(premium);
+
+    // if-else if-else
+    int score = 95;
+    char grade = ' ';
+    // A: 90 or above
+    // B: 80 - 89
+    // C: 70 - 79
+    // F: <70
+    if (score >= 90) {
+      grade = 'A';
+    } else 
+      if (score >= 80) {
+        grade = 'B';
+    } else 
+      if (score >= 70) {
+        grade = 'C';
+    } else {
+        grade = 'F';
+    }
+    System.out.println("Grade is " + grade);
+
+    boolean isElderly = false;
+    // isMale has been defined as a boolean valuable, in above.
+    // A defined variable cannot be defined as the same type twice, 
+    // nor defined as a different type.
+    isMale = true;
+
+    if (isElderly) {    // if isElderly is true, is an elderly
+
+    } else {    // if isElderly is false, not an elderly
+      if (isMale) {
+
+      } else {
+
+      }
+
+    }
+
+    // score has already been defined as int variable, in above.
+    // cannot define score as int variable twice.
+    score = 75;
+    // ! "case" can only check equals value, NO range checking
+    // ! switch cannot carry out AND / OR checking
+    // ! switch can only check single condition.
+
+    // Bad example of switch
+    switch (score) {
+      case 91:
+        grade = 'A';
+      case 92:
+        grade = 'A';
+      case 93:
+        grade = 'A';
+    }
+    
+    // Good example of switch
+    char color = 'R';
+    // ! By default, run all code blocks after meet the condition.
+    // ! Have to break it manually to exit the switch.
+    // Otherwise, all the following three sentences would be printed out.
+    // Thus, break should be cooperative with switch.
+    switch (color) {
+      case 'R':
+        System.out.println("It is red.");
+        break;
+      case 'G':
+        System.out.println("It is green.");
+        break;
+      case 'B':
+        System.out.println("It is blue.");
+        break;
+
+    // Conclusion:
+    // 1. Only applicable to check finite values (有限數).
+    //    e.g. 星期幾 (only 7 conditions), 新界/香港/九龍 (3 conditions), etc
+    //    Not applicable to check 18 區 (18 conditions -> check 18 times)
+    //    If check infinite values, suggest to use "if-else" rather than "switch"
+
+
+
+    }
+
 
   }
 
