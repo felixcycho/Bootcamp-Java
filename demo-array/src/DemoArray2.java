@@ -50,6 +50,28 @@ public class DemoArray2 {
    names[2] = "Lucas";
    // how may names contain 'e'?
 
+   int counter = 0;
+   for (int i = 0; i < names.length; i++) {
+    if (names[i].contains('e')) {
+       counter++1;
+    }
+   }
+   System.out.println(counter);
+
+   // Put String's length into another array
+   int[] nameLengths = new int[names.length];
+   for (int i = 0; i < names.length; i++) {
+    nameLengths[i] = names[i].length();
+   }
+   System.out.println(Arrays.toString(nameLengths));
+
+   // String --> boolean
+   String word = "lellel";    
+   // lelel --> true, lellel --> true, peter --1. false
+   
+
+
+
 
 
 
