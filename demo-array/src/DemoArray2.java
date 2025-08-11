@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 // String.length()    // need to add blanket
 // Array.length    // no need to add blanket
-// Array can only use one chain method. This is length'
+// Array can only use one chain method. This is length.
 // String can use great deal methods, not only length.
 
 public class DemoArray2 {
@@ -24,7 +24,7 @@ public class DemoArray2 {
      // ! long value + int value --> long value
      // put long value into long variable
    }
-   System.out.println(Arrays.toString(array));    // [11, 101, -0, 1]
+   System.out.println(Arrays.toString(array));    // [11, 101, -8, 1]
    // Once entering the word "Arrays.", there may be a outline appearing,
    // then I should choose the first one "Arrays"
    // Since then, a sentence "import java.util.Arrays" should be appeared on line 1.
@@ -38,8 +38,10 @@ public class DemoArray2 {
 
    for (int i = 0; i < array.length; i++) {
       if (i == array.length -1) {
-        array2[i] = array[1] + array[i + 1];
-      }
+        array2[i] = array[i];
+      } else {
+        array2[i] = array[i] + array[i + 1];
+        }
    }
    System.out.println(Arrays.toString(array2));
 
@@ -53,7 +55,7 @@ public class DemoArray2 {
    int counter = 0;
    for (int i = 0; i < names.length; i++) {
     if (names[i].contains("e")) {
-       counter++1;
+       counter++;
     }
    }
    System.out.println(counter);
@@ -66,10 +68,36 @@ public class DemoArray2 {
    System.out.println(Arrays.toString(nameLengths));
 
    // String --> boolean
+   // lelel
+   // lellel
+   // aeleb
+   // aelleb
+   // ""
    String word = "lellel";    
-   // lelel --> true, lellel --> true, peter --1. false
+   // lelel --> true, lellel --> true, peter --> false
+   boolean isPalindrome = true;    // check if not true, then immediately exit. Thus, define true.
+   for (int i = 0; i < word.length(); i++) {    // 6 / 2 = 3 (0/1/2), 5 / 2 = 2 (0/1)
+      if (word.charAt(i) == word.charAt(word.length() - 1 - i)) {
+        isPalindrome = true;      // should ensure all if conditions are true.
+        break;    // if not true, 不對稱, then immediately break.
+      }
+    }
+   System.out.println("isPalindrome = " + isPalindrome);
 
-   
+   // declare array
+   // if some numbers may not have been known, and should be blanket and declare later.
+   int [] ages = new int[3];
+   ages [0] = 31;
+   ages [1] = 9;
+   ages [2] = 4;
+   System.out.println(Arrays.toString(ages));
+
+   int[] ages2 = new int[] {31, 9, 4};    // given you had known all the numbers at the beginning.
+   System.out.println(Arrays.toString(ages2));
+
+
+
+
 
 
 
