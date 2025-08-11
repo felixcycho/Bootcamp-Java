@@ -52,7 +52,7 @@ public class DemoArray2 {
 
    int counter = 0;
    for (int i = 0; i < names.length; i++) {
-    if (names[i].contains('e')) {
+    if (names[i].contains("e")) {
        counter++1;
     }
    }
@@ -68,6 +68,7 @@ public class DemoArray2 {
    // String --> boolean
    String word = "lellel";    
    // lelel --> true, lellel --> true, peter --1. false
+
    
 
 

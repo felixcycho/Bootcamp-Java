@@ -53,7 +53,7 @@ public class DemoArray1 {
     // Wrong code
     // array3[-1] = "Peter"
 
-    System.out,println(array3[4]);    // Jennie
+    System.out.println(array3[4]);    // Jennie
     // Print 
 
 
