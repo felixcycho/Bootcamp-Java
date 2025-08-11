@@ -23,7 +23,7 @@ public class DemoLoop {
       System.out.println(ch);
     }
 
-    // New String method: toCharArray()
+    // 1. New String method: toCharArray()
     // ! char[] chs1 = "hello";    invalid
     char[] chs1 = "hello".toCharArray();
     for (char ch : chs1) {
@@ -40,7 +40,7 @@ public class DemoLoop {
     }
     System.out.println(newStr);
 
-    // while loop
+    // 2. while loop
     // In common, i, j, k, are used for looping variables.
     // ! int i;    Don't use 
     int n = 3;
@@ -76,7 +76,7 @@ public class DemoLoop {
       }
       System.out.println(total);
 
-    // ! Find Max. / Min.
+    // 3. Find Max. / Min.
     int[] array = new int[] {4, -9, 100, -50, 400, 230};
     int max = array[0];
     int min = array[0];
@@ -104,10 +104,10 @@ public class DemoLoop {
     }
     // The aboves only applicable if no need to adjust the integers in array.
     // Otherwise, other for-loop should be used.
-    System.out.println(max);
-    System.out.println(min);
-    System.out.println(sum);
-    System.out.println(average);
+    System.out.println(max);      // 400
+    System.out.println(min);      // -50
+    System.out.println(sum);      // 675
+    System.out.println(average);  // 112.5
 
     // swap
     int a = 10;
@@ -124,7 +124,7 @@ public class DemoLoop {
     // [-9, 100, -50, 400, 230, 4]
     int[] array2 = new int[] {4, -9, 100, -50, 400, 230};
     // to change the integers of an array, the following for-loop should be used.
-    for (int i = 0; i < array2.length; i++) {
+    for (int i = 0; i < array2.length - 1; i++) {
       // swap
       backup = array2[i];
       array2[i] = array2[i + 1];
@@ -143,22 +143,103 @@ public class DemoLoop {
         array3[i + 1] = backup;
       }
     }
-    System.out.println(Arrays.toString(array3));
+    System.out.println(Arrays.toString(array3));    // [-9, 4, -50, 100, 230, 400]
 
     // ! 3. Sorting Asc
     // Repeating moving max value to the tail.
-    // [x, x, x, x, x, 400]
-    // [x, x, x, x, 230, 400]
-    // [x, x, x, 100, 230, 400]
-    // [x, x, 4, 100, 230, 400]
-    // [-50, -9, 4, 100, 230, 400]
+    // [x, x, x, x, x, 400]          // i = 0
+    // [x, x, x, x, 230, 400]        // i = 1
+    // [x, x, x, 100, 230, 400]      // i = 2
+    // [x, x, 4, 100, 230, 400]      // i = 3
+    // [-50, -9, 4, 100, 230, 400]   // i = 4
     int[] array4 = new int[] {4, -9, 100, -50, 400, 230};
-    for (int i = 0; i < array4.length - 1; i++) {    // Number of time to repeat moving max
-      
-      for () {    // 
-
+    for (int i = 0; i < array4.length; i++) {    // i-th of time to repeat moving max
+      for (int j = 0; j < array4.length - i -1; j++) {    // j-th index for moving max value
+        if (array4[j] > array4[j + 1]) {
+          backup = array4[j];
+          array4[j] = array4[j + 1];
+          array4[j + 1] = backup;
+        }
       }
     }
+    System.out.println(Arrays.toString(array4));    // [-50, -9, 4, 100, 230, 400]
+
+    // 5. Put all odd numbers into another array.
+    // [-9]
+    int[] array5 = new int[] {50, 9, 4, 100, 230, 400};
+    int oddLength = 0;
+    for (int x : array5) {
+      if (x % 2 == 1) {
+        oddLength++;
+      }
+    }
+    int[] oddArray5 = new int[oddLength];
+    System.out.println(oddLength);    // 1
+    int idx = 0;
+    for (int x : array5) {
+      if (x % 2 == 1) {
+        oddArray5[idx] = x;
+        idx++;
+      }
+    }
+    System.out.println(Arrays.toString(oddArray5));    // [9]
+
+    // Find the character appeared most of times in a given string.
+    // "hello" --> '1'
+    // "abc" --> Not a test case
+    String s = "hello";
+    int targetIdx = -1;
+    int maxCount = 0;
+    for (int i = 0; i < s.length(); i++) {
+      int countCh = 0;
+      for (int j = 0; j < s.length(); j++) {
+        if (s.charAt(i) == s.charAt(j)) {
+          countCh++;
+        }
+      }
+      if (countCh > maxCount) {
+        maxCount = countCh;
+        targetIdx = i;
+      }
+    }
+    System.out.println(s.charAt(targetIdx));    // l
+    // the above loop can only be applicable for small database.
+    // Otherwise, e.g. 1_000_000 * 1_000_000, would be broken down.
+
+    // Approach 2:
+    int[] countCh = new int[26];
+    for (int i = 0; i < s.length(); i++) {
+      countCh[s.charAt(i) - 'a']++;           // very useful, must be well practised
+      // or countCh[s.charAt(i) - 97]++;      is also OK
+    }
+    int maxCountCh = countCh[0];
+    int chIdx = -1;
+    for (int i = 0; i < countCh.length; i++) {
+      if (countCh [i] > maxCountCh) {
+        maxCountCh = countCh[i];
+        chIdx = i;
+      }
+    }
+    char chResult = (char) (chIdx + 'a');
+    // or char chResult = (char) (chIdx + 97);     is also OK
+    System.out.println(chResult);    // l
+
+    // Given 2 strings, assume they are with same length
+    String str1 = "abcd";
+    String str2 = "pqrs";
+    // apbqcrds
+    String str3 = "";
+    for (int i = 0; i < str1.length(); i++) {
+      // String + char => String
+      // char + char => int
+      // String + int => String
+      str3 = str3 + str1.charAt(i) + str2.charAt(i);         // apbqcrds
+      // str3 += str1.charAt(i) + str2.charAt(i);            // 209211213215
+      // str3 = str3 + (str1.charAt(i) + str2.charAt(i));    // ap209209bq211211cr213213ds215215
+    }
+    System.out.println(str3);
+
+    
 
   }
 }

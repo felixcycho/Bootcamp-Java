@@ -50,7 +50,7 @@ public class DemoArray2 {
    names[0] = "Peter";
    names[1] = "Jennie";
    names[2] = "Lucas";
-   // how may names contain 'e'?
+   // how many names contain 'e'?
 
    int counter = 0;
    for (int i = 0; i < names.length; i++) {
