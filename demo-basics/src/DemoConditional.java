@@ -156,7 +156,7 @@ public class DemoConditional {
         break;
 
     // Conclusion:
-    // 1. Only applicable to check finite values (有限數).
+    // 1. switch is only applicable to check finite values (有限數).
     //    e.g. 星期幾 (only 7 conditions), 新界/香港/九龍 (3 conditions), etc
     //    Not applicable to check 18 區 (18 conditions -> check 18 times)
     //    If check infinite values, suggest to use "if-else" rather than "switch"

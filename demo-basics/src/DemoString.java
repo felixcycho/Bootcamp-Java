@@ -21,18 +21,18 @@ public class DemoString {
     if(s1.equals("HELLO")) {    // ! Java: case sensitive
       System.out.println("equals");
     } else {
-      System.out.println("Not equal");    // print
+      System.out.println("Not equal");    // "Not equal"
     }
     
     boolean isEqualsToXXX = s1.equals("HELLO");
-    System.out.println(isEqualsToXXX);
+    System.out.println(isEqualsToXXX);    // false
 
     // charAt(int index)
     System.out.println(s1.charAt(0));    // h, index = 0 means the first character of the string
 
     // print ASCII code of first character of a string
     int s1A = (char)(s1.charAt(0));
-    System.out.println(s1A);
+    System.out.println(s1A);    // 104 (ASCII of 'a' is 97; ASCII of 'h' is 104.)
 
     // print the last character of a string
     int lastIndexOfString = s1.length() - 1;
@@ -125,6 +125,10 @@ public class DemoString {
     System.out.println("".isEmpty());    // true
 
     String StringD = null;    // null value (cannot be regarded as String value)
+    // System.out.println(StringD.length());    invalid
+    // System.out.println(StringD.isEmpty());    invalid
+    // System.out.println(StringD.isBlank());     invalid
+
     String StringE = "";    // empty String value
     // System.out.println(StringD.length());  is not valid, system error 
     // null value is not a String value
@@ -136,6 +140,7 @@ public class DemoString {
     System.out.println(StringF.length());    // 7
     System.out.println(StringF.isEmpty());    // false
     System.out.println(StringF.isBlank());    // true
+
 
     
 
