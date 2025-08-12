@@ -155,18 +155,18 @@ public class DemoLoop {
     // Search the name containing J character
     String name = "John";
     boolean isFound = false;
-    int intName1 = 0;
-    int intNameLength1 = name.length();
-    for (int i = 0; i < intNameLength1; i++) {
+    for (int i = 0; i < name.length(); i++) {
+      System.out.println("Test flow: " + i);
       if (name.charAt(i) == 'J') {
       isFound = true;
       break;    // exit the loop.
+      }
       // break is common to be used in searching.
       // But, if counting, break cannot be used.
       // break is faster than continue.
-      }
-    System.out.println(isFound);    // true
     }
+    System.out.println(isFound);    // true
+    
 
 
 

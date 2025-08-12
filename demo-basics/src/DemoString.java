@@ -141,19 +141,8 @@ public class DemoString {
     System.out.println(StringF.isEmpty());    // false
     System.out.println(StringF.isBlank());    // true
 
-
-    
-
-
-
-
-
-
-
-
-
-
     // 12. lastIndexOf()
+
 
 
 
