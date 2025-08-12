@@ -34,21 +34,26 @@ public class DemoOperator {
     if (age > 65) {
       isElderly = true;
     }
+    System.out.println(isElderly);    // true
+
     char ch = 'a';
-    boolean isCharEqualsToA = (ch == 65);
-    System.out.println(isCharEqualsToA);    // true
+    boolean isCharEqualsToA = (ch == 65);    // 'A' is 65, 'a' is 97.
+    System.out.println(isCharEqualsToA);    // false
 
     char grade = 'R';    // A, B, C, D, E, F
     // Approach 1: use "or"
     boolean isGradeValid = ( grade == 'A' || grade == 'B' || grade == 'C' 
         || grade == 'D' || grade == 'E' || grade == 'F' );
+    System.out.println(isGradeValid);    // false
     // Approach 2: use "if"
     if ( grade == 'A' || grade == 'B' || grade == 'C' || grade == 'D'
         || grade == 'E' || grade == 'F') {
           isGradeValid = true;
     }
+    System.out.println(isGradeValid);    // false
     // Approach 3:  ASCII value range check
     isGradeValid = ( grade >= 'A' && grade <= 'F');
+    System.out.println(isGradeValid);    // false
     // ! because we are using comparison operator (>=, <=, >, <),
     // ! convert char value to int value before comparison
 

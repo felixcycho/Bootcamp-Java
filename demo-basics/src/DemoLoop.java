@@ -164,9 +164,9 @@ public class DemoLoop {
       // break is common to be used in searching.
       // But, if counting, break cannot be used.
       // break is faster than continue.
-    }
+      }
     System.out.println(isFound);    // true
-
+    }
 
 
 
