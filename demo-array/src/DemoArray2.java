@@ -95,16 +95,6 @@ public class DemoArray2 {
    int[] ages2 = new int[] {31, 9, 4};    // given you had known all the numbers at the beginning.
    System.out.println(Arrays.toString(ages2));
 
-
-
-
-
-
-
-
-
-
-
-
+   
   }
 }

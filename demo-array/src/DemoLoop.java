@@ -10,9 +10,17 @@ public class DemoLoop {
       System.out.println(names[i]);
     }
 
+    String Name1 = "Felix";
+    String Name2 = "Vincent";
+    String Name3 = "Nobody";
+    String[] names1 = new String[] {Name1, Name2, Name3};
+    System.out.println(Arrays.toString(names1));
+    for (int i = 0; i < names1.length; i++) {
+      System.out.println(names1[i]);
+    }
     // For-each loop
     // ! Syntax: for (variable name : array name)
-    for(String name : names) {
+    for(String name : names1) {
       System.out.println(name);
     }
     
@@ -49,6 +57,7 @@ public class DemoLoop {
       total += n;
       n--;
     }
+    System.out.println(total);
     // Step 1: n > 0?    Yes (n=3)
     // Step 2: total becomes 3
     // Step 3: n--
