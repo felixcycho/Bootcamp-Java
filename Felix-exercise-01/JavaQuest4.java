@@ -10,15 +10,19 @@ public class JavaQuest4 {
     // 1. Even numbers
     // 2. Divisible by 3
     // 3. > 0
-    int j = 0;
-    while (j < 10) {
-      for (int i = 1; i < 100; i++) {
+
+    
       // code here ...
-        if ((i % 2 == 0) && (i % 3 == 0)) {
-          System.out.println(i);
-          j++;
-        } 
-      } break;
-    } 
+    int count = 0;
+
+    for (int i = 1; i < 100; i++) {
+      if ((i % 2 == 0) && (i % 3 == 0)) {
+        System.out.println(i);
+        count++;
+        if (count == 10) {
+          break;
+        }
+      }
+    }
   }
 }
