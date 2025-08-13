@@ -263,6 +263,12 @@ public class DemoLoop {
     }
     
     int h = 0;
-
+    while (h < 6) {
+      if (h > 3) {
+        break;
+      }
+      System.out.println(h);
+      h++;
+    }
   }
 }
