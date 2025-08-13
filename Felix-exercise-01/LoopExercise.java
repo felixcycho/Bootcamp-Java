@@ -147,6 +147,15 @@ public class LoopExercise {
     // *****
     // *****
     // *****
+    int row12 = 3;
+    int column12 = 5;
+
+    for (int i = 0; i < row12; i++) {
+      for (int j = 0; j < column12; j++) {
+        System.out.print("*");
+      }
+      System.out.println("");
+    }
 
     // 13. Given a string value s13, each of the char value has its score.
     // Calculate the total score
@@ -158,6 +167,13 @@ public class LoopExercise {
     // u -> 4 score
     // for other character, -1 score
     String s13 = "lrlaudbucp";
+
+    int totalScore = 0;
+    for (int i = 0; i < s13.length(); i++) {
+      char chr13 = s13.charAt(i);
+
+      
+    }
     
     // 14. Assign the long values of 1, 4, 9, -4 to the given array arr14
     long[] arr14 = new long[4];
