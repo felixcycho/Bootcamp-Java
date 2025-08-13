@@ -6,7 +6,7 @@ import java.util.Arrays;
 // String can use great deal methods, not only length.
 
 public class DemoArray2 {
-    public static void main(String[] args) {
+   public static void main(String[] args) {
    // loop array
    long[] array = new long[4];
    // ! array[0] --> long variable
