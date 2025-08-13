@@ -10,7 +10,8 @@ public class JavaQuest4 {
     // 1. Even numbers
     // 2. Divisible by 3
     // 3. > 0
-    for (int j = 0; j < 10; j++) {
+    int j = 0;
+    while (j < 10) {
       for (int i = 1; i < 100; i++) {
       // code here ...
         if ((i % 2 == 0) && (i % 3 == 0)) {
