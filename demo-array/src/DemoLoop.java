@@ -248,11 +248,11 @@ public class DemoLoop {
     }
     System.out.println(str3);
 
-    int x = 0;
+    int x = 5;
     do {      // 當強調無論如何都要做一次 while-loop 時適用
       System.out.println(x);
       x--;
-    } while (x > 0) ;
+    } while (x > 0);
 
     x = 4;
     while (x < 10) {
