@@ -16,7 +16,8 @@ public class JavaQuest5 {
         charTarget = str.lastIndexOf(target);
         System.out.println("Found.");
         System.out.println("The index of the last character of " + target + " is " + charTarget);
-      } else {
+        break;
+      } else if (i == 0) {
         System.out.println("Not found.");
       }
     }
