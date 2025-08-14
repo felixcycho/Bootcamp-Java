@@ -22,15 +22,29 @@
 // 否則, 會出現 Design Mistake, java programme 會有 bugs.
 
 import java.math.BigDecimal;
-
+// class 絶不可 private, 只可寫 public, 或者索性不寫 private / public. 
+// 另外, User 希望用一個 person 搜尋該人的 date of birth, 而不是利用 date of birth 搜尋所有 persons.
 public class Person {
   // 以下稱為 Attribute (特徵), 沒有固定表達模式.
   // Attribute ()
   private int age;                   // 描述什麼是 age
   private String name;               // 描述什麼是 name
   private String emailAddress;       // 描述什麼是 email address
+  private String idNumber;
+  private String gender;
+
+  // Constructor
+  public Person(String name, int age, String emailAddress, String idNumber, String gender) {
+    this.name = name;
+    this.age = age;
+    this.emailAddress = emailAddress;
+    this.idNumber = idNumber;
+    this.gender = gender;
+  }
 
   // Setter 改寫功能
+  // Method --> input (optional) --> output (optional)
+  // void, 意思是 No Return Type, 不像 int, LocalDate, String, ...
   public void setAge(int age) {
     this.age = age;
   }
@@ -48,7 +62,7 @@ public class Person {
     BigDecimal bd1 = new BigDecimal("3.4");
     // Person p2 = new BigDecimal(7.3);
 
-    new Person();    // 不保留名稱, 無法 call over object, 但依然可 operate programme.
+    // new Person();    // 不保留名稱, 無法 call over object, 但依然可 operate programme.
     // create an person object in memory, but without a name for later use.
 
     Person p3 = new Person();
@@ -58,6 +72,8 @@ public class Person {
     // "setAge" 是將 attribute 放入 object 的動作, "17" 是想 define 的 attribute.
 
     System.out.println(p1.getAge());      // 17
+
+
 
 
 
