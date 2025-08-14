@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 public class LoopExercise {
@@ -172,34 +173,134 @@ public class LoopExercise {
     for (int i = 0; i < s13.length(); i++) {
       char chr13 = s13.charAt(i);
 
-      
+      if (chr13 == 'l') {
+        totalScore += 1;
+      } else if (chr13 == 'r') {
+        totalScore += 3;
+      } else if (chr13 == 'd') {
+        totalScore += 2;
+      } else if (chr13 == 'u') {
+        totalScore += 4;
+      } else {
+        totalScore -= 1;
+      }
     }
+    System.out.println("Total score is: " + totalScore);
     
     // 14. Assign the long values of 1, 4, 9, -4 to the given array arr14
     long[] arr14 = new long[4];
 
+    arr14[0] = 1L;
+    arr14[1] = 4L;
+    arr14[2] = 9L;
+    arr14[3] = -4L;
+
+    System.out.println(Arrays.toString(arr14));
+
+
     // 15. Find the max value and min value in arr14
     // Use One Loop + if
+    long maxArr14 = arr14[0];
+    long minArr14 = arr14[0];
 
+    for (int i = 0; i < arr14.length; i++) {
+      if (arr14[i] > maxArr14) {
+        maxArr14 = arr14[i];
+      } else if (arr14[i] < minArr14) {
+        minArr14 = arr14[i];
+      }
+    }
+    System.out.println("The maximum is " + maxArr14);
+    System.out.println("The minimum is " + minArr14);
+    
     // 16. Declare a float value (arr16) array with value 0.2, 0.3, 0.6
+    float[] arr16 = new float[3];
+
+    arr16[0] = 0.2f;
+    arr16[1] = 0.3f;
+    arr16[2] = 0.6f;
+
+    for (float fArr16 : arr16) {
+      System.out.print(fArr16 + " ");
+    } 
+    System.out.println();
+    System.out.println(Arrays.toString(arr16));
+
+    System.out.print("[");
+    for (int i = 0; i < arr16.length; i++) {
+      System.out.print(arr16[i]);
+      if (i < arr16.length - 1) {
+        System.out.print(", ");
+      }
+    }
+    System.out.println("]");
 
     // 17. Add value 0.1 to each of value in array arr16
     // Print: [0.3, 0.4, 0.7]
     // Use: BigDecimal
+    BigDecimal toAddArr16 = new BigDecimal("0.1");
+    BigDecimal[] arr17 = new BigDecimal[3];
+
+    for (int i = 0; i < arr17.length; i++) {
+      arr17[i] = new BigDecimal(Float.toString(arr16[i])).add(toAddArr16);
+    }
+    System.out.println(Arrays.toString(arr17));
+
 
     // 18. Count the number of target strings in the String[]
     String[] arr18 = new String[] {"Steve", "Tommy", "Katie", "Tommy", "Lydia"};
     String target = "Tommy";
     // Print "count name=2"
+    int count18 = 0;
+
+    for (String nameArr18 : arr18) {
+      if (nameArr18.equals(target)) {
+        count18++;
+      }
+    }
+    System.out.println("Count name = " + count18);
 
     // 19. swap the max digit and min digit
     // Assumption: each digit value appear once in the String
     // Print: "49280"
     String s19 = "40289";
 
+    char maxDigit19 = '0';
+    char minDigit19 = '9';
+    int maxIndex19 = -1;
+    int minIndex19 = -1;
+
+    for (int i = 0; i < s19.length(); i++) {
+      char currentDigit19 = s19.charAt(i);
+      if (currentDigit19 > maxDigit19) {
+        maxDigit19 = currentDigit19;
+        maxIndex19 = i;
+      }
+      if (currentDigit19 < minDigit19) {
+        minDigit19 = currentDigit19;
+        minIndex19 = i;
+      }
+    }
+
+    char[] charArray19 = s19.toCharArray();
+    char temp19 = charArray19[maxIndex19];
+    charArray19[maxIndex19] = charArray19[minIndex19];
+    charArray19[minIndex19] = temp19;
+
+    String swapString19 = new String(charArray19);
+    System.out.println(swapString19);
+
     // 20. Find the longest String in the String array
     // Print "longest=programming"
     String[] arr20 = new String[] {"python", "array", "programming", "java", "bootcamp"};
     
+    String longest = "";
+
+    for (String str20 : arr20) {
+      if (str20.length() > longest.length()) {
+        longest = str20;
+      }
+    }
+    System.out.println("Longest is " + longest);
   }
 }
