@@ -1,4 +1,4 @@
-public class DemoWrapperClass {
+public class DemoWrapperClass_Array {
   public static void main(String[] args) {
     // integer, long, double 較為常用
     // byte, short 較為少用

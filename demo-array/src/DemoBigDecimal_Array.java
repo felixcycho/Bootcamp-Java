@@ -1,7 +1,7 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class DemoBigDecimal {
+public class DemoBigDecimal_Array {
   public static void main(String[] args) {
     
     double result = 0.1 + 0.2;

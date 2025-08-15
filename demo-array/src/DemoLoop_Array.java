@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class DemoLoop {
+public class DemoLoop_Array {
   public static void main(String[] args) {
 
     // John, Peter, Sally

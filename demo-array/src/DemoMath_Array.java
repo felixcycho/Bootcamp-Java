@@ -1,4 +1,4 @@
-public class DemoMath {
+public class DemoMath_Array {
   public static void main(String[] args) {
     
     double pi = Math.PI;    // Math.PI is 3.141592......
