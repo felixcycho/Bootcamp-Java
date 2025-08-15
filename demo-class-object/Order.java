@@ -1,12 +1,16 @@
-public class Order {
-  private Item[] items;
+import java.math.BigDecimal;
+import java.util.Arrays;
 
-  // setter
+public class Order {       // Order is a Class.
+  private Item[] items;    // tell java that, "items" is attribute.
 
-  // getter
-
-  // method: presentation -> total quantity, total amount
-
+  // Constructor; initial load
+  // 適用於以後需要擴建的 array
+  public Order() {
+    // ! initial load of creating object, 後續調整 array 更自動化人性化.
+    this.items = new Item[0];
+  }
+  
   public void setItems(Item[] items) {
     this.items = items;
   }
@@ -15,13 +19,43 @@ public class Order {
     return this.items;
   }
 
-  public void add(Item item) {
+  public void add(Item newItem) {
+  // create a new array
+  // this.items is old array
     // item[] length x
     // item[] length x + 1
     Item[] items = new Item[this.items.length + 1];
-    for () {
-      
+    // copy the elements in this.items to the new item array.
+    for (int i = 0; i < this.items.length; i++) {
+      items[i] = this.items[i];
+      // 將 existing item object (i.e.[i]), 從 old address (i.e. this.items) 移向 new address (i.e. items).
     }
+    // add the new item to the tail of array.
+    items[items.length - 1] = newItem;
+    // replace the old array by the new array.
+    this.items = items;
+  }
+
+  // public Item[] getItems(){
+  //   return this.items;
+  // }
+
+  public double[] subtotals() {
+    double[] subtotals = new double[this.items.length];
+    for (int i = 0; i < items.length; i++) {
+      subtotals[i] = this.items[i].subtotal();
+    }
+    return subtotals;
+  }
+
+  // public double[] total() {    is invalid.
+  public double total() {    // total is method.
+    BigDecimal sum = BigDecimal.ZERO;    // BigDecimal.valueOf(0.0)
+    for (Item item : this.items) {
+      // BigDecimal add() --> new BigDecimal Object
+      sum = sum.add(BigDecimal.valueOf(item.subtotal()));
+    }
+    return sum.doubleValue();
   }
 
   public static void main(String[] args) {
@@ -32,9 +66,9 @@ public class Order {
     item2.setPrice(99.9);
     item2.setQuantity(3);
 
-    Item[] items = new Item[2];
-    items[0] = item1;
-    items[1] = item2;
+    // Item[] items = new Item[2];
+    // items[0] = item1;
+    // items[1] = item2;
     // 一旦 Item[] items 已定格為 2 格, 則以後不能再修改.
     // 如果 developer 事後希望更改 item array 格數,
     // 則必須另開新 item array, (e.g. Item[] itemsss = new Item[10]),
@@ -43,21 +77,44 @@ public class Order {
 
     // 每個 Object 都會裝載多個 address, Object 不會裝載 Object.
 
-    Order order1 = new Order();
-    order1.setItems(items);
-    order1.add(item1);
+    // 真正運行 memory 的時間, 由 order.add(item) 開始.
+
+    // Item[] items = new Item[0];    // 0 長度不是 null, 0 長度都叫有長度, 只不過該 array 不能放任何 address.
+    // 將 add.items 自動化
+
+
+
+
+    // Order order1 = new Order();
+    // order1.setItems(items);
+    // order1.add(item1);
 
     Item item3 = new Item();
     item3.setPrice(100.0);
     item3.setQuantity(3);
+
+    Order order1 = new Order();
+    order1.add(item1);
+    order1.add(item2);
     order1.add(item3);
 
-    System.out.println(order1.getItems()[0].subtotal());
+
+    // System.out.println(order1.getItems()[0].subtotal());
+    // System.out.println(order1.getItems()[1].subtotal());
+    // System.out.println(order1.getItems()[2].subtotal());
+
+    System.out.println(Arrays.toString(order1.subtotals()));    // [146.6, 299.7, 300.0]
     // order1 是 address, order 是 object, getItems() 是 method, 
     // items[] 是裝 items 的 array, [0] 是 array object,
     // 最後, user 可搜尋 結果. subtotal() 是 result.
 
     // result, 是需要 developer 事前在上方, define attributes (i.e. price, quantity)
+
+    System.out.println(order1.total());
+
+    Order order2 = new Order();
+    System.out.println(order2.total());    // 0.0
+    System.out.println(Arrays.toString(order2.subtotals()));    // []
     
   }
 }

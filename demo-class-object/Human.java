@@ -23,6 +23,14 @@ public class Human {
     return this.weight;
   }
 
+  public double getBMI () {
+    BigDecimal bd = BigDecimal.valueOf(this.height) //
+                    .multiply(BigDecimal.valueOf(this.height));
+    return BigDecimal.valueOf(this.weight) //
+           .divide(bd, 2, RoundingMode.HALF_UP) //
+           .doubleValue();
+  }
+
   public double getBMI(int scale, RoundingMode roundingMode) {
 
     BigDecimal bd = BigDecimal.valueOf(this.height) //

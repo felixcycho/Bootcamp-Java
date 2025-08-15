@@ -57,7 +57,7 @@ public class Person {
     // "new" --> create object
     // "Person" --> class name
     // "()" --> constructor
-    Person p1 = new Person();    // 保留名稱, 可隨時 call over object.
+    Person p1 = new Person("Felix Cho", 39, "felixcycho@yahoo.com.hk", "A123456", "M");    // 保留名稱, 可隨時 call over object.
     // "p1" is a name for you to call the object in memory.
     BigDecimal bd1 = new BigDecimal("3.4");
     // Person p2 = new BigDecimal(7.3);
@@ -65,23 +65,13 @@ public class Person {
     // new Person();    // 不保留名稱, 無法 call over object, 但依然可 operate programme.
     // create an person object in memory, but without a name for later use.
 
-    Person p3 = new Person();
+    Person p3 = new Person("Vincent Lau", 100, "vincentlau@yahoo.com.hk", "B123456", "M");
 
     p1.setAge(17);    
     // p1 是呼喚 object p1, "." 是 goes to object, 
     // "setAge" 是將 attribute 放入 object 的動作, "17" 是想 define 的 attribute.
 
     System.out.println(p1.getAge());      // 17
-
-
-
-
-
-
-
-
-
-
 
   }
 }

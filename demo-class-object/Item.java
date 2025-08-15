@@ -5,12 +5,20 @@ public class Item {
   private double price;
   private int quantity;
 
-  // setter
-
-  // getter
-
   // method: presentation -> subtotal
 
+  // empty constructor
+
+  // Constructor
+  // constructor has no return type, but method has return type.
+  // constructor only has Class name, e.g. Item() is UpperCase I
+  // empty constructor: No input parameter
+  // By default, Java Class contains empty constructor (implicitly exists)
+  public Item() {
+
+  }
+
+  // setter
   public void setPrice(double price) {
     this.price = price;
   }
@@ -24,4 +32,9 @@ public class Item {
            .multiply(BigDecimal.valueOf(this.quantity))  //
            .doubleValue();
   }
+
+  public static void main (String[] args) {
+    
+  }
+
 }
