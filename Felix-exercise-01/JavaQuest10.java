@@ -27,6 +27,24 @@ public class JavaQuest10 {
     System.out.println("Original Array : " + Arrays.toString(oldArr));
 
     // code here ...
+    // create a new array to hold the updated values.
+    int[] newArr = new int[oldArr.length];
+
+    // check if the specified index is the last index
+    if (indexPosition == oldArr.length - 1) {
+      newArr = oldArr.clone();    // keep the original array if at last index
+    } else {
+      // fill the new array with old values and insert the new value at the specified position
+      for (int i = 0; i < oldArr.length; i++) {
+        if (i == indexPosition) {
+          newArr[i] = newValue;    // insert the new value
+        } else if (i < indexPosition) {
+          newArr[i] = oldArr[i];    // copy the previous values
+        } else {
+          newArr[i] = oldArr[i - 1];
+        }
+      }
+    }
     System.out.println("New Array: " + Arrays.toString(newArr));
   }
 }
