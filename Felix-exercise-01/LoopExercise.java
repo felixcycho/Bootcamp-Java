@@ -11,34 +11,34 @@ public class LoopExercise {
     
     // 2. Expected output: "0,1,2,3,4"
     // Use: for loop
-    int[] Array1to4 = new int[5];
+    int[] array1to4 = new int[5];
 
-    Array1to4[0] = 0;
+    array1to4[0] = 0;
 
-    for (int i = 0; i < Array1to4.length - 1; i++) {
+    for (int i = 0; i < array1to4.length - 1; i++) {
       Array1to4[i + 1] = Array1to4[i] + 1;
     }
-      System.out.println(Arrays.toString(Array1to4));
+      System.out.println(Arrays.toString(array1to4));
 
     // 3. Print even numbers between 2 and 20
     // Use: for loop + if
-    int[] EvenNums = new int [10];
+    int[] evenNums = new int [10];
 
-    for (int i = 0; i < EvenNums.length; i++) {
-      EvenNums[i] = (i + 1) * 2;
+    for (int i = 0; i < evenNums.length; i++) {
+      evenNums[i] = (i + 1) * 2;
     }
-    System.out.println(Arrays.toString(EvenNums));
+    System.out.println(Arrays.toString(evenNums));
 
     // 4. Print the numbers between 1 and 100, which can be divided by 3 or 5
     // Use: for loop + if
-    int[] Array1to100 = new int[100];
+    int[] array1to100 = new int[100];
     
-    for (int i = 0; i < Array1to100.length; i++) {
-      Array1to100 [i] = i + 1;
+    for (int i = 0; i < array1to100.length; i++) {
+      array1to100 [i] = i + 1;
     }
 
-    for (int intArray1to100 : Array1to100) {
-      if ((intArray1to100 < (Array1to100.length + 1)) && (intArray1to100 % 3 == 0 || intArray1to100 % 5 == 0)) {
+    for (int intArray1to100 : array1to100) {
+      if ((intArray1to100 < (array1to100.length + 1)) && (intArray1to100 % 3 == 0 || intArray1to100 % 5 == 0)) {
         System.out.print(intArray1to100 + " ");
       }
     } 
