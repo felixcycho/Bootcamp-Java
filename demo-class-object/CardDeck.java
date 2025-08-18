@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class CardDeck {
 
   // Attributes, 另一名稱叫 "Instance Variable",
@@ -26,6 +28,24 @@ public class CardDeck {
     }
   }
 
+  public void removeCard(int removeIndex) {
+    if (removeIndex > this.cards.length - 1) {
+      return;
+    }
+    // 1. new Array (length - 1)
+    Card[] newCards = new Card[this.cards.length - 1];
+    // 2. copy all cards, except the removed target
+    int idx = 0;
+    for (int i = 0; i < this.cards.length; i++) {
+      if (removeIndex != i) {
+        newCards[idx] = this.cards[i];
+        idx++;
+      }
+    }
+    // 3. replace new object array to array address
+    this.cards = newCards;
+  }
+
   public  Card[] getCards() {
     return this.cards;
   }
@@ -33,12 +53,12 @@ public class CardDeck {
   // main method; 其實, 如果多個 java sheets 共同運行, 則只可有其中一個 java sheet 有 main method.
   // 其他 java sheets 則不得有 main method.
   public static void main(String[] args) {
-    new CardDeck();
+    CardDeck d1 = new CardDeck();
     // CardShuffleManager sm = new CardShuffleManager(d1.getCards());
-    
-
-
-
-
+    d1.removeCard(0);
+    d1.removeCard(0);
+    d1.removeCard(0);
+    d1.removeCard(0);
+    System.out.println(Arrays.toString(d1.getCards()));
   }
 }

@@ -15,9 +15,9 @@ public class hktvOrder {       // Order is a Class.
     this.items = items;
   }
 
-  public hktvItem[] getItems() {
-    return this.items;
-  }
+  // public hktvItem[] getItems() {
+    // return this.items;
+  // }
 
   public void add(hktvItem newItem) {
   // create a new array
@@ -84,9 +84,6 @@ public class hktvOrder {       // Order is a Class.
 
     // Item[] items = new Item[0];    // 0 長度不是 null, 0 長度都叫有長度, 只不過該 array 不能放任何 address.
     // 將 add.items 自動化
-
-
-
 
     // Order order1 = new Order();
     // order1.setItems(items);
