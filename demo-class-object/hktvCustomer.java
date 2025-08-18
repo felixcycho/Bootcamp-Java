@@ -63,6 +63,9 @@ public class hktvCustomer {    // Customer is a Class.
     // Customer A, Order 1 & 2
     // Customer B, Order 3
     hktvCustomer customerA = new hktvCustomer();
+    hktvOrder order1 = new hktvOrder();
+    hktvOrder order2 = new hktvOrder();
+    hktvOrder order3 = new hktvOrder();
     customerA.add(order1);
     customerA.add(order2);
 
