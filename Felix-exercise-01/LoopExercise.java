@@ -16,7 +16,7 @@ public class LoopExercise {
     array1to4[0] = 0;
 
     for (int i = 0; i < array1to4.length - 1; i++) {
-      Array1to4[i + 1] = Array1to4[i] + 1;
+      array1to4[i + 1] = array1to4[i] + 1;
     }
       System.out.println(Arrays.toString(array1to4));
 
