@@ -24,10 +24,10 @@ public class Human {
   }
 
   public double getBMI () {
-    BigDecimal bd = BigDecimal.valueOf(this.height) //
+    BigDecimal bd = BigDecimal.valueOf(this.height) 
                     .multiply(BigDecimal.valueOf(this.height));
-    return BigDecimal.valueOf(this.weight) //
-           .divide(bd, 2, RoundingMode.HALF_UP) //
+    return BigDecimal.valueOf(this.weight) 
+           .divide(bd, 2, RoundingMode.HALF_UP) 
            .doubleValue();
   }
 
@@ -53,16 +53,19 @@ public class Human {
     // get BMI
     Human h1 = new Human();    // 上面 line 1 已經 define Human 是一個 Class.
     h1.setHeight(1.76);
-    h1.setWeight(73.5);
+    h1.setWeight(100);
     // System.out.println(h1.getBMI());
     System.out.println(h1.getBMI(3, RoundingMode.HALF_UP));    // 23.728
 
     if (h1.getBMI() > 30) {
-
+      System.out.println("The person is overweight.");
+    } else {
+      System.out.println("The person is not overweight.");
     }
     if (h1.isOverweight()) {
-      
+      System.out.println("The person is overweight");
+    } else {
+      System.out.println("The person is not overweight.");
     }
-
   }
 }

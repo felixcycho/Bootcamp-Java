@@ -1,6 +1,6 @@
 import java.math.BigDecimal;
 
-public class Item {
+public class hktvItem {
   
   private double price;
   private int quantity;
@@ -14,7 +14,7 @@ public class Item {
   // constructor only has Class name, e.g. Item() is UpperCase I
   // empty constructor: No input parameter
   // By default, Java Class contains empty constructor (implicitly exists)
-  public Item() {
+  public hktvItem() {
 
   }
 
@@ -33,8 +33,11 @@ public class Item {
            .doubleValue();
   }
 
+  // main method; 其實, 如果多個 java sheets 共同運行, 則只可有其中一個 java sheet 有 main method.
+  // 其他 java sheets 則不得有 main method.
   public static void main (String[] args) {
-    
+    // ! "new" is calling constructor "Item()".
+    hktvItem i1 = new hktvItem();
   }
 
 }

@@ -1,6 +1,7 @@
 import java.math.BigDecimal;
 // ! Class Author (Circle Class)
 // ! Class User (Circle Class, BigDecimal)
+import java.math.RoundingMode;
 
 public class Circle {
   // attribute: raw data (權衡 attribute, 視乎到底需否利用 this data 去運算)
@@ -20,9 +21,10 @@ public class Circle {
   }
   
   public double getArea() {
-    return BigDecimal.valueOf(this.radius)             //
-           .multiply(BigDecimal.valueOf(this.radius))  //
-           .multiply(BigDecimal.valueOf(Math.PI))      //
+    return BigDecimal.valueOf(this.radius)             
+           .multiply(BigDecimal.valueOf(this.radius))  
+           .multiply(BigDecimal.valueOf(Math.PI))      
+           .setScale(2, RoundingMode.HALF_UP)          
            .doubleValue();
   }
 
@@ -43,15 +45,10 @@ public class Circle {
     // get diameter
     // get area
     Circle c1 = new Circle();    // 上面 line 1 已經 define Circle 是一個 Class.
-    System.out.println();
-
-
-
-
+    c1.setRadius(3.3);
+    System.out.println(c1.getRadius());
+    System.out.println(c1.getDiameter());
+    System.out.println(c1.getArea());
 
   }
-
-
-
-
 }

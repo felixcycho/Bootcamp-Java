@@ -42,8 +42,6 @@ public class Animal {
     // "Animal" --> class name
     // "()" --> constructor
 
-    Person p1 = new person();
-
     Animal dog = new Animal();
     dog.setdateOfBirth(LocalDate.of(2020, 10, 9));
     LocalDate dogDateOfBirth = dog.getDateOfBirth();
@@ -64,11 +62,6 @@ public class Animal {
     System.out.println(dog.getDateOfBirth());    // 2024-12-31
     // 當 cat 被 dog 取代時, cat 之前的所有 attributes, 也被 dog 取代, 且回收至 AGC.
     // 從此, 世界上只有 dog, 沒有 cat.
-
-
-
-
-
 
   }
 }
