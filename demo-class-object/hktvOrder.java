@@ -64,10 +64,10 @@ public class hktvOrder {       // Order is a Class.
   public static void main(String[] args) {
     hktvItem item1 = new hktvItem();
     item1.setPrice(73.3);
-    item1.setQuantity(2);
+    item1.setQuantity(2_000);
     hktvItem item2 = new hktvItem();
     item2.setPrice(99.9);
-    item2.setQuantity(3);
+    item2.setQuantity(1_000);
 
     // Item[] items = new Item[2];
     // items[0] = item1;
@@ -91,30 +91,31 @@ public class hktvOrder {       // Order is a Class.
 
     hktvItem item3 = new hktvItem();
     item3.setPrice(100.0);
-    item3.setQuantity(3);
+    item3.setQuantity(3000);
 
     hktvOrder order1 = new hktvOrder();
     order1.add(item1);
     order1.add(item2);
     order1.add(item3);
-
+      
+    hktvOrder order2 = new hktvOrder();
+    order2.add(item2);
 
     // System.out.println(order1.getItems()[0].subtotal());
     // System.out.println(order1.getItems()[1].subtotal());
     // System.out.println(order1.getItems()[2].subtotal());
 
-    System.out.println(Arrays.toString(order1.subtotals()));    // [146.6, 299.7, 300.0]
+    System.out.println(Arrays.toString(order1.subtotals()));    // [146600.0, 99900.0, 3000000]
     // order1 是 address, order 是 object, getItems() 是 method, 
     // items[] 是裝 items 的 array, [0] 是 array object,
     // 最後, user 可搜尋 結果. subtotal() 是 result.
 
     // result, 是需要 developer 事前在上方, define attributes (i.e. price, quantity)
 
-    System.out.println(order1.total());
+    System.out.println(order1.total());    // 546500.0
 
-    hktvOrder order2 = new hktvOrder();
-    System.out.println(order2.total());    // 0.0
-    System.out.println(Arrays.toString(order2.subtotals()));    // []
+    System.out.println(order2.total());    // 99900.0
+    System.out.println(Arrays.toString(order2.subtotals()));    // [99900.0]
     
     // the below logic is to calculate the total of times.
     for (int i = 0; i < order1.subtotals().length; i++) {

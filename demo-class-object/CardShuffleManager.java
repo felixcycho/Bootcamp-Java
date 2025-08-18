@@ -8,7 +8,7 @@ public class CardShuffleManager {
     this.cards = cards;
   }
 
-  public void shuffle(int times) {
+  public Card[] shuffle(int times) {
     // ... this cards
     // random 0 - 51
     // two-tier for-loops

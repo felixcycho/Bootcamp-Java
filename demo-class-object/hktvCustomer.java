@@ -60,14 +60,14 @@ public class hktvCustomer {    // Customer is a Class.
   // main method; 其實, 如果多個 java sheets 共同運行, 則只可有其中一個 java sheet 有 main method.
   // 其他 java sheets 則不得有 main method.
   public static void main(String[] args) {
-    // Customer A, Order A & B
-    // Customer B, Order C
+    // Customer A, Order 1 & 2
+    // Customer B, Order 3
     hktvCustomer customerA = new hktvCustomer();
-    customerA.add(orderA);
-    customerA.add(orderB);
+    customerA.add(order1);
+    customerA.add(order2);
 
     hktvCustomer customerB = new hktvCustomer();
-    customerB.add(orderC);
+    customerB.add(order3);
 
     // and with some items...
 

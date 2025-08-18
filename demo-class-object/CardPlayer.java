@@ -10,7 +10,7 @@ public class CardPlayer {
     return this.cards;
   }
 
-  public void receive(Card card) {
+  public void receive(Card newCard) {
     Card[] newCards = new Card[this.cards.length + 1];
     for (int i = 0; i < this.cards.length; i++) {
       newCards[i] = this.cards[i];

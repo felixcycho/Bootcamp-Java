@@ -53,6 +53,14 @@ public class Person {
     return this.age;
   }
 
+  public boolean isElderly() {
+    return this.age > 65;
+  }
+
+  public static boolean isElderly(Person person) {
+    return person.getAge() > 65;      // static method 可用 Class 去 call, 只是不能用 Object 去 call.
+  }
+
   public static void main(String[] args) {
     // "new" --> create object
     // "Person" --> class name
@@ -72,6 +80,10 @@ public class Person {
     // "setAge" 是將 attribute 放入 object 的動作, "17" 是想 define 的 attribute.
 
     System.out.println(p1.getAge());      // 17
+    System.out.println(isElderly(p1));    // false
+
+    System.out.println(p3.getAge());      // 100
+    System.out.println(isElderly(p3));    // true
 
   }
 }
