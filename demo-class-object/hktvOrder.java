@@ -11,6 +11,7 @@ public class hktvOrder {       // Order is a Class.
     this.items = new hktvItem[0];
   }
   
+  // Setter
   public void setItems(hktvItem[] items) {
     this.items = items;
   }
