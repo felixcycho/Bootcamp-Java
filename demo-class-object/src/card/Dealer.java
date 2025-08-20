@@ -1,15 +1,15 @@
 import java.util.Arrays;
 
-public class CardDealer {
+public class Dealer {
   // 被動方
-  private CardDeck deck;
-  private CardPlayer[] players = new CardPlayer[4];    // 一開始就鎖死四個 players, 不許後期增減 players 數量.
+  private Deck deck;
+  private Player[] players = new Player[4];    // 一開始就鎖死四個 players, 不許後期增減 players 數量.
 
   // Constructor
   // public CardDealer() {
     // this.deck = new CardDeck();
   // }
-  public CardDealer(CardDeck deck, CardPlayer player1, CardPlayer player2, CardPlayer player3, CardPlayer player4) {
+  public Dealer(Deck deck, Player player1, Player player2, Player player3, Player player4) {
     this.deck = deck;
     this.players[0] = player1;
     this.players[1] = player2;
@@ -29,13 +29,13 @@ public class CardDealer {
   }
 
   public static void main(String[] args) {
-    CardPlayer p1 = new CardPlayer();
-    CardPlayer p2 = new CardPlayer();
-    CardPlayer p3 = new CardPlayer();
-    CardPlayer p4 = new CardPlayer();
-    CardDeck d1 = new CardDeck();
+    Player p1 = new Player();
+    Player p2 = new Player();
+    Player p3 = new Player();
+    Player p4 = new Player();
+    Deck d1 = new Deck();
     
-    CardDealer dealer = new CardDealer(d1, p1, p2, p3, p4);
+    Dealer dealer = new Dealer(d1, p1, p2, p3, p4);
     dealer.distribute();
     System.out.println("Cards = " + Arrays.toString(d1.getCards()));
     System.out.println("Player 1 cards = " + Arrays.toString(p1.getCards()));

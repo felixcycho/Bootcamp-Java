@@ -1,18 +1,18 @@
 import java.math.BigDecimal;
 import java.util.Arrays;
 
-public class hktvOrder {       // Order is a Class.
-  private hktvItem[] items;    // tell java that, "items" is attribute.
+public class Order {       // Order is a Class.
+  private Item[] items;    // tell java that, "items" is attribute.
 
   // Constructor; initial load
   // 適用於以後需要擴建的 array
-  public hktvOrder() {
+  public Order() {
     // ! initial load of creating object, 後續調整 array 更自動化人性化.
-    this.items = new hktvItem[0];
+    this.items = new Item[0];
   }
   
   // Setter
-  public void setItems(hktvItem[] items) {
+  public void setItems(Item[] items) {
     this.items = items;
   }
 
@@ -20,12 +20,12 @@ public class hktvOrder {       // Order is a Class.
     // return this.items;
   // }
 
-  public void add(hktvItem newItem) {
+  public void add(Item newItem) {
   // create a new array
   // this.items is old array
     // item[] length x
     // item[] length x + 1
-    hktvItem[] items = new hktvItem[this.items.length + 1];
+    Item[] items = new Item[this.items.length + 1];
     // copy the elements in this.items to the new item array.
     for (int i = 0; i < this.items.length; i++) {
       items[i] = this.items[i];
@@ -52,7 +52,7 @@ public class hktvOrder {       // Order is a Class.
   // public double[] total() {    is invalid.
   public double total() {    // total is method.
     BigDecimal sum = BigDecimal.ZERO;    // BigDecimal.valueOf(0.0)
-    for (hktvItem item : this.items) {
+    for (Item item : this.items) {
       // BigDecimal add() --> new BigDecimal Object
       sum = sum.add(BigDecimal.valueOf(item.subtotal()));
     }
@@ -63,10 +63,10 @@ public class hktvOrder {       // Order is a Class.
   // main method; 其實, 如果多個 java sheets 共同運行, 則只可有其中一個 java sheet 有 main method.
   // 其他 java sheets 則不得有 main method.
   public static void main(String[] args) {
-    hktvItem item1 = new hktvItem();
+    Item item1 = new Item();
     item1.setPrice(73.3);
     item1.setQuantity(2_000);
-    hktvItem item2 = new hktvItem();
+    Item item2 = new Item();
     item2.setPrice(99.9);
     item2.setQuantity(1_000);
 
@@ -90,16 +90,16 @@ public class hktvOrder {       // Order is a Class.
     // order1.setItems(items);
     // order1.add(item1);
 
-    hktvItem item3 = new hktvItem();
+    Item item3 = new Item();
     item3.setPrice(100.0);
     item3.setQuantity(3000);
 
-    hktvOrder order1 = new hktvOrder();
+    Order order1 = new Order();
     order1.add(item1);
     order1.add(item2);
     order1.add(item3);
       
-    hktvOrder order2 = new hktvOrder();
+    Order order2 = new Order();
     order2.add(item2);
 
     // System.out.println(order1.getItems()[0].subtotal());

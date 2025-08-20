@@ -1,8 +1,8 @@
-public class CardPlayer {
+public class Player {
   private Card[] cards;
 
   // Constructor
-  public CardPlayer() {
+  public Player() {
     this.cards = new Card[0];
   }
 

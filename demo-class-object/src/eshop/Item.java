@@ -1,6 +1,6 @@
 import java.math.BigDecimal;
 
-public class hktvItem {
+public class Item {
   
   private double price;
   private int quantity;
@@ -14,7 +14,7 @@ public class hktvItem {
   // constructor only has Class name, e.g. Item() is UpperCase I
   // empty constructor: No input parameter
   // By default, Java Class contains empty constructor (implicitly exists)
-  public hktvItem() {
+  public Item() {
 
   }
 

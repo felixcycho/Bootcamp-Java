@@ -1,6 +1,7 @@
+package library;
 public class Library {
   // books
-  private LibraryBooks[] books;
+  private Books[] books;
   // Librarian (per library)
   // in java, in this case, only 可 via Liabrary 去 find books.
   // in java, if i need to find library via books, 
@@ -10,10 +11,10 @@ public class Library {
 
   // Constructor --> the process of creating object
   public Library() {
-    this.books = new LibraryBooks[0];
+    this.books = new Books[0];
   }
   
-  public void add(LibraryBooks books) {
+  public void add(Books books) {
 
   }
 

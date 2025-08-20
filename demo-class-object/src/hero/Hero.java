@@ -1,3 +1,4 @@
+package hero;
 import java.math.BigDecimal;
 
 public class Hero {

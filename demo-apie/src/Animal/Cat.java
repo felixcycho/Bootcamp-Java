@@ -1,4 +1,5 @@
-package src;
+package src.Animal;
+
 public class Cat extends Animal {    // Child (Cat), Parent (Animal)
   // A = Abstraction (Interface) 抽象化
   // P = Polymorphism 多形態

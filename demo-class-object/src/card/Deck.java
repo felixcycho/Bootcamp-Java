@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class CardDeck {
+public class Deck {
 
   // Attributes, 另一名稱叫 "Instance Variable",
   // Object, 另一名稱則叫 "Instance"
@@ -17,7 +17,7 @@ public class CardDeck {
 
   private Card[] cards;
 
-  public CardDeck() {
+  public Deck() {
     this.cards = new Card[RANKS.length * SUITS.length];    // 0 - 51
     int idx = 0;
     for (String suit : SUITS) {
@@ -53,7 +53,7 @@ public class CardDeck {
   // main method; 其實, 如果多個 java sheets 共同運行, 則只可有其中一個 java sheet 有 main method.
   // 其他 java sheets 則不得有 main method.
   public static void main(String[] args) {
-    CardDeck d1 = new CardDeck();
+    Deck d1 = new Deck();
     // CardShuffleManager sm = new CardShuffleManager(d1.getCards());
     d1.removeCard(0);
     d1.removeCard(0);

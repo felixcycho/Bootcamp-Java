@@ -3,16 +3,16 @@
 import java.math.BigDecimal;
 
 // One to many
-public class hktvCustomer {    // Customer is a Class.
+public class Customer {    // Customer is a Class.
 
-  private hktvOrder[] orders;    // orders is an address.
+  private Order[] orders;    // orders is an address.
   private int age;    // age is an address.
 
   // Constructor; initial load
   // 適用於以後需要擴建的 array
-  public hktvCustomer() {
+  public Customer() {
     // ! initial load of creating object, 後續調整 array 更自動化人性化.
-    this.orders = new hktvOrder[0];    // new hktvOrder[0] is object.
+    this.orders = new Order[0];    // new hktvOrder[0] is object.
     // this.age = 0;
     // this.age is object. By default, except for array, all other objects by default 0.
     // 有 address, 無 object, programme 依然 void.
@@ -26,8 +26,8 @@ public class hktvCustomer {    // Customer is a Class.
   // Different from other variables (i.e. int), even though no value input, default 0.
   // But if no input to array, NULL (空氣).
   // 因此, add/remove method, 是用於合法更新.
-  public void add(hktvOrder newOrder) {
-    hktvOrder[] orders = new hktvOrder[this.orders.length + 1];
+  public void add(Order newOrder) {
+    Order[] orders = new Order[this.orders.length + 1];
     for (int i = 0; i < this.orders.length; i++) {
       orders[i] = this.orders[i];
     }
@@ -36,7 +36,7 @@ public class hktvCustomer {    // Customer is a Class.
   }
 
     // getter
-  public hktvOrder[] getOrders(){
+  public Order[] getOrders(){
     return orders;
   }
 
@@ -44,7 +44,7 @@ public class hktvCustomer {    // Customer is a Class.
   // -> totalPurchaseAmount()
   public double totalPurchaseAmount() {
     BigDecimal sum = BigDecimal.ONE;
-    for (hktvOrder order : this.orders) {
+    for (Order order : this.orders) {
       sum.add(BigDecimal.valueOf(order.total()));
     }
     return sum.doubleValue();
@@ -62,11 +62,11 @@ public class hktvCustomer {    // Customer is a Class.
   public static void main(String[] args) {
     // Customer A, Order 1 & 2
     // Customer B, Order 3
-    hktvCustomer customerA = new hktvCustomer();
-    hktvCustomer customerB = new hktvCustomer();
-    hktvOrder order1 = new hktvOrder();
-    hktvOrder order2 = new hktvOrder();
-    hktvOrder order3 = new hktvOrder();
+    Customer customerA = new Customer();
+    Customer customerB = new Customer();
+    Order order1 = new Order();
+    Order order2 = new Order();
+    Order order3 = new Order();
     
     customerA.add(order1);
     customerA.add(order2);

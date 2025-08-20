@@ -1,10 +1,10 @@
 import java.util.Arrays;
 import java.util.Random;
 
-public class CardShuffleManager {
+public class ShuffleManager {
   private Card[] cards;
 
-  public CardShuffleManager(Card[] cards) {
+  public ShuffleManager(Card[] cards) {
     this.cards = cards;
   }
 
@@ -49,14 +49,14 @@ public class CardShuffleManager {
 
     // 有多少個 objects, depends on how many "news" existing.
     // For the example of CardDeck(), 52 objects exist.
-    CardDeck d1 = new CardDeck();
-    CardShuffleManager sm = new CardShuffleManager(d1.getCards());
+    Deck d1 = new Deck();
+    ShuffleManager sm = new ShuffleManager(d1.getCards());
     // 洗牌次數, 可選 30, 40, 甚至 100 也可以
     sm.shuffle(50);
     // System.out.println(Arrays.toString(d1.getCards()));
 
     // chain methods
-    Card[] cardsAfterShuffle = new CardShuffleManager(d1.getCards()).shuffle(2000);
+    Card[] cardsAfterShuffle = new ShuffleManager(d1.getCards()).shuffle(2000);
 
     System.out.println(Arrays.toString(cardsAfterShuffle));
     

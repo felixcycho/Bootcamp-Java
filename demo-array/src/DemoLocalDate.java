@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 // 當我 input LocalDate 公式後, 按下 enter 鍵, 則自動彈出第一句.
 
-public class DemoLocalDate_Array {
+public class DemoLocalDate {
   public static void main(String[] args) {
 
     // number, String, boolean, etc.

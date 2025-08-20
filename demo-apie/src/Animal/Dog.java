@@ -1,30 +1,12 @@
-package src;
-public class Dog {
+package src.Animal;
 
-  private String name;
-  private int age;
+public class Dog extends Animal {
+
   private boolean isMale;
   
   public Dog(String name, int age, boolean isMale) {
-    this.age = age;
-    this.name = name;
+    super(name, age);
     this.isMale = isMale;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public int getAge() {
-    return this.age;
-  }
-
-  public void setAge(int age) {
-    this.age = age;
   }
 
   // For Gender, only initial status has been set up in Constructor,
@@ -34,17 +16,13 @@ public class Dog {
     return this.isMale;
   }
 
+  public static void main(String[] args) {
+    Dog d1 = new Dog("John", 3, false);
+    Dog d2 = new Dog("Peter", 4, true);
+    System.out.println(d1.isMale());
 
 
 
-
-
-
-
-
-
-
-
-
+  }
 }
 
