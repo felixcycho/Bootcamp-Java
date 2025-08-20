@@ -1,15 +1,6 @@
 import java.math.BigDecimal;
 
 public class Hero {
-  // state or attribute
-  private int hp;    // hp 會變動, 所以需要 define as attribute.
-  // Attribute 本義, 是用於儲存位置.
-  // Otherwise, if hp is static, no need to define as attribute,
-  // static value just called by static method is OK.
-  private int mp;
-  private int level;
-  private double exp;
-  private int id;
 
   // Max HP 雖然會變動, 但只隨著 level 變動, 所以不會 defined as attribute.
   // Instead, Max HP 則只需靠算式, 去 calculate result.
@@ -37,6 +28,15 @@ public class Hero {
 
   private static int idCounter = 0;
 
+    // state or attribute
+  private int hp;    // hp 會變動, 所以需要 define as attribute.
+  // Attribute 本義, 是用於儲存位置.
+  // Otherwise, if hp is static, no need to define as attribute,
+  // static value just called by static method is OK.
+  private int mp;
+  private int level;
+  private double exp;
+  private int id;
 
   // Constructor
   public Hero() {
@@ -129,15 +129,9 @@ public class Hero {
     return this.id;
   }
 
+  // Getter
   public boolean equals(Hero hero) {
-    return 
-  }
-
-  public boolean equals(Hero hero) {
-      if (level < 1 || level > MAX_HP.length) {
-        return -1;
-      }
-      return MAX_HP[level - 1];
+    return this.id == hero.getId();
   }
 
   // static method 通常放最底.
@@ -171,7 +165,6 @@ public class Hero {
     System.out.println(h2.isAlive());
 
     // h1 = h2;         // to release the RAM / memory used.
-
 
   }
 }
