@@ -44,6 +44,7 @@ public class Hero {
     this.level = 1;
     this.hp = MAX_HP[0];
     this.mp = MAX_MP[0];
+    this.exp = 0.0;
   }
 
   // Setter
@@ -51,7 +52,7 @@ public class Hero {
     this.level++;
     this.recoverHp(hp);
     this.recoverMp(mp);
-    this.exp = 0.0;
+    this.exp++;
   }
 
   // Setter
