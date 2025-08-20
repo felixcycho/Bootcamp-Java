@@ -45,7 +45,36 @@ public class aaaaa {
     }
     System.out.println("");
 
+    int a92 = 7;
 
+    while (a92 < 10) {
+      switch (a92) {
+        case 8:
+          System.out.print("0");
+          break;
+        case 9:
+          System.out.print("2");
+          break;
+      }
+      a92++;
+    }
+    System.out.println("");
+
+ int a93 = 7;
+
+    while (a93 < 10) {
+      switch (a93) {
+        case 8:
+          System.out.print("0");
+          break;
+        case 9:
+          System.out.print("2");
+          break;
+      }
+      a93++;
+      break;
+    }
+    System.out.println("");
 
     // Question 10.
     int g10 = 3;
