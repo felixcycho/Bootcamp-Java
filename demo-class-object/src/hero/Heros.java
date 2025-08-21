@@ -34,8 +34,4 @@ public final class Heros {
     return EXP_GAINED[killedHeroLevel - 1];
   }
 
-
-
-
-
 }

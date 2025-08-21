@@ -1,7 +1,7 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class aaaaa {
+public class Quiz01 {
   public static void main(String[] args) {
     
 
@@ -21,14 +21,20 @@ public class aaaaa {
     byte hoursOfWeek = (byte) (hoursOfDay * DaysOfWeek);
     
     System.out.println(hoursOfWeek);
-    
 
-    
 
     // Question 8:
+    String[] strings8 = new String[3];
+    String sum8 = "";
+    strings8 [0] = "1";
+    strings8 [1] = "2";
+    strings8 [2] = "3";
 
-
-
+    for (int i = 0; i < 3; i++) {
+      strings8[i] = String.valueOf(i);
+      sum8 += strings8[i];
+    }
+    System.out.println(sum8);
 
 
     // Question 9.
@@ -60,7 +66,7 @@ public class aaaaa {
     }
     System.out.println("");
 
- int a93 = 7;
+    int a93 = 7;
 
     while (a93 < 10) {
       switch (a93) {
