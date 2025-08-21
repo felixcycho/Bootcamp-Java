@@ -45,15 +45,16 @@ public abstract class Animal {     // abstract 代表 虛構, 所以不能 add n
     return "This is " + this.name + ", and " + this.age + " years old.";
   }
 
+  // 緊記, Parent Class 一樣要 @Override, 否則會影響 Child Classes.
   @Override
   public String toString() {
-    return "Animal ("     //
+    return "("     //
       + "name = " + this.name    //
       + ", weight = " + this.age    //
       + ")";
   }
   // public static void main(String[] args) {
-    // new Animal ("John", 3);
+  //   new Animal ("John", 3);
   // }
 }
 

@@ -1,5 +1,7 @@
 package src.Animal;
 
+import java.util.Objects;
+
 public class Dog extends Animal {
 
   private boolean isMale;
@@ -35,10 +37,28 @@ public class Dog extends Animal {
         && this.isMale == dog.isMale();
   }
 
+  @Override
+  public String toString() {
+    return "Dog (" //
+      + "Animal = " + super.toString()    //
+      + ", age = " + super.getAge()    //
+      + ", isMale = " + this.isMale    //
+      + ")";
+  }
+
+  @Override    // Checking if your Parent Class has this method.
+  public int hashCode() {
+    return Objects.hash(this.isMale, super.getAge(), super.getName());
+  }
+  
+
   public static void main(String[] args) {
     Dog d1 = new Dog("John", 3, false);
     Dog d2 = new Dog("Peter", 4, true);
     System.out.println(d1.isMale());
+
+    System.out.println(d1);
+    System.out.println(d2);
   }
 
 

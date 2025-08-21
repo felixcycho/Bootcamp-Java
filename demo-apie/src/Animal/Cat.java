@@ -52,6 +52,7 @@ public class Cat extends Animal {    // Child (Cat), Parent (Animal)
     }
     // Step 3: Because obj MUST be a cat object, this becomes non-risky.
     Cat cat = (Cat) obj;
+    // Step 4: this.name is stored in Parent Class, thus use super to call name.
     // return Objects.equals(super.toString(), this.toString());
     return Objects.equals(super.getName(), cat.getName()) //
         && Objects.equals(super.getAge(), cat.getAge()) //
@@ -85,6 +86,7 @@ public class Cat extends Animal {    // Child (Cat), Parent (Animal)
     System.out.println(c2.getAge());
 
     System.out.println(c1);
+    System.out.println(c2);
 
   }
 
