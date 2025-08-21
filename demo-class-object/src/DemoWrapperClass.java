@@ -1,4 +1,4 @@
-public class DemoWrapperClass_ClassObject {
+public class DemoWrapperClass {
   public static void main(String[] args) {
 
     // Logically, for example of hero game, an object (e.g. Hero h1) can be copied

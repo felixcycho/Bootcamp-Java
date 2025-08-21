@@ -1,4 +1,4 @@
-public class DemoOperator_ClassObject {
+public class DemoOperator {
   public static void main(String[] args) {
     int x = 3;
     x++;

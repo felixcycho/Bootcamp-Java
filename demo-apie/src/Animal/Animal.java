@@ -45,6 +45,13 @@ public abstract class Animal {     // abstract 代表 虛構, 所以不能 add n
     return "This is " + this.name + ", and " + this.age + " years old.";
   }
 
+  @Override
+  public String toString() {
+    return "Animal ("     //
+      + "name = " + this.name    //
+      + ", weight = " + this.age    //
+      + ")";
+  }
   // public static void main(String[] args) {
     // new Animal ("John", 3);
   // }

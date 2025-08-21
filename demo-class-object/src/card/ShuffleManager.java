@@ -48,7 +48,7 @@ public class ShuffleManager {
   public static void main(String[] args) {
 
     // 有多少個 objects, depends on how many "news" existing.
-    // For the example of CardDeck(), 52 objects exist.
+    // For the example of Deck(), 52 objects exist.
     Deck d1 = new Deck();
     ShuffleManager sm = new ShuffleManager(d1.getCards());
     // 洗牌次數, 可選 30, 40, 甚至 100 也可以

@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class DemoArray_ClassObject {
+public class DemoArray {
   public static void main(String[] args) {
     String[] arr = new String[] {"John", "Peter", "Lucas"};
     String[] newArr = Arrays.copyOf(arr, arr.length);

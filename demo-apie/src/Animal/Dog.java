@@ -16,13 +16,33 @@ public class Dog extends Animal {
     return this.isMale;
   }
 
+  @Override
+  public boolean equals(Object obj) {
+    // Step 1: Check if address are same
+    if (this == obj) {
+      return true;
+    }
+    // Step 2: if obj is not an Dog Object, return false.
+    // ! instanceOf = asking if obj is an object of Dog
+    if (!(obj instanceof Dog)) {
+      return false;
+    }
+    // Step 3: Because obj MUST be a cat object, this becomes non-risky.
+    Dog dog = (Dog) obj;
+    // Step 4: this.name is stored in Parent Class, thus use super to call name.
+    return super.getName().equals(dog.getName())  //
+        && super.getAge() == dog.getAge()       // check String 是否相等, 需要用 .equal()
+        && this.isMale == dog.isMale();
+  }
+
   public static void main(String[] args) {
     Dog d1 = new Dog("John", 3, false);
     Dog d2 = new Dog("Peter", 4, true);
     System.out.println(d1.isMale());
-
-
-
   }
+
+
+
+  
 }
 

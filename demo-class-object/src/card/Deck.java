@@ -54,7 +54,7 @@ public class Deck {
   // 其他 java sheets 則不得有 main method.
   public static void main(String[] args) {
     Deck d1 = new Deck();
-    // CardShuffleManager sm = new CardShuffleManager(d1.getCards());
+    // ShuffleManager sm = new ShuffleManager(d1.getCards());
     d1.removeCard(0);
     d1.removeCard(0);
     d1.removeCard(0);

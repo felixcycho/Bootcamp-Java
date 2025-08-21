@@ -267,8 +267,8 @@ public class DemoLoop {
       if (h > 3) {
         break;
       }
-      System.out.println(h);    // 0, 1, 2, 3 (verticle)
+      System.out.println(h);    // 0, 1, 2, 3 (verticle);
       h++;
-    }
+    };
   }
 }

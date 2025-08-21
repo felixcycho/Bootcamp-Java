@@ -6,8 +6,8 @@ public class Dealer {
   private Player[] players = new Player[4];    // 一開始就鎖死四個 players, 不許後期增減 players 數量.
 
   // Constructor
-  // public CardDealer() {
-    // this.deck = new CardDeck();
+  // public Dealer() {
+    // this.deck = new Deck();
   // }
   public Dealer(Deck deck, Player player1, Player player2, Player player3, Player player4) {
     this.deck = deck;
