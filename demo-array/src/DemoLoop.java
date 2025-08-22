@@ -1,3 +1,4 @@
+
 import java.util.Arrays;
 
 public class DemoLoop {
@@ -265,10 +266,11 @@ public class DemoLoop {
     int h = 0;
     while (h < 6) {
       if (h > 3) {
-        break;
+        //break;
       }
       System.out.println(h);    // 0, 1, 2, 3 (verticle);
       h++;
     };
   }
 }
+

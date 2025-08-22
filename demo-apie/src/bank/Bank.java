@@ -2,10 +2,14 @@ package src.bank;
 
 public class Bank {
   // Open Account
-  private Account[] accounts;
+  private Account[] accounts;    // 當我希望用 Account 找 bank 之際, 可
 
   public Bank() {
     this.accounts = new Account[0];
+  }
+
+  public int noOfAccount() {
+    return this.accounts.length;
   }
 
   public void add(Account newAccount) {
@@ -17,6 +21,16 @@ public class Bank {
     this.accounts = accounts;
   }
 
-
+  // Return Account by account holder name
+  public Account findAccount(String acctHolderName) {
+    for (Account account : this.accounts) {        // this.accounts 不可有 NULL.
+      // 1000 lines
+      if (account.getAcctHolderName().equals(acctHolderName)) {          
+      // it means account relates to acctHolderName, 不等於 account 擁有 acctHolderName.
+        return account;  
+      }
+    }
+    return null;
+  }
 
 }

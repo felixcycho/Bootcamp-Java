@@ -144,6 +144,15 @@ public class LoopExercise {
     }
     System.out.println("count uppercase = " + count11);
 
+    int count11a = 0;
+    char[] chrArray11 = s11.toCharArray();
+    for (int i = 0; i < chrArray11.length; i++) {
+      if (chrArray11[i] == Character.toUpperCase(chrArray11[i])) {
+        count11a ++;
+      }
+    }
+    System.out.println("count uppercase = " + count11a);
+
     // 12. Print the following pattern of * value
     // *****
     // *****
@@ -206,7 +215,8 @@ public class LoopExercise {
     for (int i = 0; i < arr14.length; i++) {
       if (arr14[i] > maxArr14) {
         maxArr14 = arr14[i];
-      } else if (arr14[i] < minArr14) {
+      } 
+      if (arr14[i] < minArr14) {
         minArr14 = arr14[i];
       }
     }
