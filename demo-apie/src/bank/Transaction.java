@@ -1,4 +1,4 @@
-package src.bank;
+package src.Bank;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

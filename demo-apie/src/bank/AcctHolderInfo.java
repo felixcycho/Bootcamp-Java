@@ -1,4 +1,4 @@
-package src.bank;
+package src.Bank;
 
 public class AcctHolderInfo {
   // Account holder name -> bank.getAccount(this.name)

@@ -1,4 +1,4 @@
-package src.bank;
+package src.Bank;
 
 public class Bank {
   // Open Account
