@@ -97,7 +97,7 @@ public class DemoLoop {
     boolean isMatched = true;
     boolean isEverMatched = false;
     for (int i = 0; i < s2.length() - targetString.length() + 1; i++) {
-      isMatched = true;
+    isMatched = true;
       for (int j = 0; j < targetString.length(); j++) {
         if (s2.charAt(i + j) != targetString.charAt(j)) {
           isMatched = false;
@@ -110,7 +110,7 @@ public class DemoLoop {
     if (isEverMatched) {
       System.err.println("Pattern " + targetString + " is found.");
     } else {
-      System.err.println("Pattern " + targetString + "is not found.");
+      System.err.println("Pattern " + targetString + " is not found.");
     }
 
     // Contains 屬於 methods 其中一種, 開箱即用
@@ -154,10 +154,11 @@ public class DemoLoop {
     // break -> searching, exit earlier
     // Search the name containing J character
     String name = "John";
+    char charTarget = 'J';
     boolean isFound = false;
     for (int i = 0; i < name.length(); i++) {
       System.out.println("Test flow: " + i);
-      if (name.charAt(i) == 'J') {
+      if (name.charAt(i) == charTarget) {
       isFound = true;
       break;    // exit the loop.
       }

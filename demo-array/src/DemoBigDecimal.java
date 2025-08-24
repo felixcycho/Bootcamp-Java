@@ -43,6 +43,18 @@ public class DemoBigDecimal {
     // HALF_UP --> 0.5 or above, round up  四捨五入
     // HALF_DOWN --> 0.5 or below, round down
     System.out.println(BigDecimal.valueOf(10).divide(BigDecimal.valueOf(3), 2, RoundingMode.HALF_UP));    // 3.33
+    
+    double d10 = 10.0 / 3.0;
+    System.out.println(d10);              // 3.33333333............5
+    BigDecimal bd10 = BigDecimal.valueOf(10);
+    BigDecimal bd11 = BigDecimal.valueOf(3);
+    BigDecimal bd12 = bd10.divide(bd11, 2, RoundingMode.HALF_UP);
+
+    System.out.println(bd12);             // 3.33
+    
+
+
+
 
     
 

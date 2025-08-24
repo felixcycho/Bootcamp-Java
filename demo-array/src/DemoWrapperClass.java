@@ -60,12 +60,12 @@ public class DemoWrapperClass {
     Integer i1 = 10;
     Integer i2 = 11;
     System.out.println(i1 > i2);    // false,    int > int
-    System.out.println(i1.compareTo(i2));    // -1, means false
-    // 0 means equal; 1 means true.
+    System.out.println(i1.compareTo(i2));    // -1, means smaller
+    // 0 means equal; 1 means larger.
     
     int i3 = 12;
-    System.out.println(i1.compareTo(i3));    // -1, means false
-    // 0 means equal;  1 means true
+    System.out.println(i1.compareTo(i3));    // -1, means smaller
+    // 0 means equal;  1 means larger.
     // i3.compareTo(i1) is invalid.
     // i3 is an int value, which is a primitive, which has no functionality.
     
@@ -79,7 +79,7 @@ public class DemoWrapperClass {
     Character ch3 = 'b';
     System.out.println(ch3.charValue() > 97);    // true
     System.out.println(ch3.compareTo(Character.valueOf('a')));     // 1
-    // 1 means true, 0 means equal, -1 means false.
+    // 1 means larger, 0 means equal, -1 means smaller.
 
     
 

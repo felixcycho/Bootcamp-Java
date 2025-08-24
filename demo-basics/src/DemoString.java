@@ -142,6 +142,30 @@ public class DemoString {
     System.out.println(StringF.isBlank());    // true
 
     // 12. lastIndexOf()
+    String StringG = "Hello, World.";
+    System.out.println(StringG.lastIndexOf("Wor"));    // 7
+    System.out.println(StringG.lastIndexOf('d'));     // 11
+
+    // 13. Integer.toString()
+
+    int integer13 = 12345;
+
+    String StringH = Integer.toString(integer13);
+    System.out.println(StringH);                  // "12345"
+
+    // 14. toCharArray()
+    char[] charArray13 = StringH.toCharArray();
+    System.out.println(charArray13);             // 12345
+
+    System.out.print("[");
+    for (int i = 0; 1 < charArray13.length; i++) {
+      if (i < charArray13.length - 1) {
+      System.out.print(charArray13[i] + ", ");
+      } else {
+        System.out.println(charArray13[i] + "]");    // [1, 2, 3, 4, 5]
+      }
+    }
+
 
 
 

@@ -64,6 +64,9 @@ public class DemoOperator {
     u = u + 1;
     u += 1;
     System.out.println(u);    // 4
+
+    ++u;
+    System.out.println(u);    // 5
     
     // -1
     int uu = 5;
@@ -72,6 +75,9 @@ public class DemoOperator {
     uu = uu - 1;
     uu -= 1;
     System.out.println(uu);    // 2
+
+    --uu;
+    System.out.println(uu);    // 1
 
     // Odd / Even number
     int number = 23;

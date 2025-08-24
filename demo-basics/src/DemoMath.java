@@ -1,3 +1,6 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class DemoMath {
   public static void main(String[] args) {
     int x = 5;
@@ -29,6 +32,11 @@ public class DemoMath {
     double p = n / o;
 
     System.out.println(p);    // 13.333333333........
+    
+    BigDecimal p1 = new BigDecimal(p);
+    BigDecimal p2 = p1.setScale(2, RoundingMode.HALF_UP);
+    System.out.println(p1);
+    System.out.println(p2);
 
     // 9 / 3
     j = 9 / 3;

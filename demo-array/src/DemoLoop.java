@@ -108,7 +108,7 @@ public class DemoLoop {
 
     for (int x : array) {
       // average = sum / array.length    // int / int --> int  => 112
-      average = sum / (double) array.length;    // int / dobule --> doubke  => 112.5
+      average = sum / (double) array.length;    // int / dobule --> double  => 112.5
       // average = (double) sum / array.length;    // double / int --> double  => 112.5
       // average = (double) (sum / array.length);    // double (int) --> double  => ! 112.0
     }
