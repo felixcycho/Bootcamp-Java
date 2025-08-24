@@ -22,13 +22,26 @@ public class JavaQuest9 {
     // code here ...
     System.out.println(str.charAt(15));
 
-    int indexE = str.indexOf("e");
+    char charTarget = 'e';
+    int idxCharTarget = str.indexOf(charTarget);
     
-    if (indexE != -1) {
-      char charE = str.charAt(indexE);
-      System.out.println(str.indexOf(charE));
+    if (idxCharTarget != -1) {;
+      System.out.println("The character " + charTarget + " is found.");
     } else {
       System.out.println("The character 'e' is not found.");
+    }
+
+    int countCharTarget = 0;
+    for (int i = 0; i < str.length(); i++) {
+      if (str.charAt(i) == charTarget) {
+        System.out.println("The character " + charTarget + " is found, at index " + i + ".");
+        countCharTarget++;
+      } else if (i == str.length() && i != idxCharTarget) {
+        System.out.println("The character " + charTarget + " is not found.");
+      }
+    }
+    if(countCharTarget != 0) {
+      System.out.println("The character " + charTarget + " is found by " + countCharTarget + " times.");
     }
 
     // Use indexOf()

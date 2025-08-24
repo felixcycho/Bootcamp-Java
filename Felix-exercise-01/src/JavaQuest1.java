@@ -35,7 +35,7 @@ public class JavaQuest1 {
 
     // subtraction
     // code here with tips, pls fix ...
-    int subtract = first - second;
+    int subtract = Math.abs(first - second);
     // subtract = first - second
     System.out.println("The subtraction reuslt is " + subtract);
 

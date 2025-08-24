@@ -17,46 +17,107 @@ public class DemoBank {
     Bank hsbc = new Bank();
     hsbc.add(new Account(new AcctHolderInfo("John1234", "admin1234")));
     hsbc.add(new Account(new AcctHolderInfo("Lucas9999", "admin9999")));
-    System.out.println(hsbc.noOfAccount());
+    System.out.println(hsbc.noOfAccounts());
     System.out.println(hsbc.findAccount("Lucas9999").getAcctBalance());       // 0.0
 
     // credit
-    hsbc.findAccount("Lucas9999").credit(12000);
+    hsbc.findAccount("Lucas9999").credit(12_000);
     System.out.println(hsbc.findAccount("Lucas9999").getAcctBalance());       // 12000.0
 
     // withdrawal (2000)
     // Login (password)
     Scanner scanner = new Scanner(System.in);
     String acctUserName;
-    String acctPassword;
+    String Password;
+    boolean isUserAccountValid = false;
+    boolean isPasswordValid = false;
+    boolean isFunctionValid = false;
+    Account userAccount = null;
 
     do {
       // Try login
-      System.out.println("Please input your username: ");
-      acctUserName = scanner.nextLine();
-      Account userAccount = hsbc.findAccount(acctUserName);
-      if (userAccount == null) {     // ! checking if userAccount is pointing to nothing
-        System.out.println("User account is not found.");
-        continue;
+      
+      // Step 1
+      if (!isUserAccountValid) {
+        System.out.println("Please input your username: ");
+        acctUserName = scanner.nextLine();
+        userAccount = hsbc.findAccount(acctUserName);
+        if (userAccount == null) {     // ! checking if userAccount is pointing to nothing
+          System.out.println("User account is not found.");
+          continue;
+        } else {
+        isUserAccountValid = true;
+        }
       }
-      System.out.println("Please input your password: ");
-      acctPassword = scanner.nextLine();
-      if (!userAccount.validatePassword(acctPassword)){
-        System.out.println("Password is incorrect.");
-        continue;
-      } 
+      // Step 2
+      if (!isPasswordValid) {
+        System.out.println("Please input your password: ");
+        Password = scanner.nextLine();
+        if (!userAccount.validatePassword(Password)){
+          System.out.println("Password is incorrect.");
+          continue;
+        } else {
+        isPasswordValid = true;
+        }
+      }
+      // Step 3
       // 2 functions: Withdrawal or Fund transfer (Auto-logout after either transaction)
-      System.out.println("Withdrawal or fund transfer? Input 1 for withdrawal; 2 for fund transfer.");
+      if (!isFunctionValid) {
+      System.out.println("Withdrawal or fund transfer?  Input 1 for withdrawal; 2 for fund transfer; 3 for log out.");
+      String function = scanner.nextLine();
+      int functionInteger = Integer.valueOf(function);
+      // if (functionInteger != 1 && functionInteger != 2 && functionInteger != 3) {
+      //  System.out.println("Wrong option selected.");
+      //  continue;
+      // }     因為已經 continue, 所以無須寫 else.
+      if (functionInteger == 1) {
+        System.out.println("Please input an amount: ");
+        String amount = scanner.nextLine();
+        int amountToWithdraw = Integer.valueOf(amount);
+        if (!userAccount.debit(amountToWithdraw)) {      // !userAccount, means userAccount 已自我修改.
+          System.out.println("Insufficient balance.");
+          break;
+        } 
+        System.out.println("Withdrawal success. Outstanding balance = " + userAccount.getAcctBalance());
+        isFunctionValid = true;
+      } 
+      else if (functionInteger == 2) {
+        System.out.println("Please input an account number for fund transfer: ");
+        String toAcctNumStr = scanner.nextLine();
+        int toAcctNum = Integer.valueOf(toAcctNumStr);
+        if (hsbc.findAccount(toAcctNum) == null) {
+          System.out.println("Invalid account number.");
+          continue;
+        } 
+        else {
+          System.out.println("Input the fund transfer amount: ");
+          String amount = scanner.nextLine();
+          int amountToTransfer = Integer.valueOf(amount);
+          if(!userAccount.fundTransfer(toAcctNum, amountToTransfer)) {
+                System.out.println("Error. Please try again later.");
+                break;
+          }
+        }
+      }
+          System.out.println("Fund transfer success. Outstanding balance = " + userAccount.getAcctBalance());
+          isFunctionValid = true;
+          break;
+          } 
+      else if (functionInteger == 3) {
+         System.out.println("Log out success.");
+         isFunctionValid = true;
+         break;
+      } else {
+            System.out.println("Wrong option selected.");
+            continue;
+          }
+        }
+      } while (true);  
+        System.out.println("Thank you for using our service.");
+        scanner.close();
 
-    } while ();
-
-
-
-
-
-
-
-
-
+        System.out.println(hsbc.findAccount("Lucas9999").getAcctBalance());
+        System.out.println(hsbc.findAccount("John1334").getAcctBalance());
+    }
   }
 }

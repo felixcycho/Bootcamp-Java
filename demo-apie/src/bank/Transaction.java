@@ -3,6 +3,7 @@ package src.Bank;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+// ! Assume we have fund transfer, credit, and debit.
 public class Transaction {
   // attribute 不可 looping, e.g. bank 指向 transaction, transaction 再指回 bank.
   // 否則, 有機會出錯, e.g. HSBC transaction 無故指向 恆生.
@@ -15,11 +16,14 @@ public class Transaction {
   private int toAccountId;
   private double trxAmount;
 
-  public Transaction(int fromAccountId, int toAccountId, double trxAmount) {
+  public Transaction(LocalDateTime trxDateTime, int fromAccountId, int toAccountId, double trxAmount) {
     this.acctId = ++acctIdCounter; 
+    this.trxDateTime = LocalDateTime.now();
     this.fromAccountId = fromAccountId;
     this.toAccountId = toAccountId;
     this.trxAmount = trxAmount;
   }
+
+  
 
 }
