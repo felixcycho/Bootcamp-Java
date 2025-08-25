@@ -1,6 +1,9 @@
 package hero;
 
-// final class => cannot be extended
+// final class --> cannot be extended
+
+// level, role --> 2D Array
+// level, role --> 1D Array --> write 6 times
 public final class Heros {
   public static final int[] MAX_HP //
   = new int[] {20, 40, 60, 80, 100, 120, 140, 160, 180, 200};
@@ -19,6 +22,8 @@ public final class Heros {
 
   public static final double[] EXP_GAINED //
   = new double[] {1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5};
+
+  // static method 再加 critical attack, critical chance.
 
   public static int idCounter = 0;
 

@@ -1,7 +1,7 @@
 package hero;
 import java.math.BigDecimal;
 
-public class Hero {
+public abstract class Hero {
 
   // Max HP 雖然會變動, 但只隨著 level 變動, 所以不會 defined as attribute.
   // Instead, Max HP 則只需靠算式, 去 calculate result.
@@ -38,7 +38,13 @@ public class Hero {
   private int level;
   private double exp;
   private int id;
-
+  // private String role;        
+  // Hero 與生俱來, 不可能沒有職業, 亦不可捨棄 / 卸下職業, 所以最好不放 role 在 
+  // private Weapon weapon;       // 此句顯示 developer 忽略各武器只能裝配各勇士的事實
+  // private Bow bow;             // 此句雖可接受, 但最好另加 Classes Bow, Sword, Stave.
+  // private Sword sword;
+  // private Stave stave;
+  
   // Constructor
   public Hero() {
     this.id = ++idCounter;
@@ -46,6 +52,7 @@ public class Hero {
     this.hp = Heros.MAX_HP[0];
     this.mp = Heros.MAX_MP[0];
     this.exp = 0.0;
+    // this.role = null;           同上解釋
   }
 
   // Setter
@@ -149,14 +156,21 @@ public class Hero {
   // }
 
   public static void main(String[] args) {
-    Hero h1 = new Hero();
+  //  Hero h1 = new Hero();                      invalid, because Hero class is abstracted.
+    Warrier h1 = new Warrier();
     System.out.println(h1.getLevel());
     System.out.println(h1.getPhyAttack());
     System.out.println(h1.getHp());
     System.out.println(h1.getMaxHp());
     System.out.println(h1.isAlive());
 
-    Hero h2 = new Hero();
+    Archer h2 = new Archer();
+    System.out.println(h2.getLevel());
+    System.out.println(h2.getPhyAttack());
+    System.out.println(h2.getHp());
+    System.out.println(h2.getMaxHp());
+    System.out.println(h2.isAlive());
+
     h1.attack(h2);
     System.out.println(h1.getHp());
     System.out.println(h2.getHp());
