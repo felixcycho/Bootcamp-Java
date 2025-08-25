@@ -114,7 +114,5 @@ public class DemoBank {
 
    System.out.println(hsbc.findAccount("Lucas9999").getAcctBalance());
    System.out.println(hsbc.findAccount("John1334").getAcctBalance());
-
-  
   }
 }
