@@ -74,10 +74,12 @@ public class DemoArrayList {
     System.out.println(bookNames.contains("JJJ"));       // false
     System.out.println(bookNames.isEmpty());             // false
     // bookNames = null;  // Null Pointer, not same as Empty.
-    System.out.println(bookNames.size());       // same as array length
+    System.out.println(bookNames.size());       // 6
+    // same as array length
 
     bookNames.set(1, "BCD");
     System.out.println(bookNames);       // [OPQ, BCD, GHI, MNO, null, ]
+    System.out.println(bookNames.get(2));     // GHI
 
     bookNames.clear();
     System.out.println(bookNames.isEmpty());             // true
@@ -103,8 +105,16 @@ public class DemoArrayList {
 
     // ArrayList<Cat>
     // loop cat.getName()
+    ArrayList<Cat> cats = new ArrayList<>();
+    Cat c1 = new Cat("John");                     // John 是 object, c1 是 address.
+    cats.add(c1);
+    c1.setName("Peter");
 
+    cats.add(new Cat("Leo"));
 
+    for (Cat cat : cats) {
+      System.out.println(cat.getName());          // Peter, Leo
+    }
 
   }
 }
