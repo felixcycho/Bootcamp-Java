@@ -31,14 +31,5 @@ public class Animal implements Survivable {
     //  animal.run();             invalid, because Survivable does not have run().
 
     }
-
-
-
-
-
-
-
-
-
   }
 }

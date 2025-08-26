@@ -49,7 +49,7 @@ public class Superman extends Human implements Flyable, Eatable {
     // In this case, Superman("Leo") ability of eat() is being blocked.
     // Superman("Leo") can just fly, not eat.
     superman.fly();
-    // superman.getName();     invalid, because Flyable does not have getName().
+    // System.out.println(superman.getName());     invalid, because Flyable does not have getName().
     // superman.eat();         // Compile time Polymorphism, check type of Object.
     // thus, superman can only call fly, but cannot call eat.
     // ! superman object has eat() ?     The answer is YES.

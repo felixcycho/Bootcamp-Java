@@ -6,8 +6,9 @@ public abstract class Weapon {
   abstract double getCriticalChance();
 
 
+  // VS Code Run --> Java Compilt (javac) + Java Run (java)
   public static void main(String[] args) {
-    int[][] heroValueMap = new int[3][10];     // 3 個 roles, 10 個 level
+  //  int[][] heroValueMap = new int[3][10];     // 3 個 roles, 10 個 level
     int[][] heroPhyAttackMap = new int[3][10];
     int[][] heroMagicAttackMap = new int[3][10];
     int[][] heroCriticalChanceMap = new int[3][10];
