@@ -4,6 +4,9 @@ package src.abstraction;
 // Class Superman 履行 Flyable 合約.
 // ! Interface control the child class method availability at compile time.
 
+// ! Interface, 用意在於 限制無限可能性, 以加強 readability (可閱讀性).
+// ! 然而, 當 Class 指向 Interface, 則延伸被封印的無限可能性.
+
 public class Superman extends Human implements Flyable, Eatable {
   // private String name;
 

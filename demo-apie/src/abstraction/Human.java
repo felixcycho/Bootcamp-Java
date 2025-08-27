@@ -12,7 +12,4 @@ public abstract class Human implements Eatable {
     return this.name;
   }
 
-
-
-  
 }

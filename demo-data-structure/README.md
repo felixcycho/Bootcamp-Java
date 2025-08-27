@@ -1,18 +1,30 @@
-## Getting Started
+#  Data Structure
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## ArrayList (List)
+-  with order
+-  allow duplicated objects
+-  faster to access (i.e. get(index)) an identified object/address, especially for middle object / address
+-  faster to add an object to the last address (i.e. addLast(Object))
+-  but if add / remove an object in middle address (i.e. remove(Object)), still need to for-loop.
 
-## Folder Structure
+## LinkedList (Deque / Queue / List)
+-  with order
+-  allow duplicated objects
+-  faster to replace or remove (i.e. poll first / poll last) head or tail (java LinkedList --> double LinkedList)
+-  no need to for-loop all addresses when remove head or tail object
+-  but still need to for-loop if to replace or remove middle objects
 
-The workspace contains two folders by default, where:
+## ArrayDeque (Deque / Queue)
+-  with order
+-  allow duplicated objects
+-  for Deque, faster to add / remove an object to the last address (i.e. addLast(Object))
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## HashSet (Set)
+-  No order
+-  disallow duplicated objects
+-  Underlying data structure (Array? LinkedList?)
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## HashMap (Map)
+-  No order
+-  Entry (Key + Value)
+-  Underlying data structure (Array? LinkedList?)

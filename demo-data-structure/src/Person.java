@@ -61,8 +61,8 @@ public class Person { // This method is faster than using ArrayList.
     // System.out.println(persons.getName());           // compile error, getName() is undefined for type LinkedList<Person2>
     System.out.println(persons.get(2).getName());       // Sue
     System.out.println(persons.size());                 // 5
-    System.out.println(persons.getFirst().getName());             // Lucas
-    System.out.println(persons.getLast().getName());              // Mary
+    System.out.println(persons.getFirst().getName());   // Lucas
+    System.out.println(persons.getLast().getName());    // Mary
 
 
   }
