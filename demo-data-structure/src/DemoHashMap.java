@@ -3,6 +3,8 @@ import java.util.HashMap;
 import java.util.List;
 
 // Comparing speed of searching, HashMap is much faster than looping.
+// Thus, HashMap is commonly used for searching.
+// Even though once if HashMap is destroyed, it is OK, because Objects are still existed.
 public class DemoHashMap {
   public static void main(String[] args) {
     // String (Student ID) -> String (Student Name)

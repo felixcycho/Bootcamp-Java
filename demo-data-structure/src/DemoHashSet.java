@@ -77,26 +77,51 @@ public class DemoHashSet {
     emails.add("leo123@gmail.com");
 
     HashSet<String> uniqueEmails = new HashSet<>(emails);
-    emails.clear();
-    emails.addAll(uniqueEmails);
+    // emails.clear();
+    // emails.addAll(uniqueEmails);
 
     for (String email : emails) {
-      System.out.println(email);
+      uniqueEmails.add(email);
     }
+    System.out.println(uniqueEmails);                          // [lucas234@gmail.com, leo123@gmail.com]
+
+    // Question 1b:  Put duplicated emails into another ArrayList
+    ArrayList<String> duplicatedEmails = new ArrayList<>();
+    HashSet<String> dummySet = new HashSet<>();
+    // 1. HashSet add() returns true. -->  It means not duplicated.
+    //    Otherwise, HashSet add() returns false. --> It means duplicated.
+    for (String email : emails) {
+      if (!dummySet.add(email)) {     // ! return false if duplicated
+        duplicatedEmails.add(email);
+      }
+    }
+    System.out.println(duplicatedEmails);               // [leo123@gmail.com]
 
     // Question 2:  Construct a HashMap (at least 2 entries)
     HashMap<String, ArrayList<Dog>>  dogListMap = new HashMap<>();
+    // Array store address only, ArrayList also store address only.
 
     ArrayList<Dog> goldenRetrievers = new ArrayList<>();
     goldenRetrievers.add(new Dog("Felix", 4));
+    goldenRetrievers.add(new Dog("Pheobe", 5));
 
-    ArrayList<Dog> malamutes = new ArrayList<>();
-    malamutes.add(new Dog("Philip", 3));
+    ArrayList<Dog> alaskanMalamutes = new ArrayList<>();
+    alaskanMalamutes.add(new Dog("Philip", 3));
+    alaskanMalamutes.add(new Dog("Fiona", 1));
 
-    dogListMap.put("goldenRetrivers", goldenRetrievers);
-    dogListMap.put("Malamutes", malamutes);
+
+    dogListMap.put("goldenRetrievers", goldenRetrievers);
+    dogListMap.put("alaskanMalamutes", alaskanMalamutes);
 
     System.out.println(dogListMap);
+    System.out.println(dogListMap.get(alaskanMalamutes));         // NULL
+    System.out.println(dogListMap.get(goldenRetrievers));         // NULL
+
+    System.out.println(dogListMap.get("alaskanMalamutes"));       // [Dog (name = Philip, age = 3), Dog (name = Fiona, age = 1)]
+    System.out.println(dogListMap.get("goldenRetrievers"));      // [Dog (name = Felix, age = 4), Dog (name = Pheobe, age = 5)]
+
+    // System.out.println(dogListMap.get(Husky))                          // NULL
+    // System.out.println(dogListMap.get(Husky).get(0).getName());        // java.lang.NullPointerException
 
     // Question 3:  Convert Cat Array into Cat ArrayList, then print out all Cat names.
     Cat[] catArray = new Cat[] {new Cat("Kelly", 3), new Cat("Oscar", 10)};
@@ -106,6 +131,9 @@ public class DemoHashSet {
       catArrayList.add(cat);
     }
     System.out.println(catArrayList);
+    for (Cat cat : catArrayList) {
+      System.out.println(cat.getName());     // Kelly, Oscar
+    }
 
   }
 }

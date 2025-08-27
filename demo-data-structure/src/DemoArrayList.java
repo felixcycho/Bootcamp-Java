@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class DemoArrayList {
   public static void main(String[] args) {
@@ -115,6 +116,15 @@ public class DemoArrayList {
     for (Cat cat : cats) {
       System.out.println(cat.getName());          // Peter, Leo
     }
+
+    // ! Interface: List
+    // ! Polymorphism: List is an interface of ArrayList, List<X> is also the interface of ArrayList<X>.
+    // ArrayList<Long> has no relationship with ArrayList<Integer>.
+    List<String> names2 = new ArrayList<>();     // new ArrayList<>() implicitly defines the type of left side (i.e. List <String>)
+    // List<String> names3 = new ArrayList<Integer> ()       // invalid, because no relationship
+    names2.add("John");
+    names2.add("Sue");
+
 
   }
 }
