@@ -29,7 +29,7 @@ public abstract class Hero {
 
   private static int idCounter = 0;
 
-    // state or attribute
+  // state or attribute
   private int hp;    // hp 會變動, 所以需要 define as attribute.
   // Attribute 本義, 是用於儲存位置.
   // Otherwise, if hp is static, no need to define as attribute,
@@ -46,53 +46,55 @@ public abstract class Hero {
   // private Stave stave;
   
   // Constructor
-  public Hero() {
+  public Hero(int maxHp, int maxMp) {      // Parameters: maxHp, maxMp
+  // In this case, if id is used as parameter, it means that user may decide the id by himself.
     this.id = ++idCounter;
     this.level = 1;
-    this.hp = Heros.MAX_HP[0];
-    this.mp = Heros.MAX_MP[0];
+    this.hp = maxHp;        
+    this.mp = maxMp;        
     this.exp = 0.0;
-    // this.role = null;           同上解釋
   }
 
   // Setter
-  public void levelUp() {
+  public void levelUp(int maxHp, int maxMp) {
     this.level++;
-    this.recoverHp(hp);
-    this.recoverMp(mp);
-    this.exp++;
+    this.hp = maxHp;
+    this.mp = maxMp;
+    this.exp = 0.0;
   }
 
+  // Setter
+  public void setHp(int hp) {
+    this.hp = hp;
+  }
+
+  // Setter
+  public void setMp(int mp) {
+    this.mp = mp;
+  }
+
+  // Setter
+  public void setExp(double exp) {
+    this.exp = exp;
+  }
   // Setter
   public void recoverHp(int hp) {
-    this.hp = Heros.MAX_HP[this.level - 1];
+    this.hp = hp;
   }
 
   // Setter
   public void recoverMp(int mp) {
-    this.mp = Heros.MAX_MP[this.level - 1];
+    this.mp = mp;
   }
 
   // Setter
   public void deductHp(int deductedHp) {
     // if (this.hp >= deductedHp) {
-      // this.hp = this.hp - deductedHp;
+    //   this.hp = this.hp - deductedHp;
     // } else {
-      // this.hp = 0;
+    //   this.hp = 0;
     // }
     this.hp = Math.max(this.hp - deductedHp, 0);    // Math.max 用於兩者取其大數.
-  }
-
-  public void attack(Hero hero) {
-    int deductedHp = Math.max(this.getPhyAttack() - hero.getPhyDefense(), 0);
-    hero.deductHp(deductedHp);
-    if (!hero.isAlive()) {
-      double addedExp = Heros.calcAddedExp(hero.getLevel());
-      this.exp = BigDecimal.valueOf(this.exp).add(BigDecimal.valueOf(addedExp)).doubleValue();
-      if (this.exp >= Heros.MAX_EXP[this.level - 1]) {
-        this.levelUp();
-      }
-    }
   }
 
   // Getter
@@ -108,15 +110,15 @@ public abstract class Hero {
     return this.mp;
   }
 
-  public int getPhyAttack() {
-    return Heros.PHY_ATTACK[this.level - 1];
-    // this setter cannot be defined as static, because 有 this.level
-  }
+  // public int getPhyAttack() {
+  //  return Heros.PHY_ATTACK[this.level - 1];
+  // this setter cannot be defined as static, because 有 this.level
+  // }
 
-  public int getPhyDefense() {
-    return Heros.PHY_DEFENSE[this.level - 1];
-    // this setter cannot be defined as static, because 有 this.level
-  }
+  // public int getPhyDefense() {
+  //  return Heros.PHY_DEFENSE[this.level - 1];
+  // this setter cannot be defined as static, because 有 this.level
+  // }
   
   public double getExp() {
     return this.exp;
@@ -130,7 +132,7 @@ public abstract class Hero {
 
   // instance method can call static things..
   public int getMaxHp() {
-    return Heros.getMaxHp(this.level);
+    return Heros.getMaxHp(Heros.getRole(this), this.level);
   }
 
   // Getter
@@ -157,7 +159,7 @@ public abstract class Hero {
 
   public static void main(String[] args) {
   //  Hero h1 = new Hero();                      invalid, because Hero class is abstracted.
-    Warrier h1 = new Warrier();
+    Warrior h1 = new Warrior();
     System.out.println(h1.getLevel());
     System.out.println(h1.getPhyAttack());
     System.out.println(h1.getHp());

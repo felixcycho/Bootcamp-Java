@@ -4,12 +4,12 @@ public class Recurve extends Bow {          // Recurve 反曲之弓
 
   @Override
   public double getPhyAttack() {
-    return 1.0;
+    return Bows.PHY_ATTACK[0] [super.getLevel() - 1];
   }
 
   @Override
   public double getMagicAttack() {
-    return 1.0;
+    return Bows.MAG_ATTACK[0] [super.getLevel() - 1];
   }
 
   @Override
