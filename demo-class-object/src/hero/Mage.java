@@ -9,7 +9,7 @@ public class Mage extends Hero {
     super(Heros.MAX_HP[MY_ROLE][0], Heros.MAX_HP[MY_ROLE][0]);
   }
 
-  public void setSword(Stave stave) {
+  public void setStave(Stave stave) {
     this.stave = stave;
   }
 
@@ -35,11 +35,11 @@ public class Mage extends Hero {
         target, //
         Heros.MAX_HP[MY_ROLE][super.getLevel()], //
         Heros.MAX_MP[MY_ROLE][super.getLevel()], //
-        this.getMagicAttack(), //
-        target.getMagicDefense());
+        this.getMagAttack(), //
+        target.getMagDefense());
   }
 
-  public int getMagicAttack() {
+  public int getMagAttack() {
     return Heros.MAG_ATTACK[MY_ROLE][super.getLevel() - 1];
   }
 

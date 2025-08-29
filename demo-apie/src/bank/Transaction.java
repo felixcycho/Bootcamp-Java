@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 public class Transaction {
   // attribute 不可 looping, e.g. bank 指向 transaction, transaction 再指回 bank.
   // 否則, 有機會出錯, e.g. HSBC transaction 無故指向 恆生.
+  // In this case, transaction 指向 Transaction time, 則只可由 transaction 找出 time, 不能用 time 反向找出 transaction.
 
   // attribute
   private static int acctIdCounter = 0;

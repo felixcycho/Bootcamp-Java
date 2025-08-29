@@ -15,18 +15,31 @@ import java.util.Queue;
 //   LinkedList:  address is bi-directionally arrowed by another address.
 //   Linkedlist:  唯一橫跨 List 與 Queue 兩大 Interfaces, 所以 LinkedList 同時具備 List 與 Queue 的 Skills 及 Contracts.
 public class DemoLinkedList {
-  private Person person;          // Person 是 Class (Object), 而 person 則是 attribute.
-  private String name;            // Person 指向 person, 亦指向 name.
+  // private Person person;          // Person 是 Class (Object), 而 person 則是 attribute.
+  // private String name;            // Person 指向 person, 亦指向 name.
+
+  // public Person (String name, Person person) {
+  //  this.person = person;
+  //  this.name = name;
+  // }
+
+  // public Person getPerson() {
+  //  return this.person;
+  // }
+
+  // public String getName() {
+  //  return this.name;
+  // }
 
   public static void main(String[] args) {
     // Lucas -> Leo -> Sue -> Jennie -> Mary
     Person p1 = new Person("Lucas", new Person("Leo",   //
       new Person("Sue", new Person("Jennie", new Person("Mary", null)))));
     
-      System.out.println(p1.getName());                                             // Lucas
-      System.out.println(p1.getPerson());                                           // Person@54bedef2
-      System.out.println(p1.getPerson().getName());                                 // Leo
-      System.out.println(p1.getPerson().getPerson().getPerson().getName());         // Jennie
+    System.out.println(p1.getName());                                             // Lucas
+    System.out.println(p1.getPerson());                                           // Person@54bedef2
+    System.out.println(p1.getPerson().getName());                                 // Leo
+    System.out.println(p1.getPerson().getPerson().getPerson().getName());         // Jennie
 
     // Use loop to count the number of persons.
     // for (Object : Array) can only be applicable in Array, ArrayList, HashSet.
@@ -59,8 +72,7 @@ public class DemoLinkedList {
     personList.add(new Person2("Lucas"));
     personList.add(new Person2("Mary"));
 
-    personList = new LinkedList<>();
-    //System.out.println(getFirstPerson(personList).getName());     // Lucas
+    System.out.println(getFirstPerson(personList).getName());     // Lucas
 
     // ArrayList 較直接 access to targeted Object / address, 較 LinkedList 少走 looping.
     ArrayList<Shape> shapes = new ArrayList<>();
@@ -82,7 +94,7 @@ public class DemoLinkedList {
     // ! Queue / Deque
     // Queue 永遠也 First-In-First-Out (FIFO), 不可 Last-In-First-Out (LIFO)
     // Deque 除了 FIFO, 也可 LIFO
-    Queue <String> names = new LinkedList<>();
+    Queue<String> names = new LinkedList<>();
     names.add("John");
     names.add("Leo");
     names.add("Lucas");
@@ -94,7 +106,7 @@ public class DemoLinkedList {
     System.out.println(names.size());            // 2
     System.out.println(names.isEmpty());         // false
 
-    Queue <String> names1 = new ArrayDeque<>();    // LinkedList or ArrayDeque
+    Queue<String> names1 = new ArrayDeque<>();    // LinkedList or ArrayDeque
     names1.add("John");
     names1.add("Leo");
     names1.add("Lucas");
@@ -115,12 +127,12 @@ public class DemoLinkedList {
     // Queue is not for looping
     // Queue is for consume (消耗)
     // Queue is FIFO.
-    // while (!names1.isEmpty()) {
+    // while (!names.isEmpty()) {
     //   System.out.println(names.poll());        // NULL (indefinite loop)
     // }
 
     // List 只能 get 與 add, 不能 consume.
-    Deque <String> nameDeque = new LinkedList<>();    // ArrayList or LinkedList
+    Deque<String> nameDeque = new LinkedList<>();    // ArrayList or LinkedList
     nameDeque.add("Vincent");
     nameDeque.add("Steven");       // add to tail
     nameDeque.add("Tracy");        // add to tail
@@ -138,9 +150,6 @@ public class DemoLinkedList {
     while (!nameDeque.isEmpty()) {
       System.out.println(nameDeque.poll());     // Vincent  Steven  Tracy (verticle)
     }
-
-
-
   }
 
     // get the head of list, if not found, return null.
@@ -151,7 +160,7 @@ public class DemoLinkedList {
   }
 
   // static method: List<Shape> --> calculate total area
-  public static double totalArea(Collection <Shape> shapes) {
+  public static double totalArea(Collection<Shape> shapes) {
     BigDecimal total = BigDecimal.ZERO;
     for (Shape shape : shapes) {
       total = total.add(BigDecimal.valueOf(shape.area()));

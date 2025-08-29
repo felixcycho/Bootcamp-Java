@@ -111,8 +111,16 @@ public final class Heros {
     return role;
   }
 
-  public static void attack(Hero self, Hero target, int maxHp, int maxMp, int selfPhyAttack, int targetPhyDefense) {
-    int deductedHp = Math.max(selfPhyAttack - targetPhyDefense, 0);
+  public static void attack(Hero self, Hero target, int maxHp, int maxMp, 
+    int selfPhyAttack, int targetPhyDefense, int selfMagAttack, int targetMagDefense) {
+    
+    if (role == Heros.MAGE) {
+      // Use magic attack for Mages
+        int deductedHp = Math.max(self.getMagicAttack() - target.getMagDefense(), 0);
+    } else {
+        int deductedHp = Math.max(selfPhyAttack - targetPhyDefense, 0);
+    }
+  
     target.deductHp(deductedHp);
     if (!target.isAlive()) {
       double addedExp = Heros.calcAddedExp(Heros.getRole(target), target.getLevel());
