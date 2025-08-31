@@ -7,7 +7,7 @@ package src.abstraction;
 // ! Interface, 用意在於 限制無限可能性, 以加強 readability (可閱讀性).
 // ! 然而, 當 Class 指向 Interface, 則延伸被封印的無限可能性.
 
-public class Superman extends Human implements Flyable, Eatable {
+public class Superman extends Human implements Flyable {
   // private String name;
 
   // public Superman(String name) {
@@ -40,14 +40,14 @@ public class Superman extends Human implements Flyable, Eatable {
   public static void main (String[] args) {
 
     Superman s1 = new Superman("John");
-    s1.fly();
-    s1.eat();
+    s1.fly();                            // Superman class implements Flyable class, thus have fly().
+    s1.eat();                            // Superman origins from Human, and Human class implements Eatable, thus have eat().
     Superman s2 = new Superman("Lucas");
-    s2.fly();
-    s2.eat();
+    s2.fly();                            // same as s1
+    s2.eat();                            // same as s2
 
     // Polymorphism
-    // ! "Hide" Superman Objectg "Skill"
+    // ! "Hide" Superman Object "Skill"
     Flyable superman = new Superman("Leo");         // Flyable does not have eat()
     // In this case, Superman("Leo") ability of eat() is being blocked.
     // Superman("Leo") can just fly, not eat.
@@ -67,11 +67,13 @@ public class Superman extends Human implements Flyable, Eatable {
     System.err.println(superman2.getName());          // Leo
     System.out.println(superman2);                    // src.abstraction.Suprman@816f27d
     System.out.println(superman2.getName());          // Leo
+    superman2.eat();                                  // superman2 is now Superman, Superman extends human, thus have eat().
+    superman2.fly();                                  // superman2 is now Superman, Superman implements Flyable, thus have fly().
 
     Human superman3 = new Superman("Steven");         // Human 是 Parent, parent class 永遠少技能於 Child class.
     System.out.println(superman3.getName());          // Steven
     superman3.eat();
-    // superman3.fly();                               // superman cannot call fly(), because Human only implements Eatable.
+    // superman3.fly();                               // superman3 cannot call fly(), because Human only implements Eatable.
 
     Eatable[] humans = new Eatable[3];         // Eatable only have skill eat(), but Human may also extends its skills in future.
     // Eatable human11111 = new Eatable;       // invalid

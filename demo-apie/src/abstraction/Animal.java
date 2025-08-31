@@ -1,35 +1,38 @@
 package src.abstraction;
 
-public class Animal implements Survivable {
+public abstract class Animal implements Survivable {
+  private String name;
+  private String gender;
+  private String species;
+  private String subSpecies;
+  private int age;
 
-  @Override
-  public void sleep() {
-
+  public Animal(String species, String subSpecies, String name, String gender, int age) {
+    this.species = species;
+    this.subSpecies = subSpecies;
+    this.name = name;
+    this.gender = gender;
+    this.age = age;
   }
 
-  @Override
-  public void eat() {
-
+  public String getSpecies() {
+    return this.species;
   }
 
-  @Override
-  public void drink() {
-
+  public String getSubSpecies() {
+    return this.subSpecies;
   }
 
-  public void run() {
-
+  public String getGender() {
+    return this.gender;
   }
 
-
-  public static void main(String[] args) {
-    Survivable[] animals = new Survivable[3];
-    for (Survivable animal : animals) {
-      animal.drink();             // Survivable has drink().
-      animal.eat();               // Survivable has eat().
-      animal.sleep();             // Survivable has sleep().
-    //  animal.run();             invalid, because Survivable does not have run().
-
-    }
+  public String getName() {
+    return this.name;
   }
+
+  public int getAge() {
+    return this.age;
+  }
+
 }

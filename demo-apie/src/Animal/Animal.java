@@ -33,7 +33,7 @@ public abstract class Animal {     // abstract 代表 虛構, 所以不能 add n
   }
 
   public int getAge() {
-    System.out.println("Animal getAge ");
+    // System.out.println("Animal getAge");
     return this.age;
   }
 
@@ -41,20 +41,23 @@ public abstract class Animal {     // abstract 代表 虛構, 所以不能 add n
     this.age = age;
   }
 
+  // @Override              // invalid, intro() must override or implement a supertype method.
   public String intro() {
     return "This is " + this.name + ", and " + this.age + " years old.";
-  }
+   }
 
   // 緊記, Parent Class 一樣要 @Override, 否則會影響 Child Classes.
-  @Override
+  // @Override
   public String toString() {
     return "("     //
       + "name = " + this.name    //
-      + ", weight = " + this.age    //
+      + ", age = " + this.age    //
       + ")";
   }
+
   // public static void main(String[] args) {
   //   new Animal ("John", 3);
   // }
+
 }
 

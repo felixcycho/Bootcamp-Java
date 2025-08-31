@@ -34,6 +34,7 @@ public class Cat extends Animal {    // Child (Cat), Parent (Animal)
    // Child instance method call Parent instance method
   public int getAge() {
     System.out.println("Cat getAge");
+    // return this.age;           // invalid, age is invisible outside Parent class Animal.
     return super.getAge();
   }
 
@@ -51,32 +52,33 @@ public class Cat extends Animal {    // Child (Cat), Parent (Animal)
       return false;
     }
     // Step 3: Because obj MUST be a cat object, this becomes non-risky.
-    Cat cat = (Cat) obj;
+    Cat otherCat = (Cat) obj;
     // Step 4: this.name is stored in Parent Class, thus use super to call name.
     // return Objects.equals(super.toString(), this.toString());
-    return Objects.equals(super.getName(), cat.getName()) //
-        && Objects.equals(super.getAge(), cat.getAge()) //
-        && Objects.equals(this.weight, cat.getWeight());
+    return Objects.equals(super.getName(), otherCat.getName()) //
+        && Objects.equals(super.getAge(), otherCat.getAge()) //
+        && Objects.equals(this.weight, otherCat.getWeight());
         
     // Step 4: this.name is stored in Parent Class, thus use super to call name.
-    // return super.getName().equals(cat.getName())  //
-    //    && super.getAge() == cat.getAge()       //
-    //    && this.weight == cat.getWeight();
+    // return super.getName().equals(otherCat.getName())  //
+    //    && super.getAge() == otherCat.getAge()       //
+    //    && this.weight == otherCat.getWeight();
   }
     
-  @Override
-  public String toString() {
-    return "Cat (" //
-      + "Animal = " + super.toString()    //
-      + ", age = " + super.getAge()    //
-      + ", weight = " + this.weight    //
-      + ")";
-  }
-
   @Override    // Checking if your Parent Class has this method.
   public int hashCode() {
     return Objects.hash(this.weight, super.getAge(), super.getName());
   }
+
+  // if lack of the following @Override, printout 會變亂碼.
+  @Override
+  public String toString() {
+    return "Cat (" //
+      + "Name = " + super.toString()    //
+      + ", age = " + super.getAge()    //
+      + ", weight = " + this.weight    //
+      + ")";
+    }
   
   public static void main(String[] args) {
     Cat c1 = new Cat("John", 8, 4.5);
@@ -88,6 +90,11 @@ public class Cat extends Animal {    // Child (Cat), Parent (Animal)
     System.out.println(c1);
     System.out.println(c2);
 
+    System.out.println(c1.intro());
+    System.out.println(c2.intro());
+
+    System.out.println(c1.toString());
+    System.out.println(c2.toString());
   }
 
 }

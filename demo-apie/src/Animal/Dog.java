@@ -30,26 +30,27 @@ public class Dog extends Animal {
       return false;
     }
     // Step 3: Because obj MUST be a cat object, this becomes non-risky.
-    Dog dog = (Dog) obj;
+    Dog otherDog = (Dog) obj;
     // Step 4: this.name is stored in Parent Class, thus use super to call name.
-    return super.getName().equals(dog.getName())  //
-        && super.getAge() == dog.getAge()       // check String 是否相等, 需要用 .equal()
-        && this.isMale == dog.isMale();
-  }
-
-  @Override
-  public String toString() {
-    return "Dog (" //
-      + "Animal = " + super.toString()    //
-      + ", age = " + super.getAge()    //
-      + ", isMale = " + this.isMale    //
-      + ")";
+    return super.getName().equals(otherDog.getName())  //
+        && super.getAge() == otherDog.getAge()       // check String 是否相等, 需要用 .equal()
+        && this.isMale == otherDog.isMale();
   }
 
   @Override    // Checking if your Parent Class has this method.
   public int hashCode() {
     return Objects.hash(this.isMale, super.getAge(), super.getName());
   }
+
+  @Override
+    public String toString() {
+      return "Dog (" //
+      + "Name = " + super.getName()    //
+      + ", age = " + super.getAge()    //
+      + ", isMale = " + this.isMale    //
+      + ")";
+    }
+
   
 
   public static void main(String[] args) {
@@ -59,6 +60,13 @@ public class Dog extends Animal {
 
     System.out.println(d1);
     System.out.println(d2);
+
+    System.out.println(d1.toString());
+    System.out.println(d2.toString());
+
+    System.out.println(d1.intro());
+    System.out.println(d2.intro());
+
   }
 
 }
