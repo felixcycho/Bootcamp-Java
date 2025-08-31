@@ -20,9 +20,9 @@ public class DemoHashSet {
     // remove Leo
     names.remove("Leo");                  // the same Object as "Leo" above
     names.remove(new String("John"));     // new Object, not the same Object as "John" above
-    // In this case, if [new String("John")] is not equals() to John above,
-    // then java implicitly defines [new String("John")] as address,
-    // as a result, "John" cannot be removed.
+    // In this case, even though [new String("John")] is not equals() to John above,
+    // then java implicitly defines [new String("John")] as same object because of same address ("John".equals("John")),
+    // as a result, "John" can be removed.
     System.out.println(names.size());         // 0
 
     // ! HashSet vs ArrayList
@@ -31,7 +31,7 @@ public class DemoHashSet {
     names.add("Oscar");
     names.add("Jacky");
     names.add("Oscar");      // duplicated
-    names.add("oscar");
+    names.add("oscar");      // "oscar" is different from "Oscar"
     System.out.println(names.size());         // 3
     System.out.println(names);                // [oscar, Jacky, Oscar] (randomly sequenced)
     // because HashSet disallow duplicated objects automatically.
@@ -51,12 +51,14 @@ public class DemoHashSet {
     // because ArrayList can store duplicated objects.
 
     cats.remove(new Cat("Kelly"));     // Failure to remove
-    System.out.println(cats.size());                           // 3 (if missing equals() in Cat Class)
-                                                               // 2 (add equals() in Cat Class)
+    System.out.println(cats.size());                           // 2 (because add equals() in Cat Class)
+                                                               // 3 (if missing equals() in Cat Class)
+                                                               
     cats.remove(new Cat("Kelly"));
-    System.out.println(cats.size());                           // 3 (if missing equals() in Cat Class)
-                                                               // 1 (add equals() in Cat Class)
-    // remove fail, because missing equals() in Cat.class
+    System.out.println(cats.size());                           // 1 (because add equals() in Cat Class)
+                                                               // 3 (if missing equals() in Cat Class)
+                                                               
+    // remove fail, if missing method @Override equals() in Cat.class
 
     Cat c1 = new Cat("Susan");
     cats.add(c1);

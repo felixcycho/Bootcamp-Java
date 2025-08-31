@@ -33,6 +33,7 @@ public class DemoHashMap {
     // If the key tyoe is String / Wrapper Class, you don't need rewrite equals().
 
     List<Dog> dogs = new ArrayList<>();
+    // dogs.add(Dog("Leo", 3));          // invalid, method Dog(String, int) is not defined in Class DemoHashMap
     dogs.add(new Dog("Leo", 3));
     dogs.add(new Dog("Steven", 4));
     dogs.add(new Dog("Oscar", 4));
@@ -44,6 +45,10 @@ public class DemoHashMap {
     System.out.println(dogMap.get(new Dog("Oscar", 4)));       // Oscar and 4
     // "Oscar and 4", because override hashCode and equals().
     // Java 會視同具有 Dog("Oscar", 4) 的所有 dogs, 為同一 Object.
+    System.out.println(dogMap.get(new Dog("Oscar", 7)));       // null
+    System.out.println(dogMap.get("Oscar"));                   // null
+    // System.out.println(dogMap.get(Dog("Oscar", 4)));           
+       // invalid, method Dog(String, int) is not defined in Class DemoHashMap
 
 
 

@@ -34,9 +34,9 @@ public class Cat {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (!(o instanceof Cat)) return false;
-      Cat cat = (Cat) o;
-      // System.out.println(cat);             // 1ms 起跳, 每次運行此句, 會令系統崩潰.
-      return Objects.equals(this.name, cat.getName())
+    Cat cat = (Cat) o;
+    // System.out.println(cat);             // 1ms 起跳, 每次運行此句, 會令系統崩潰.
+    return Objects.equals(this.name, cat.getName())
         && Objects.equals(this.age, cat.getAge());
   }
 

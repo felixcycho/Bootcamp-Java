@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -79,7 +80,7 @@ public class DemoLinkedList {
     shapes.add(new Circle(3.2));
     shapes.add(new Square(2.5));
     shapes.add(new Circle(6.1));
-    System.out.println(totalArea(shapes));      // 155.31857141283567
+    System.out.println(totalArea(shapes));      // 155.32
     System.out.println(shapes.get(2));          // Circle@65b54208
     System.out.println(shapes.size());          // 3
 
@@ -87,7 +88,7 @@ public class DemoLinkedList {
     shapes1.add(new Circle(3.2));
     shapes1.add(new Square(2.5));
     shapes1.add(new Circle(6.1));
-    System.out.println(totalArea(shapes1));      // 155.31857141283567
+    System.out.println(totalArea(shapes1));      // 155.32
     System.out.println(shapes1.get(2));          // Circle@1be6f5c3
     System.out.println(shapes1.size());          // 3
 
@@ -100,23 +101,23 @@ public class DemoLinkedList {
     names.add("Lucas");
     System.out.println(names);                   // [John, Leo, Lucas]
     System.out.println(names.size());            // 3
-    names.poll();                   // retrieves and removes
-    // names.pollLast();            // invalid, because Queue cannot LIFO.
+    names.poll();                                // retrieves and removes the 1st element.
+    // names.pollLast();                         // invalid, because Queue cannot LIFO.
     System.out.println(names);                   // [Leo, Lucas]
     System.out.println(names.size());            // 2
     System.out.println(names.isEmpty());         // false
 
-    Queue<String> names1 = new ArrayDeque<>();    // LinkedList or ArrayDeque
+    Queue<String> names1 = new ArrayDeque<>();    // Queue may be a LinkedList or ArrayDeque
     names1.add("John");
     names1.add("Leo");
     names1.add("Lucas");
     System.out.println(names1);                   // [John, Leo, Lucas]
     System.out.println(names1.size());            // 3
-    names1.poll();                   // retrieves and removes
+    names1.poll();                                // retrieves and removes the 1st element by default.
     System.out.println(names1);                   // [Leo, Lucas]
     System.out.println(names1.size());            // 2
     System.out.println(names1.isEmpty());         // false
-    names1.remove();
+    names1.remove();                              // retrieves and removes the 1st element by default.
     System.out.println(names1);                   // [Lucas]
     
 
@@ -150,9 +151,10 @@ public class DemoLinkedList {
     while (!nameDeque.isEmpty()) {
       System.out.println(nameDeque.poll());     // Vincent  Steven  Tracy (verticle)
     }
+    System.out.println(nameDeque.size());       // 0
   }
 
-    // get the head of list, if not found, return null.
+  // get the head of list, if not found, return null.
   public static Person2 getFirstPerson(List<Person2> persons) {
     if (persons == null || persons.size() == 0) 
       return null;
@@ -165,7 +167,7 @@ public class DemoLinkedList {
     for (Shape shape : shapes) {
       total = total.add(BigDecimal.valueOf(shape.area()));
     }
-    return total.doubleValue();
+    return total.setScale(2, RoundingMode.HALF_UP).doubleValue();
   }
 
 }

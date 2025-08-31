@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class DemoArrayList {
@@ -6,8 +7,14 @@ public class DemoArrayList {
     String[] names = new String[] {"Alex", "Jessie", "Jennie"};
 
     for (String name : names) {
-      System.out.println(name);
+      System.out.println(name);       // Alex, Jessie, Jennie (vertical)
     }
+    System.out.println(names);                    // 亂碼
+    System.out.println(names.toString());         // 依然亂碼
+    System.out.println(Arrays.toString(names));   // [Alex, Jessie, Jennie]
+
+    System.out.println(names.length);       // 3
+    // names.remove(new String("Alex"));    // invalid, cannot invoke remove(String) on array.
     
     // Disadvantage of array
     // 1. We need to re-create a new array, if we need to add new element. 
@@ -33,6 +40,8 @@ public class DemoArrayList {
     for (String bookName : bookNames) {
       System.out.println(bookName);
     }
+    System.out.println(bookNames);                           // [ABC, DEF, GHI]
+    System.out.println(bookNames.size());                    // 3
     // ArrayList 提升 readability, 以及 speed of writing codes.
     String s = "hello";    // s 是 address, "hello" 是 object. 
     // address 指向 object, 因此可透過 address, 去找出 object.
@@ -53,13 +62,13 @@ public class DemoArrayList {
     }
     System.out.println("There are " + countA + " books starting with 'A' in bookNames.");
 
-    int countA1 = 0;
+    countA = 0;
     for (String bookName : bookNames) {
       if (bookName.startsWith("A")) {
-         countA1++;
+         countA++;
       }
     }
-    System.out.println("There are " + countA1 + " books starting with 'A' in bookNames.");
+    System.out.println("There are " + countA + " books starting with 'A' in bookNames.");
 
     // ! ArrayList is in order, because the underlying data structure is an array.
     bookNames.add("MNO");
@@ -99,10 +108,12 @@ public class DemoArrayList {
     // ! We cannot put primitives into ArrayList.
     // ArrayList<int>
     ArrayList<Integer> integers = new ArrayList<>();    // That's why we need Wrapper Class
-    integers.add(1);
-    integers.add(2);
-    integers.add(3);
+    integers.add(1);               // add 1 on 1st element
+    integers.add(2);               // add 2 on 2nd element
+    integers.add(3);               // add 3 on 3rd element
     System.out.println(integers);
+    integers.remove(2);                        // remove the 3rd element
+    System.out.println(integers);              // [1, 2]
 
     // ArrayList<Cat>
     // loop cat.getName()
@@ -111,11 +122,15 @@ public class DemoArrayList {
     cats.add(c1);
     c1.setName("Peter");
 
-    cats.add(new Cat("Leo"));
+    cats.add(new Cat("Leo", 100));
 
     for (Cat cat : cats) {
       System.out.println(cat.getName());          // Peter, Leo
     }
+    Dog d1 = new Dog("Felix", 4);
+    // cats.add(d1);                              // invalid, Dog object cannot be added into Cat Array nor ArrayList.
+
+
 
     // ! Interface: List
     // ! Polymorphism: List is an interface of ArrayList, List<X> is also the interface of ArrayList<X>.
@@ -125,6 +140,13 @@ public class DemoArrayList {
     names2.add("John");
     names2.add("Sue");
 
+    for (String name : names2) {
+      System.out.println(name);         // John, Sue (vertical)
+    }
+    System.out.println(names2);         // [John, Sue]
+
+    names2.remove(new String("John"));
+    System.out.println(names2);         // [Sue]
 
   }
 }
