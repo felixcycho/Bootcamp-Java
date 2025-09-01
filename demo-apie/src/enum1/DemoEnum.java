@@ -33,14 +33,17 @@ public class DemoEnum {
     OrderStatus o1 = OrderStatus.PREPARING;
     System.out.println(o1.getValue());         // 2
     System.out.println(o1);                    // PREPARING
-    System.out.println(o1.next());             // DELIVERING
-    System.out.println(o1.next().next());      // DELIVERED
+    // System.out.println(o1.next());          // DELIVERING
+    // System.out.println(o1.next().next())    // DELIVERED
+    o1 = o1.next();
+    System.out.println(o1);                    // DELIVERING
+    o1 = o1.next();
+    System.out.println(o1);                    // DELIVERED
 
     OrderStatus o2 = OrderStatus.PAID;
     System.out.println(o2);                    // PAID
-    o2.cancel();
-    System.out.println(o2);                    // PAID
-    System.out.println(o2.cancel());           // CANCELLED
+    o2 = o2.cancel();
+    System.out.println(o2);           // CANCELLED
 
     OrderStatus o3 = OrderStatus.DELIVERING;
     System.out.println(o3);                    // DELIVERING
