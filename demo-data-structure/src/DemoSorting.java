@@ -13,9 +13,11 @@ public class DemoSorting {
     passengers.add(new Passenger1(20));
     passengers.add(new Passenger1(42));
     passengers.add(new Passenger1(27));
+    passengers.add(new Passenger1(74));
     passengers.add(new Passenger1(29));
     passengers.add(new Passenger1(2));
     passengers.add(new Passenger1(7));
+    passengers.add(new Passenger1(77));
 
     for (Passenger1 p : passengers) {
       System.out.println(p);
@@ -24,16 +26,16 @@ public class DemoSorting {
     Collections.sort(passengers);       // Comparable: passengers
 
     System.out.println(passengers);
-      // [Passenger (72, 42, 29, 27, 20, 7, 2)]
+      // [Passenger (77, 74, 72, 42, 29, 27, 20, 7, 2)]
 
     // Example: Array.sort
-    Passenger1[] passengerArr = new Passenger1[] {new Passenger1(2), new Passenger1(7), new Passenger1(29),
-                                                  new Passenger1(27), new Passenger1(42), new Passenger1(20),
+    Passenger1[] passengerArr = new Passenger1[] {new Passenger1(2), new Passenger1(7), new Passenger1(77), new Passenger1(29),
+                                                  new Passenger1(27), new Passenger1(42), new Passenger1(20), new Passenger1(74),
                                                   new Passenger1(72)};
     Arrays.sort(passengerArr);
     // ! Array.sort() --> object.compareTo
     System.out.println(Arrays.toString(passengerArr));
-    // [Passenger (70, 66, 45, 10, 2)]
+    // [Passenger (77, 74, 72, 42, 29, 27, 20, 7, 2)]
 
     // String[] --> Arrays.sort
     // String[] --> List<String> --> Collections.sort()

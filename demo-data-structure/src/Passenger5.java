@@ -74,25 +74,48 @@ public class Passenger5 {
     pq.add(new Passenger5(72));
     pq.add(new Passenger5(74));
     pq.add(new Passenger5(77));
+    pq.add(7, new Passenger5(92));
+    pq.addFirst(new Passenger5(94));
+    pq.addLast(new Passenger5(4));
     System.out.println(pq);
+    System.out.println(pq.size());
+    pq.set(1, new Passenger5(47));
+    System.out.println(pq);
+
+    System.out.println(pq.get(7));
+    System.out.println(pq);
+    
+    
     System.out.println(pq.remove(0));
     System.out.println(pq.remove(0));
     System.out.println(pq.remove(0));    
+    System.out.println(pq.remove(4));
     System.out.println(pq.remove(0));
     System.out.println(pq.remove(0));
     System.out.println(pq.remove(0));
     System.out.println(pq.remove(0));
     System.out.println(pq.remove(0));
-    System.out.println(pq.remove(0));
+    System.out.println(pq.removeFirst());
+    System.out.println(pq.removeLast());
+    
     System.out.println(pq);
     pq.add(new Passenger5(7));
     pq.add(new Passenger5(29));
     pq.add(new Passenger5(72));
     System.out.println(pq);
+    System.out.println(pq.remove(1));    
+    System.out.println(pq.remove(2));
     System.out.println(pq.remove(0));    
     System.out.println(pq.remove(0));
-    System.out.println(pq.remove(0));    
-    System.out.println(pq.remove(0));
+    System.out.println(pq);
+
+    pq.clear();
+    System.out.println(pq);
+    System.out.println(pq.size());
+
+    // System.out.println(pq.remove(0));       // invalid, IndexOutOfBoundsException
+
+    
 
   }
 }

@@ -88,11 +88,27 @@ public class Passenger2 implements Comparable<Passenger2> {
     pq.add(new Passenger2(7));
     pq.add(new Passenger2(29));
     pq.add(new Passenger2(72));
+    System.out.println(pq);                   // [Passenger (72, 7, 29, 49)]
+    System.out.println(pq.size());            // 4
+    System.out.println(pq.peek());            // Passenger (72)
+    System.out.println(pq);                   // [Passenger (72, 7, 29, 49)]
+    System.out.println(pq.remove());          // Passenger (72)
+    System.out.println(pq.poll());            // Passenger (7)
+    System.out.println(pq.poll());            // Passenger (29)
+    System.out.println(pq.poll());            // Passenger (49)
+    System.out.println(pq.size());            // 0
+    System.out.println(pq.poll());            // null
+    System.out.println(pq.size());            // 0
+
+    pq.add(new Passenger2(94));
+    pq.add(new Passenger2(92));
+    pq.add(new Passenger2(2));
+    pq.add(new Passenger2(4));
     System.out.println(pq);
-    System.out.println(pq.poll());    
-    System.out.println(pq.poll());
-    System.out.println(pq.poll());    
-    System.out.println(pq.poll());
+
+    pq.clear();
+    System.out.println(pq);                   // []
+    System.out.println(pq.size());            // 0
 
   }
 }

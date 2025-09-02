@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -74,16 +75,30 @@ public class Passenger3 {
     pq.add(new Passenger3(72));
     pq.add(new Passenger3(74));
     pq.add(new Passenger3(77));
-    System.out.println(pq);
-    System.out.println(pq.remove(0));
-    System.out.println(pq.remove(2));
-    System.out.println(pq.remove(4));    
-    System.out.println(pq);
-    pq.add(new Passenger3(7));
+    System.out.println(pq);                   // [Passenger (42, 42, 49, 2, 49, 27, 72, 72, 74, 77)]
+    System.out.println(pq.remove(0));         // Passenger (42)
+    System.out.println(pq.remove(2));         // Passenger (2)
+    System.out.println(pq.remove(4));         // Passenger (72)
+    System.out.println(pq);                   // [Passenger (42, 49, 49, 27, 72, 74, 77)]
+    pq.add(new Passenger3(7));                
     pq.add(new Passenger3(29));
     pq.add(new Passenger3(72));
-    System.out.println(pq);
+    System.out.println(pq);                   // [Passenger (42, 49, 49, 27, 72, 74, 77, 7, 29, 72)]
+    System.out.println(pq.add(new Passenger3(92)));       // true
+    System.out.println(pq);                   // [Passenger (42, 49, 49, 27, 72, 74, 77, 7, 29, 72, 92)]
+    System.out.println(pq.size());            // 11
+    pq.add(2, new Passenger3(94));
+    System.out.println(pq);                   // [Passenger (42, 49, 94, 49, 27, 72, 74, 77, 7, 29, 72, 92)]
+    pq.set(3, new Passenger3(94));
+    System.out.println(pq);                   // [Passenger (42, 49, 94, 94, 27, 72, 74, 77, 7, 29, 72, 92)]
 
+    System.out.println(pq.get(7));            // Passenger (77)
+    System.out.println(pq.getFirst());        // Passenger (42)
+    System.out.println(pq.getLast());         // Passenger (92)
+    System.out.println(pq);                   // [Passenger (42, 49, 94, 94, 27, 72, 74, 77, 7, 29, 72, 92)]
+    
+    pq.clear();
+    System.out.println(pq);                   // []
 
   }
 }
