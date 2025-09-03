@@ -50,14 +50,5 @@ public class DemoHashMap {
     // System.out.println(dogMap.get(Dog("Oscar", 4)));           
        // invalid, method Dog(String, int) is not defined in Class DemoHashMap
 
-
-
-
-
-
-
-
-
-
   }
 }

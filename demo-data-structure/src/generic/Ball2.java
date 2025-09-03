@@ -1,3 +1,5 @@
+package generic;
+
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -72,6 +74,7 @@ public class Ball2 implements Comparable<Ball2> {
     balls.add(new Ball2(Color.YELLOW, 29));
     balls.add(new Ball2(Color.YELLOW, 22));
     balls.add(new Ball2(Color.BLUE, 49));
+    
     while (!balls.isEmpty()) {
       System.out.println(balls.poll());                      // Ball (color = BLUE), ..., Ball (color = YELLOW) (vertical)
                                                              // 四行亂碼 (if no toString())  

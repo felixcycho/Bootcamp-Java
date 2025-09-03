@@ -1,10 +1,11 @@
+package generic;
+
 import java.util.PriorityQueue;
 import java.util.Queue;
 
 // PriorityQueue 需要有 Comparable<> 陪襯, 否則不能運行.
 public class Ball implements Comparable<Ball> {
   private Color color;
-  private int value;
 
   // constructor
   public Ball(Color color) {
@@ -33,14 +34,12 @@ public class Ball implements Comparable<Ball> {
   return -1;
   }
 
-
   @Override
   public String toString() {
     return "Ball (" 
          + "color = " + this.color
          + ")";
   }
-
 
   public static void main(String[] args) {
     // final ordering: BLUE RED YELLOW
@@ -62,11 +61,6 @@ public class Ball implements Comparable<Ball> {
                                                                     // 四行亂碼 (if no toString())  
                                                                     // poll() --> compareTo()
     }
-
-
-
-
-
 
   }
 }

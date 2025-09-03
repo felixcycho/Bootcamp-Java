@@ -1,3 +1,4 @@
+package generic;
 // ! Bag<Object> vs. Bag<T>
 // Bag<Object> means Bag has attribute Object.
 

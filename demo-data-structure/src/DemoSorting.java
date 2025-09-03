@@ -5,6 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import generic.Ball2;
+import generic.Color;
+import generic.Passenger1;
 
 public class DemoSorting {
   public static void main(String[] args) {
@@ -22,6 +25,7 @@ public class DemoSorting {
     for (Passenger1 p : passengers) {
       System.out.println(p);
     }
+    // Example: Collections.sort
     // ! sort() --> merge sort (loop) --> Override compareTo
     Collections.sort(passengers);       // Comparable: passengers
 
@@ -58,7 +62,5 @@ public class DemoSorting {
     // ! PriorityQueue + Comparator
     Queue<Ball2> bq = new PriorityQueue<>(new SortByColor());
     
-
-
   }
 }

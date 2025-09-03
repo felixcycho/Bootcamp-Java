@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
+import generic.Ball2;
+import generic.Color;
+import generic.Passenger2;
 
 // Generic 用途, 就是減少 Class 數量
 public class DemoGeneric {
@@ -29,17 +32,6 @@ public class DemoGeneric {
     for (Ball2 b : balls) {
       System.out.println(b.getColor());
     }
-
-    
-    
-
-
-
-
-
-
-
-
 
   }
 }

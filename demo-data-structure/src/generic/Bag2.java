@@ -1,3 +1,5 @@
+package generic;
+
 public class Bag2 {
   private Object object;
 
@@ -8,8 +10,5 @@ public class Bag2 {
   public Object getObject() {
     return this.object;
   }
-
-
-
 
 }
