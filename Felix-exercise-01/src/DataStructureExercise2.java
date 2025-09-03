@@ -228,17 +228,16 @@ public class DataStructureExercise2 {
       System.out.println("Current page: " + (currentPage4 != null ? currentPage4 : "None"));
       System.out.println("Choose an operation: 1) Back, 2) Forward, 3) Visit new page, 4) Exit. ");
       int choice4 = scanner.nextInt();
-      scanner.nextLine();               // consume the newline character
 
       switch (choice4) {
         case 1:               // backward
-          if (!browserHistory4.isEmpty()) {
-            if (currentPage4 != null) {
+          if (currentPage4 != null) {
               browserHistory4.addFirst(currentPage4);       // save current page
-            }
+          }
+          if (!browserHistory4.isEmpty()) {
             currentPage4 = browserHistory4.pollLast();      // go back to the last page
           } else {
-              System.out.println("No history to go back to.");
+            System.out.println("No history to go back to.");
           }
           break;
 
@@ -256,9 +255,9 @@ public class DataStructureExercise2 {
           currentPage4 = newWebPage4;                    // visit new webpage
           break;
         
-        case 4:                  // exit
+        case 4:                  // stop current process
           System.out.println("Exit.");
-          return;
+          break;
         
         default:
           System.out.println("Invalid choice. Please try again.");
@@ -304,7 +303,7 @@ public class DataStructureExercise2 {
     // 7c. Print the inversed map.
     System.out.println("Inversed Map (Capital -> Country): " + capitalToCountry);
     
-     // Exercise 8: HashMap with Multiple Values
+    // Exercise 8: HashMap with Multiple Values
     // 8a. Create a HashMap<String, ArrayList<String>> to store subjects taken by each student.
     // 8b. Add:
     //      "Alice" -> ["Math", "Science"]
