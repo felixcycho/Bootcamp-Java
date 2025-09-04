@@ -1,4 +1,5 @@
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -13,11 +14,17 @@ public class DataStructureExercise2 {
   public static class Student {
     private int id;
     private String name;
+    private String subject;
     
     // Constructor
     public Student (int id, String name) {
       this.id = id;
       this.name = name;
+    }
+
+    public Student (String name, String subject) {
+      this.name = name;
+      this.subject = subject;
     }
 
     // getters
@@ -27,6 +34,10 @@ public class DataStructureExercise2 {
 
     public String getName() {
       return this.name;
+    }
+
+    public String getSubject() {
+      return this.subject;
     }
 
     // setters
@@ -111,6 +122,19 @@ public class DataStructureExercise2 {
   //   return true;  
   // }
 
+  // Answer for Question 5
+
+  // Answer for Question 8
+  public static List<String> getStudentsTakingMath(Map<String, List<String>> map) {
+    List<String> studentsTakingMath = new ArrayList<>();
+    for (String student : map.keySet()) {
+      if (map.get(student).contains("Math")) {
+        studentsTakingMath.add(student);
+      }
+    }
+    return studentsTakingMath;
+  }
+
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
@@ -121,26 +145,52 @@ public class DataStructureExercise2 {
     List<Integer> integers1 = new LinkedList<Integer>();
     boolean isEndedUp1 = false;
     while (!isEndedUp1) {
-      System.out.println("Please input an integer (if finished press a or A): ");
-      String input1 = scanner.nextLine();
-      if (input1.equalsIgnoreCase("A")) {
+      System.out.println("Please input A if addition, B for removal, C for end: ");
+      String inputString1 = scanner.nextLine();
+      if (inputString1.equalsIgnoreCase("C")) {
         isEndedUp1 = true;
         System.out.println("The input is ended.");
-      } else if (isInteger(input1)) {
-        Integer inputInteger = convertToInt(input1);
+        System.out.println(integers1);
+        break;
+      } 
+      else if (inputString1.equalsIgnoreCase("A")) {
+        System.out.println("Please input an integer: ");
+        String inputInteger1 = scanner.nextLine();
+        Integer inputInteger = convertToInt(inputInteger1);
         integers1.add(inputInteger);
-      } else {
+        System.out.println(integers1);
+        continue;
+      } 
+      else if (inputString1.equalsIgnoreCase("B")) {
+        System.out.println
+          ("Please input an index of integers removed: 0 to " + (integers1.size() - 1));
+        Integer inputInteger1 = scanner.nextInt();
+        if (inputInteger1 != null && inputInteger1 < integers1.size() ) {
+          System.out.println("Removed: " 
+            + integers1.remove(inputInteger1)); // Remove the first element
+          System.out.println(integers1);
+        } else if (inputInteger1 == null) {
+          System.out.println("Queue is empty.");
+        } else {
+          System.out.println("Invalid input. " +
+            "Please enter an integer from 0 to " + (integers1.size() - 1));
+        }
+        continue;
+      } 
+      else {
         System.out.println("Invalid input. Please enter an integer.");
+        continue;
       }
     }
-    System.out.println(integers1);
 
     // 1c. Print the head of the queue without removing it.
-    System.out.println(integers1.get(0));
+    System.out.println("Please input an integer to check index: ");
+    int inputInteger1 = scanner.nextInt();
+    System.out.println(integers1.get(inputInteger1));
 
     // 1d. Remove two elements from the queue.
-    System.out.println(integers1.remove(0));
-    System.out.println(integers1.remove(0));
+    // System.out.println(integers1.remove(0));
+    // System.out.println(integers1.remove(0));
 
     // 1e. Print the remaining queue and its size.
     System.out.println(integers1);
@@ -224,10 +274,12 @@ public class DataStructureExercise2 {
     String currentPage4 = null;
     
     // simulate navigation
-    while (true) {
+    boolean exitNavigation4 = false;        // flag to control loop exit
+    while (!exitNavigation4) {
       System.out.println("Current page: " + (currentPage4 != null ? currentPage4 : "None"));
-      System.out.println("Choose an operation: 1) Back, 2) Forward, 3) Visit new page, 4) Exit. ");
+      System.out.println("Choose an operation: 1) Back, 2) Forward, 3) Visit new page, 4) Exit.");
       int choice4 = scanner.nextInt();
+      scanner.nextLine();
 
       switch (choice4) {
         case 1:               // backward
@@ -255,33 +307,53 @@ public class DataStructureExercise2 {
           currentPage4 = newWebPage4;                    // visit new webpage
           break;
         
+        // case 4:                  // stop current process
+        //   System.out.println("Exit.");
+        //   return;           // to exit the navigation loop cleanly
+          // System.exit(0)             // to stop the whole programme, not suggested
+        
         case 4:                  // stop current process
           System.out.println("Exit.");
-          break;
+          exitNavigation4 = true;
+          break;           // to exit the navigation loop cleanly
+          // System.exit(0)             // to stop the whole programme, not suggested
         
         default:
           System.out.println("Invalid choice. Please try again.");
           continue;
       }
+
       System.out.println("Current page after operation: " + currentPage4);
     }
 
 
     // Exercise 5: Word Frequency Counter
     // 5a. Create a method `countWordFrequency(String text)` that uses a HashMap<String, Integer>.
-
-    // 5b. The method should split the text by spaces and count occurrences of each word.
     // Example input: "apple banana apple orange banana apple"
+    System.out.println("Please input a string with spaces: ");
+    String string5 = scanner.nextLine();
+    // 5b. The method should split the text by spaces and count occurrences of each word.
+    String[] words5 = string5.trim().split("\\s+");
+    HashMap<String, Integer> wordCountMap5 = new HashMap<String, Integer>();
+    for (String word : words5) {
+      wordCountMap5.put(word, wordCountMap5.getOrDefault(word, 0) + 1);
+    }
     // Output: {apple=3, banana=2, orange=1}
     // 5c. Print the word with the highest frequency.
+    System.out.println(wordCountMap5);
 
     // Exercise 6: Student Directory with HashMap
     // 6a. Create a HashMap<Integer, Student> where key = student ID, value = Student object.
+    Map<Integer, Student> studentMap6 = new HashMap<Integer, Student>();
     // Add the following students:
     // ID: 1, Name: Alice
     // ID: 2, Name: Bob
     // ID: 3, Name: Charlie
     // ID: 4, Name: David
+    studentMap6.put(1, new Student(1, "Alice"));
+    studentMap6.put(2, new Student(2, "Bob"));
+    studentMap6.put(3, new Student(3, "Charlie"));
+    studentMap6.put(4, new Student(4, "David"));
     // 6b. Write a method to search for a student by ID.
     // 6c. Write a method to remove a student by ID.
     // 6d. Print all student names in alphabetical order.
@@ -305,24 +377,32 @@ public class DataStructureExercise2 {
     
     // Exercise 8: HashMap with Multiple Values
     // 8a. Create a HashMap<String, ArrayList<String>> to store subjects taken by each student.
+    
+    Map<String, List<String>> studentMap8 = new HashMap<String, List<String>>();
     // 8b. Add:
     //      "Alice" -> ["Math", "Science"]
     //      "Bob" -> ["History"]
     //      "Charlie" -> ["Math", "English"]
+    studentMap8.put("Alice", new ArrayList<>());
+    studentMap8.get("Alice").add("Math");
+    studentMap8.get("Alice").add("Science");
+
+    studentMap8.put("Bob", new ArrayList<>());
+    studentMap8.get("Bob").add("History");
+
+    studentMap8.put("Charlie", new ArrayList<>());
+    studentMap8.get("Charlie").add("Math");
+    studentMap8.get("Charlie").add("English");
     // 8c. Add "English" to Bob’s subjects.
+    studentMap8.get("Bob").add("English");
     // 8d. Print each student with their subjects.
+    System.out.println("Students and their subjects:");
+      for (String student : studentMap8.keySet()) {
+        System.out.println(student + " -> " + studentMap8.get(student));
+      }
     // 8e. Write a method to return all students taking "Math".
-  
-
-
-
-
-
-
-
-
-
-
+    List<String> mathStudents = getStudentsTakingMath(studentMap8);
+    System.out.println("Students taking Math: " + mathStudents);
 
   }
 }

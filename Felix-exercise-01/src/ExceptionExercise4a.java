@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 public class ExceptionExercise4a {
-    // Follow the instructions below to complete the User Registration Process.
+  
+  // Follow the instructions below to complete the User Registration Process.
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
 
@@ -13,7 +14,7 @@ public class ExceptionExercise4a {
 
     System.out.print("Enter email: ");
     String email = scanner.nextLine();
-    // scanner.close();
+    scanner.close();
     
     // code here ...
     // call method registerUser(), handle the exception to print "User Registeration is Fail."
@@ -31,6 +32,27 @@ public class ExceptionExercise4a {
   public static class UserRegistrationException extends RuntimeException {
     // code here ...
     public UserRegistrationException(String message) {
+      super(message);
+    }
+  }
+
+  public static class InvalidUsernameException extends RuntimeException {
+    // code here ...
+    public InvalidUsernameException(String message) {
+      super(message);
+    }
+  }
+
+  public static class InvalidPasswordException extends RuntimeException {
+    // code here ...
+    public InvalidPasswordException(String message) {
+      super(message);
+    }
+  }
+
+  public static class InvalidEmailException extends RuntimeException {
+    // code here ...
+    public InvalidEmailException(String message) {
       super(message);
     }
   }
