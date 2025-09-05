@@ -2,7 +2,6 @@ public interface Flyable {
   void fly();
   // ! Traditionally, we create a class to create an object with fly() method.
 
-
   public static void main(String[] args) {
     Flyable superman = new Flyable() {          
     // 原則上, Interface 不可 new, 但這種例外, 於 runtime 去 define a object.

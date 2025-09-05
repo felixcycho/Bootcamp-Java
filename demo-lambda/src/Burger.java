@@ -1,5 +1,4 @@
 import java.util.Objects;
-import src.Shape.Square;
 
 public class Burger {
   private String meat;

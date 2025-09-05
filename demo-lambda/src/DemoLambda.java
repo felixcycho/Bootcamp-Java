@@ -1,8 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
+import java.util.function.BiPredicate;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class DemoLambda {
   public static void main(String[] args) {
@@ -67,10 +72,56 @@ public class DemoLambda {
     BiFunction<Integer, Integer, Integer> multiplyFormula = (x, y) -> x * y;
     System.out.println(multiplyFormula.apply(7, 4));                           // 28
 
-    // 3. Consumer
+    // 3. Consumer (1 input -> 0 output)
     Consumer<String> stringPrinter = s -> System.out.println(s + " hello!");
     stringPrinter.accept("John");
     
+    // 4. BiConsumer
+    BiConsumer<String, String> longerStringFormula = (s1, s2) -> {
+      if (s1.length() > s2.length()) {
+        System.out.println(s1);
+        return;
+      }
+      System.out.println(s2);
+    };
+    longerStringFormula.accept("hello ", "Steven");
+
+    // 5. Supplier (0 input -> 1 output)
+    // Random number generator (1 - 100)
+    // T get()
+    // Supplier 作用, 就是將 static method 當作 variable 用. 否則, 需要另外再寫 static method.
+    Supplier<Integer> randomNumberGenerator = () -> new Random().nextInt(100) + 1;      // (0 - 99) + 1
+    System.out.println(randomNumberGenerator.get());
+
+    // 6. Predicate (boolean formula)
+    // age > 65
+    // boolean test(T t);
+    Predicate<Person> elderlyDefinition = p -> p.getAge() > 65;
+    System.out.println(elderlyDefinition.test(new Person(66)));                      // true
+    System.out.println(elderlyDefinition.test(new Person(65)));                      // false
+
+    BiPredicate<Person, Person> bothElderly 
+      = (p1, p2) -> elderlyDefinition.test(p1) && elderlyDefinition.test(p2);
+    System.out.println(bothElderly.test(new Person(72), new Person(74)));            // true
 
   }
+
+  public static int generateRandomNumber() {
+    return new Random().nextInt(100) + 1;
+  }
+
+  public static class Person {
+    private int age;
+
+    public Person(int age) {
+      this.age = age;
+    }
+
+    public int getAge() {
+      return this.age;
+    }
+  }
+
+
 }
+

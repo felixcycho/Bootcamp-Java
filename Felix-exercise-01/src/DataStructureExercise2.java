@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.jar.Attributes.Name;
 
 public class DataStructureExercise2 {
 
@@ -180,7 +181,7 @@ public class DataStructureExercise2 {
         // continue;
       } 
       else {
-        System.out.println("Invalid input. Please enter an integer.");
+        System.out.println("Invalid input. Please enter A for addition, B for removal, C for end.");
         // continue;
       }
     }
@@ -188,6 +189,7 @@ public class DataStructureExercise2 {
     // 1c. Print the head of the queue without removing it.
     System.out.println("Please input an integer to check index: ");
     int inputInteger1 = scanner.nextInt();
+    scanner.nextLine();
     System.out.println(integers1.get(inputInteger1));
 
     // 1d. Remove two elements from the queue.
@@ -204,15 +206,51 @@ public class DataStructureExercise2 {
     boolean isEndedUp2 = false;
     // Add the following customers: "Alice", "Bob", "Charlie", "David".
     while (!isEndedUp2) {
-      System.out.println("Please input customer name: (if finished press a or A)");
-      String inputCustomer2 = scanner.nextLine().trim();
-      //  if (inputCustomer2 == "a" || inputCustomer2 == "A") {     // 繼續 indefinite loop
-      //  if (inputCustomer2.equals("A") || inputCustomer2.equals("a")) {          // success
-      if (inputCustomer2.equalsIgnoreCase("a")) {
+      System.out.println("Please input A if addition, B for removal, C for end: ");
+      // if (inputCustomer2 == "a" || inputCustomer2 == "A") {     // 繼續 indefinite loop
+      // if (inputCustomer2.equals("A") || inputCustomer2.equals("a")) {          // success
+      // if (inputCustomer2.equalsIgnoreCase("a")) {
+      //   isEndedUp2 = true;
+      //   System.out.println("Input is ended.");
+      // } else {
+      //     bankCustomers2.add(inputCustomer2);
+      // }
+      String inputString2 = scanner.nextLine();
+      if (inputString2.equalsIgnoreCase("C")) {
         isEndedUp2 = true;
-        System.out.println("Input is ended.");
-      } else {
-          bankCustomers2.add(inputCustomer2);
+        System.out.println("The input is ended.");
+        System.out.println(bankCustomers2);
+        break;
+      } 
+      else if (inputString2.equalsIgnoreCase("A")) {
+        System.out.println("Please input a customer name: ");
+        String inputCustomer2 = scanner.nextLine().trim();
+        bankCustomers2.add(inputCustomer2);
+        System.out.println(bankCustomers2);
+        // continue;
+      } 
+      else if (inputString2.equalsIgnoreCase("B")) {
+        System.out.println
+          ("Please input an index of integers removed: 0 to " + (bankCustomers2.size() - 1));
+        Integer inputInteger2 = scanner.nextInt();
+        scanner.nextLine();
+        if (inputInteger2 != null && inputInteger2 < bankCustomers2.size() ) {
+          int intRemovedIndex2 = inputInteger2;
+          Integer integerRemovedIndex2 = intRemovedIndex2;
+          // String NameRemoved2 = bankCustomers2.remove(integerRemovedIndex2);              // cannot convert boolean into String
+          System.out.println("Removed: " + bankCustomers2.remove(intRemovedIndex2));     // Remove the first element
+          System.out.println(bankCustomers2);
+        } else if (inputInteger2 == null) {
+          System.out.println("Queue is empty.");
+        } else {
+          System.out.println("Invalid input. " +
+            "Please enter an integer from 0 to " + (bankCustomers2.size() - 1));
+        }
+        // continue;
+      } 
+      else {
+        System.out.println("Invalid input. Please enter A for addition, B for removal, C for end.");
+        // continue;
       }
     } 
     System.out.println(bankCustomers2);
@@ -220,32 +258,32 @@ public class DataStructureExercise2 {
     // 2b. Serve (remove) the first two customers.
     // System.out.println(bankCustomers2.remove(0));     // false
     // System.out.println(bankCustomers2.remove(0));     // false
-    bankCustomers2.remove();
-    bankCustomers2.remove();
+    // bankCustomers2.remove();
+    // bankCustomers2.remove();
 
     // 2c. Print the remaining customers in the queue.
-    System.out.println(bankCustomers2);
+    // System.out.println(bankCustomers2);
 
     // 2d. Add two new customers: "Eva", "Frank".
-    isEndedUp2 = false;
-    while (!isEndedUp2) {
-      System.out.println("Please input customer name: (if finished press a or A)");
-      String inputCustomer2 = scanner.nextLine().trim();
-      //  if (inputCustomer2 == "a" || inputCustomer2 == "A") {     // 繼續 indefinite loop
-      //  if (inputCustomer2.equals("A") || inputCustomer2.equals("a")) {          // success
-        if (inputCustomer2.equalsIgnoreCase("a")) {
-          isEndedUp2 = true;
-          System.out.println("Input is ended.");
-        } else {
-            bankCustomers2.add(inputCustomer2);
-        }
-    } 
-    System.out.println(bankCustomers2);
+    // isEndedUp2 = false;
+    // while (!isEndedUp2) {
+    //  System.out.println("Please input customer name: (if finished press a or A)");
+    //    String inputCustomer2 = scanner.nextLine().trim();
+      //   if (inputCustomer2 == "a" || inputCustomer2 == "A") {     // 繼續 indefinite loop
+      //   if (inputCustomer2.equals("A") || inputCustomer2.equals("a")) {          // success
+    //     if (inputCustomer2.equalsIgnoreCase("a")) {
+    //       isEndedUp2 = true;
+    //       System.out.println("Input is ended.");
+    //     } else {
+    //         bankCustomers2.add(inputCustomer2);
+    //     }
+    // } 
+    // System.out.println(bankCustomers2);
 
     // 2e. Write a method that processes the queue until it is empty, printing each served customer.
-    while (bankCustomers2.size() != 0) {
-      System.out.println(bankCustomers2.remove());
-    }
+    // while (bankCustomers2.size() != 0) {
+    //   System.out.println(bankCustomers2.remove());
+    // }
 
     // Exercise 3: Palindrome Checker
     // 3a. Write a method `isPalindrome(String word)` using a Deque<Character>.    
