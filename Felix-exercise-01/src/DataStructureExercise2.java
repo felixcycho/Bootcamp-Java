@@ -159,15 +159,17 @@ public class DataStructureExercise2 {
         Integer inputInteger = convertToInt(inputInteger1);
         integers1.add(inputInteger);
         System.out.println(integers1);
-        continue;
+        // continue;
       } 
       else if (inputString1.equalsIgnoreCase("B")) {
         System.out.println
           ("Please input an index of integers removed: 0 to " + (integers1.size() - 1));
         Integer inputInteger1 = scanner.nextInt();
+        scanner.nextLine();
         if (inputInteger1 != null && inputInteger1 < integers1.size() ) {
-          System.out.println("Removed: " 
-            + integers1.remove(inputInteger1)); // Remove the first element
+          int intRemovedIndex1 = inputInteger1;
+          Integer integerRemoved1 = integers1.remove(intRemovedIndex1);
+          System.out.println("Removed: " + integerRemoved1); // Remove the first element
           System.out.println(integers1);
         } else if (inputInteger1 == null) {
           System.out.println("Queue is empty.");
@@ -175,11 +177,11 @@ public class DataStructureExercise2 {
           System.out.println("Invalid input. " +
             "Please enter an integer from 0 to " + (integers1.size() - 1));
         }
-        continue;
+        // continue;
       } 
       else {
         System.out.println("Invalid input. Please enter an integer.");
-        continue;
+        // continue;
       }
     }
 
@@ -206,12 +208,12 @@ public class DataStructureExercise2 {
       String inputCustomer2 = scanner.nextLine().trim();
       //  if (inputCustomer2 == "a" || inputCustomer2 == "A") {     // 繼續 indefinite loop
       //  if (inputCustomer2.equals("A") || inputCustomer2.equals("a")) {          // success
-        if (inputCustomer2.equalsIgnoreCase("a")) {
-          isEndedUp2 = true;
-          System.out.println("Input is ended.");
-        } else {
-            bankCustomers2.add(inputCustomer2);
-        }
+      if (inputCustomer2.equalsIgnoreCase("a")) {
+        isEndedUp2 = true;
+        System.out.println("Input is ended.");
+      } else {
+          bankCustomers2.add(inputCustomer2);
+      }
     } 
     System.out.println(bankCustomers2);
 

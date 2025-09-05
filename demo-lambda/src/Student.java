@@ -12,7 +12,7 @@ public class Student {
   // }
 
   public int sum(int x, int y) {
-    // ! Method Local Inner Class
+    // ! Method Local Inner Class   (為學而學, 實際上沒有人會寫這樣 code)
     class Calculator {
       private int x;
       private int y;
