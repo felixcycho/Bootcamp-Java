@@ -1,14 +1,14 @@
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Queue;
 import java.util.Scanner;
-import java.util.jar.Attributes.Name;
+
 
 public class DataStructureExercise2 {
 
@@ -71,28 +71,45 @@ public class DataStructureExercise2 {
   }
 
   // Answer for Question 1:
-  private static boolean isInteger (String str) {
-    return str != null && str.matches("-?\\d+");
-  }
+  // private static boolean isInteger (String str) {
+  //   return str != null && str.matches("-?\\d+");
+  // }
 
   // Answer for Question 1:
-  private static Integer convertToInt(String str) {
+  private static boolean isValidInteger(String str) {
+    // Check for null or empty
     if (str == null || str.isEmpty()) {
-      throw new IllegalArgumentException("Input cannot be null or empty.");
+      return false;
     }
-    int num = 0;
-    boolean isNegative = str.startsWith("-");
+    // Check for valid integer format
+    if (str.startsWith("-")) {
+      // If negative, check the rest of the string
+      return str.length() > 1 && str.substring(1).chars().allMatch(Character::isDigit);
+    }
+    return str.chars().allMatch(Character::isDigit); // Check if all characters are digits
+  }
 
-    int startIndex = isNegative ? 1 : 0;
-
-    for (int i = startIndex; i < str.length(); i++) {
-      char chr = str.charAt(i);
-      if (!Character.isDigit(chr)) {
-        throw new IllegalArgumentException("Input string is not a valid integer.");
+  private static Integer convertToInt(String str) {
+    try {
+      if (str == null || str.isEmpty()) {
+        throw new IllegalArgumentException("Input cannot be null or empty.");
       }
-      num = num * 10 + (chr - '0');
+      int num = 0;
+      boolean isNegative = str.startsWith("-");
+      int startIndex = isNegative ? 1 : 0;
+      for (int i = startIndex; i < str.length(); i++) {
+        char chr = str.charAt(i);
+        if (!Character.isDigit(chr)) {
+          throw new IllegalArgumentException("Input string is not a valid integer.");
+        }
+        num = num * 10 + (chr - '0');
+      }
+      return isNegative ? -num : num;
+    } catch (IllegalArgumentException e) {
+        // Handle the exception (e.g., log it or print a message)
+        System.out.println("Error: " + e.getMessage());
+        return null; // Return null or a specific value to indicate failure
     }
-    return isNegative ? -num : num;
   }
 
   // Answer for Question 3:
@@ -125,6 +142,32 @@ public class DataStructureExercise2 {
 
   // Answer for Question 5
 
+  // Answer for Question 6
+  private Map<Integer, Student> studentMap = new HashMap<>();
+
+    public void putStudent(int id, String name) {
+        studentMap.put(id, new Student(id, name));
+    }
+
+    public Student getStudentById(int id) {
+        return studentMap.get(id);
+    }
+
+    public void removeStudentById(int id) {
+        studentMap.remove(id);
+    }
+
+    public void printStudentNamesInAlphabeticalOrder() {
+        List<String> studentNames = new ArrayList<>();
+        for (Student student : studentMap.values()) {
+            studentNames.add(student.getName());
+        }
+        Collections.sort(studentNames);
+        System.out.println(studentNames);
+        // for (String name : studentNames) {
+        //    System.out.println(name);
+        // }
+    }
   // Answer for Question 8
   public static List<String> getStudentsTakingMath(Map<String, List<String>> map) {
     List<String> studentsTakingMath = new ArrayList<>();
@@ -146,67 +189,101 @@ public class DataStructureExercise2 {
     List<Integer> integers1 = new LinkedList<Integer>();
     boolean isEndedUp1 = false;
     while (!isEndedUp1) {
-      System.out.println("Please input A if addition, B for removal, C for end: ");
+      System.out.println("Please input A to add integer, B to remove integer, "
+      + "C to check index, D to check list, E to end: ");
       String inputString1 = scanner.nextLine();
-      if (inputString1.equalsIgnoreCase("C")) {
+      if (inputString1.equalsIgnoreCase("E")) {
         isEndedUp1 = true;
         System.out.println("The input is ended.");
-        System.out.println(integers1);
+        System.out.println("The integer list is " + integers1);
         break;
       } 
+      else if (inputString1.equalsIgnoreCase("D")) {
+        System.out.println("The integer list is: " + integers1);
+        continue;
+      }
       else if (inputString1.equalsIgnoreCase("A")) {
-        System.out.println("Please input an integer: ");
-        String inputInteger1 = scanner.nextLine();
-        Integer inputInteger = convertToInt(inputInteger1);
-        integers1.add(inputInteger);
-        System.out.println(integers1);
-        // continue;
+        while(true) {
+          System.out.println("Please input an integer: (press E to exit)");
+          String inputInteger1 = scanner.nextLine();
+          if (inputInteger1.equalsIgnoreCase("e")) {
+            break;
+          }
+          if (!isValidInteger(inputInteger1)) {
+            System.out.println("Invalid input. ");
+            continue;
+          }
+          else {
+            Integer validInteger1 = convertToInt(inputInteger1);
+            integers1.add(validInteger1);
+            System.out.println(integers1);
+            continue;
+          }
+        }
       } 
       else if (inputString1.equalsIgnoreCase("B")) {
         System.out.println
           ("Please input an index of integers removed: 0 to " + (integers1.size() - 1));
-        Integer inputInteger1 = scanner.nextInt();
-        scanner.nextLine();
-        if (inputInteger1 != null && inputInteger1 < integers1.size() ) {
-          int intRemovedIndex1 = inputInteger1;
+        String inputInteger1 = scanner.nextLine();
+        if (!isValidInteger(inputString1)) {
+          System.out.println("Invalid input. ");
+          continue;
+        }
+        int validInteger1 = convertToInt(inputInteger1);
+        if (validInteger1 > integers1.size() - 1) {
+          System.out.println("Invalid input. ");
+          continue;
+        }
+        else {
+          int intRemovedIndex1 = validInteger1;
           Integer integerRemoved1 = integers1.remove(intRemovedIndex1);
           System.out.println("Removed: " + integerRemoved1); // Remove the first element
-          System.out.println(integers1);
-        } else if (inputInteger1 == null) {
-          System.out.println("Queue is empty.");
-        } else {
-          System.out.println("Invalid input. " +
-            "Please enter an integer from 0 to " + (integers1.size() - 1));
+          continue;
         }
-        // continue;
       } 
-      else {
-        System.out.println("Invalid input. Please enter A for addition, B for removal, C for end.");
-        // continue;
+      else if (inputString1.equalsIgnoreCase("C")) {
+        System.out.println("Please input an integer to check index "
+        + "from 0 to " + (integers1.size() - 1));
+        String inputInteger1 = scanner.nextLine();
+        if (!isValidInteger(inputInteger1)) {
+          System.out.println("Invalid input. ");
+          continue;
+        } 
+        int validInteger1 = convertToInt(inputInteger1);
+        if (validInteger1 >= integers1.size() ) {
+          System.out.println("Invalid input. ");
+          continue;
+        }
+        else {
+          int intCheckedIndex1 = validInteger1;
+          Integer integerChecked1 = integers1.get(intCheckedIndex1);
+          System.out.println("Checked: " + integerChecked1); // Remove the first element
+          continue;
+        }
       }
     }
 
     // 1c. Print the head of the queue without removing it.
-    System.out.println("Please input an integer to check index: ");
-    int inputInteger1 = scanner.nextInt();
-    scanner.nextLine();
-    System.out.println(integers1.get(inputInteger1));
+    // System.out.println("Please input an integer to check index: ");
+    // int inputInteger1 = scanner.nextInt();
+    // scanner.nextLine();
+    // System.out.println(integers1.get(inputInteger1));
 
     // 1d. Remove two elements from the queue.
     // System.out.println(integers1.remove(0));
     // System.out.println(integers1.remove(0));
 
     // 1e. Print the remaining queue and its size.
-    System.out.println(integers1);
-    System.out.println(integers1.size());
+    System.out.println("The list is: " + integers1);
+    System.out.println("The size of list is: " + integers1.size());
 
     // Exercise 2: Queue Simulation
     // 2a. Create a Queue of Strings representing customers in a bank line.
-    Queue<String> bankCustomers2 = new LinkedList<String>();
+    List<String> bankCustomers2 = new LinkedList<String>();
     boolean isEndedUp2 = false;
     // Add the following customers: "Alice", "Bob", "Charlie", "David".
     while (!isEndedUp2) {
-      System.out.println("Please input A if addition, B for removal, C for end: ");
+      System.out.println("Please input A to add customer, B to remove customer, C to end: ");
       // if (inputCustomer2 == "a" || inputCustomer2 == "A") {     // 繼續 indefinite loop
       // if (inputCustomer2.equals("A") || inputCustomer2.equals("a")) {          // success
       // if (inputCustomer2.equalsIgnoreCase("a")) {
@@ -223,12 +300,14 @@ public class DataStructureExercise2 {
         break;
       } 
       else if (inputString2.equalsIgnoreCase("A")) {
-        System.out.println("Please input a customer name: ");
-        String inputCustomer2 = scanner.nextLine().trim();
-        bankCustomers2.add(inputCustomer2);
-        System.out.println(bankCustomers2);
-        // continue;
-      } 
+        while (true) {
+          System.out.println("Please input a customer name: ");
+          String inputCustomer2 = scanner.nextLine().trim();
+          bankCustomers2.add(inputCustomer2);
+          System.out.println(bankCustomers2);
+          continue;
+        }
+      }
       else if (inputString2.equalsIgnoreCase("B")) {
         System.out.println
           ("Please input an index of integers removed: 0 to " + (bankCustomers2.size() - 1));
@@ -236,24 +315,24 @@ public class DataStructureExercise2 {
         scanner.nextLine();
         if (inputInteger2 != null && inputInteger2 < bankCustomers2.size() ) {
           int intRemovedIndex2 = inputInteger2;
-          Integer integerRemovedIndex2 = intRemovedIndex2;
-          // String NameRemoved2 = bankCustomers2.remove(integerRemovedIndex2);              // cannot convert boolean into String
-          System.out.println("Removed: " + bankCustomers2.remove(intRemovedIndex2));     // Remove the first element
+          String nameRemoved2 = bankCustomers2.remove(intRemovedIndex2);              // cannot convert boolean into String
+          System.out.println("Removed: " + nameRemoved2);     // Remove the first element
           System.out.println(bankCustomers2);
-        } else if (inputInteger2 == null) {
-          System.out.println("Queue is empty.");
         } else {
           System.out.println("Invalid input. " +
             "Please enter an integer from 0 to " + (bankCustomers2.size() - 1));
+            inputInteger2 = scanner.nextInt();
+            scanner.nextLine();
         }
-        // continue;
+        continue;
       } 
       else {
-        System.out.println("Invalid input. Please enter A for addition, B for removal, C for end.");
-        // continue;
+        System.out.println("Invalid input. ");
+        continue;
       }
     } 
-    System.out.println(bankCustomers2);
+    System.out.println("The list of customers is: " + bankCustomers2);
+    System.out.println("The size of customers list is: " + bankCustomers2.size());
 
     // 2b. Serve (remove) the first two customers.
     // System.out.println(bankCustomers2.remove(0));     // false
@@ -384,19 +463,25 @@ public class DataStructureExercise2 {
 
     // Exercise 6: Student Directory with HashMap
     // 6a. Create a HashMap<Integer, Student> where key = student ID, value = Student object.
-    Map<Integer, Student> studentMap6 = new HashMap<Integer, Student>();
+    DataStructureExercise2 studentManagement6 = new DataStructureExercise2();
     // Add the following students:
     // ID: 1, Name: Alice
     // ID: 2, Name: Bob
     // ID: 3, Name: Charlie
     // ID: 4, Name: David
-    studentMap6.put(1, new Student(1, "Alice"));
-    studentMap6.put(2, new Student(2, "Bob"));
-    studentMap6.put(3, new Student(3, "Charlie"));
-    studentMap6.put(4, new Student(4, "David"));
+    studentManagement6.putStudent(1, "Alice");
+    studentManagement6.putStudent(2, "Bob");
+    studentManagement6.putStudent(3, "Charlie");
+    studentManagement6.putStudent(4, "David");
     // 6b. Write a method to search for a student by ID.
+    studentManagement6.getStudentById(1);
+    studentManagement6.getStudentById(2);
+    studentManagement6.getStudentById(3);
+    studentManagement6.getStudentById(4);
     // 6c. Write a method to remove a student by ID.
+    studentManagement6.removeStudentById(4);
     // 6d. Print all student names in alphabetical order.
+    studentManagement6.printStudentNamesInAlphabeticalOrder();
 
     // Exercise 7: Inverse Mapping
     // 7a. Create a HashMap<String, String> mapping countries to capitals:
