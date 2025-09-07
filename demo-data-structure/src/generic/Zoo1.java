@@ -17,4 +17,18 @@ public class Zoo1 {
     return this.animals.add(animal);
   }
 
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder("Zoo1: ");
+    if (animals.isEmpty()) {
+      sb.append("No animals in Zoo.");
+    } else {
+        for (Animal animal : animals) {
+          sb.append(animal.getSpecies()).append(" (").append(animal.getName()).append("), ");
+        }
+          sb.setLength(sb.length() - 2); // Remove the last comma and space
+    }
+      return sb.toString();
+  }
+
 }
