@@ -84,7 +84,10 @@ public class DataStructureExercise2 {
     // Check for valid integer format
     if (str.startsWith("-")) {
       // If negative, check the rest of the string
-      return str.length() > 1 && str.substring(1).chars().allMatch(Character::isDigit);
+      // return str.length() > 1 
+      //       && str.substring(1).chars().allMatch(Character::isDigit);
+      return str.substring(1).chars().allMatch(Character::isDigit);
+        // if without str.length() > 1    -->  upon request to input index, 0 to -1 would be shown.
     }
     return str.chars().allMatch(Character::isDigit); // Check if all characters are digits
   }
@@ -195,7 +198,6 @@ public class DataStructureExercise2 {
       if (inputString1.equalsIgnoreCase("E")) {
         isEndedUp1 = true;
         System.out.println("The input is ended.");
-        System.out.println("The integer list is " + integers1);
         break;
       } 
       else if (inputString1.equalsIgnoreCase("D")) {
@@ -216,7 +218,7 @@ public class DataStructureExercise2 {
           else {
             Integer validInteger1 = convertToInt(inputInteger1);
             integers1.add(validInteger1);
-            System.out.println(integers1);
+            System.out.println(validInteger1 + " is added.");
             continue;
           }
         }
@@ -225,12 +227,12 @@ public class DataStructureExercise2 {
         System.out.println
           ("Please input an index of integers removed: 0 to " + (integers1.size() - 1));
         String inputInteger1 = scanner.nextLine();
-        if (!isValidInteger(inputString1)) {
+        if (!isValidInteger(inputInteger1)) {
           System.out.println("Invalid input. ");
           continue;
         }
         int validInteger1 = convertToInt(inputInteger1);
-        if (validInteger1 > integers1.size() - 1) {
+        if (validInteger1 > (integers1.size() - 1) || validInteger1 < 0) {
           System.out.println("Invalid input. ");
           continue;
         }
@@ -250,7 +252,7 @@ public class DataStructureExercise2 {
           continue;
         } 
         int validInteger1 = convertToInt(inputInteger1);
-        if (validInteger1 >= integers1.size() ) {
+        if (validInteger1 > (integers1.size() - 1) || validInteger1 < 0) {
           System.out.println("Invalid input. ");
           continue;
         }
@@ -260,6 +262,10 @@ public class DataStructureExercise2 {
           System.out.println("Checked: " + integerChecked1); // Remove the first element
           continue;
         }
+      }
+      else {
+        System.out.println("Invalid input. ");
+        continue;
       }
     }
 
@@ -283,7 +289,8 @@ public class DataStructureExercise2 {
     boolean isEndedUp2 = false;
     // Add the following customers: "Alice", "Bob", "Charlie", "David".
     while (!isEndedUp2) {
-      System.out.println("Please input A to add customer, B to remove customer, C to end: ");
+      System.out.println("Please input A to add customer, B to remove customer, "
+      + "C to check index, D to check list, E to end: ");
       // if (inputCustomer2 == "a" || inputCustomer2 == "A") {     // 繼續 indefinite loop
       // if (inputCustomer2.equals("A") || inputCustomer2.equals("a")) {          // success
       // if (inputCustomer2.equalsIgnoreCase("a")) {
@@ -293,39 +300,70 @@ public class DataStructureExercise2 {
       //     bankCustomers2.add(inputCustomer2);
       // }
       String inputString2 = scanner.nextLine();
-      if (inputString2.equalsIgnoreCase("C")) {
+      if (inputString2.equalsIgnoreCase("E")) {
         isEndedUp2 = true;
         System.out.println("The input is ended.");
-        System.out.println(bankCustomers2);
+        System.out.println("The customer list is " + bankCustomers2);
         break;
       } 
+      else if (inputString2.equalsIgnoreCase("D")) {
+        System.out.println("The customer list is: " + bankCustomers2);
+        continue;
+      }
       else if (inputString2.equalsIgnoreCase("A")) {
         while (true) {
-          System.out.println("Please input a customer name: ");
+          System.out.println("Please input a customer name: (Press E to exit)");
           String inputCustomer2 = scanner.nextLine().trim();
-          bankCustomers2.add(inputCustomer2);
-          System.out.println(bankCustomers2);
-          continue;
+          if (inputCustomer2.equalsIgnoreCase("E")) {
+            break;
+          }
+          else{
+            bankCustomers2.add(inputCustomer2);
+            System.out.println(inputCustomer2 + " is added.");
+            continue;
+          }
         }
       }
       else if (inputString2.equalsIgnoreCase("B")) {
         System.out.println
           ("Please input an index of integers removed: 0 to " + (bankCustomers2.size() - 1));
-        Integer inputInteger2 = scanner.nextInt();
-        scanner.nextLine();
-        if (inputInteger2 != null && inputInteger2 < bankCustomers2.size() ) {
-          int intRemovedIndex2 = inputInteger2;
-          String nameRemoved2 = bankCustomers2.remove(intRemovedIndex2);              // cannot convert boolean into String
-          System.out.println("Removed: " + nameRemoved2);     // Remove the first element
-          System.out.println(bankCustomers2);
-        } else {
-          System.out.println("Invalid input. " +
-            "Please enter an integer from 0 to " + (bankCustomers2.size() - 1));
-            inputInteger2 = scanner.nextInt();
-            scanner.nextLine();
+        String inputInteger2 = scanner.nextLine();
+        if (!isValidInteger(inputInteger2)) {
+          System.out.println("Invalid input. ");
+          continue;
         }
-        continue;
+        int validInteger2 = convertToInt(inputInteger2);
+        if (validInteger2 > (bankCustomers2.size() - 1) || validInteger2 < 0) {
+          System.out.println("Invalid input. ");
+          continue;
+        }
+        else {
+          int intRemovedIndex2 = validInteger2;
+          String customerRemoved2 = bankCustomers2.remove(intRemovedIndex2);
+          System.out.println("Removed: " + customerRemoved2); // Remove the first element
+          continue;
+        }
       } 
+      else if (inputString2.equalsIgnoreCase("C")) {
+        System.out.println("Please input an integer to check index "
+        + "from 0 to " + (bankCustomers2.size() - 1));
+        String inputInteger2 = scanner.nextLine();
+        if (!isValidInteger(inputInteger2)) {
+          System.out.println("Invalid input. ");
+          continue;
+        } 
+        int validInteger2 = convertToInt(inputInteger2);
+        if (validInteger2 > ( bankCustomers2.size() - 1) || validInteger2 < 0) {
+          System.out.println("Invalid input. ");
+          continue;
+        }
+        else {
+          int intCheckedIndex2 = validInteger2;
+          String customerChecked2 = bankCustomers2.get(intCheckedIndex2);
+          System.out.println("Checked: " + customerChecked2); // Remove the first element
+          continue;
+        }
+      }
       else {
         System.out.println("Invalid input. ");
         continue;
@@ -528,6 +566,8 @@ public class DataStructureExercise2 {
     // 8e. Write a method to return all students taking "Math".
     List<String> mathStudents = getStudentsTakingMath(studentMap8);
     System.out.println("Students taking Math: " + mathStudents);
+
+    scanner.close();
 
   }
 }

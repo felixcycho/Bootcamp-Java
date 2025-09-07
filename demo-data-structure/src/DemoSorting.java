@@ -33,9 +33,10 @@ public class DemoSorting {
       // [Passenger (77, 74, 72, 42, 29, 27, 20, 7, 2)]
 
     // Example: Array.sort
-    Passenger1[] passengerArr = new Passenger1[] {new Passenger1(2), new Passenger1(7), new Passenger1(77), new Passenger1(29),
-                                                  new Passenger1(27), new Passenger1(42), new Passenger1(20), new Passenger1(74),
-                                                  new Passenger1(72)};
+    Passenger1[] passengerArr = new Passenger1[] 
+                               {new Passenger1(2), new Passenger1(7), new Passenger1(77), new Passenger1(29),
+                                new Passenger1(27), new Passenger1(42), new Passenger1(20), new Passenger1(74),
+                                new Passenger1(72)};
     Arrays.sort(passengerArr);
     // ! Array.sort() --> object.compareTo
     System.out.println(Arrays.toString(passengerArr));
