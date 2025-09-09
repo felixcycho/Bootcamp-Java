@@ -1,7 +1,10 @@
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 // Stream, 是 for-loop 寫法
@@ -41,9 +44,9 @@ public class DemoStream {
     // collect to another list
     // ! Lambda --> Stream mode
     persons.stream()        // stream<Person>
-      .filter(p -> p.getAge() < 65)
-      .filter(p -> p.getName().startsWith("F"))
-      .forEach(p -> System.out.println(p.name));
+    .filter(p -> p.getAge() < 65)
+    .filter(p -> p.getName().startsWith("F"))
+    .forEach(p -> System.out.println(p.name));
 
     // filter + collect into another list
     // List<Person> -> Stream<Person> -> List<Person>
@@ -141,17 +144,36 @@ public class DemoStream {
     //.collect(Collectors.toSet());            // HashSet<Person>
     System.out.println(nameList);
 
-    List<String> nameList2 = persons.stream()   // Stream<Person>
-      .sorted()
-      .map(p -> p.getName())                   // Stream<String>, return this.name
-      .collect(Collectors.toList());           // List<String>
-    //.collect(Collectors.toSet());            // HashSet<Person>
-    System.out.println(nameList);
+    // Termination Operation
+    // collect(), foreach(), count()
+    List<String> names2 = new ArrayList<>();
+    names2.add("John");
+    names2.add("Peter");
+    long count 
+      = names2.stream()
+        .filter(e -> e.length() > 3)
+        .map(e -> e + "!!!")
+        .count();
+    System.out.println(count);
+
+    // ! Intermediate Operation (return Stream<>)
+    // filter(), map(), distinct(), sort()
+
+
+    List<String> nameList2 
+      = persons.stream()                         // Stream<Person>
+        //.sorted()                              // sorted() should be next to map()
+        .map(p -> p.getName())                   // Stream<String>, return this.name
+        .sorted()
+        .collect(Collectors.toList());           // List<String>
+      //.collect(Collectors.toSet());            // HashSet<Person>
+    System.out.println(nameList2);
 
     // List<Person> -> List<String>
     // Comparator<Person> sortedByAge
     //  = (p1, p2) -> p1.getAge() > p2.getAge() ? -1 : 1;
-    Comparator<Person> sortedByAge = (p1, p2) -> {
+    Comparator<Person> sortedByAge 
+    = (p1, p2) -> {
       if (p1.getAge() > p2.getAge())
         return -1;
       return 1;
@@ -162,6 +184,41 @@ public class DemoStream {
       .map(p -> p.getName())                     // Stream<String>
       .collect(Collectors.toList());             // List<String>
     System.out.println(nameList3);
+
+    // generate 6 random integer between 1 to 49
+    // these 6 integers should not be duplicated
+    Set<Integer> markSixSet = new HashSet<>();
+    Random random = new Random();
+
+    // Generate 6 distinct random integers
+    while (markSixSet.size() < 6) {
+      int randomNumber = random.nextInt(49) + 1;      // Generates a number between 1 and 49
+      markSixSet.add(randomNumber);                   // Set will ensure no duplicates
+    }
+    System.out.println(markSixSet);
+
+    List<Integer> markSixList = new ArrayList<>();
+    while (markSixList.size() < 6) {
+      // contains
+      int num = new Random().nextInt(49) + 1;                //  0 - 48 再加 1
+      if (!markSixList.contains(num)) {
+        markSixList.add(num);
+      }
+    }
+    System.out.println(markSixList);
+    
+    // distinct()
+    List<Character> characters = new ArrayList<>();
+    characters.add('b');
+    characters.add('a');
+    characters.add('b');
+
+    List<Character> uniqueCharacters
+    = characters.stream()                 // Stream<Character>
+      .distinct()                         // remove duplicated (equals())
+      .collect(Collectors.toList());
+    System.out.println(uniqueCharacters);
+
 
   }
 
