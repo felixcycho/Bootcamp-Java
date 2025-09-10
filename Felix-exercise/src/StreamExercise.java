@@ -961,12 +961,12 @@ public class StreamExercise {
     int sum17 = numbers17.parallelStream()
                 .mapToInt(Integer::intValue)
                 .sum();
-    System.out.println(sum17);                                                   // 55
+    System.out.println("The sum of 1 to 10 is: " + sum17);                                   // 55
         
     // Calculate the sum using a parallel stream 
     // (with synchronized thread)
     numbers17.parallelStream().forEach(number -> addToTotal(number));
-    System.out.println(totalSum);                                                // 55
+    System.out.println("The sum of 1 to 10 is: " + totalSum);                                // 55
     // Output: 55
     totalSum = 0;
         
@@ -986,13 +986,13 @@ public class StreamExercise {
         .flatMap(List::stream)              // Flatten the list of lists
         .filter(num -> num > 5)             // Filter numbers greater than 5
         .collect(Collectors.toSet());       // Collect results into a Set
-    System.out.println(uniqueIntegerSet18);
+    System.out.println("The list of unique integers: " + uniqueIntegerSet18);
         
     List<Integer> sortedIntegerList18
       = uniqueIntegerSet18.stream()
         .sorted()                           // sort the results
         .collect(Collectors.toList());
-    System.out.println(sortedIntegerList18);
+    System.out.println("The list of sorted integers: " + sortedIntegerList18);
     // Output: [6, 7, 8, 9]
         
         
@@ -1016,7 +1016,7 @@ public class StreamExercise {
       }
     }
     fruits19a.sort(String::compareTo);                // Sort in alphabetical order
-    System.out.println(fruits19a);
+    System.out.println("The fruit names by alphabetical order: " + fruits19a);
         
     // Remove and sort by stream
     List<String> distinctSortedFruits 
@@ -1024,7 +1024,7 @@ public class StreamExercise {
         .distinct()                                   // Remove duplicates
         .sorted()                                     // Sort in alphabetical order
         .collect(Collectors.toList());                // Collect results into a List
-    System.out.println(distinctSortedFruits);
+    System.out.println("The fruit names by alphabetical order: " + distinctSortedFruits);
     // Output: [apple, banana, grape, orange]
             
         
@@ -1108,24 +1108,72 @@ public class StreamExercise {
     // 21. Joining Strings
     // Task: Given a list of words, join them into a single string separated by commas.
     List<String> languages = Arrays.asList("Java", "Python", "Rust", "R", "Go");
+
+    // result by using Stringbuilder
+    StringBuilder s21 = new StringBuilder();
+    System.out.print("The string of a series of words is: [");
+    for (int i = 0; i < languages.size(); i++) {
+      s21.append(languages.get(i));
+      if (i < languages.size() - 1) {
+        s21.append(", ");
+      }
+    }
+    System.out.println(s21 + "]");
+
+    // result by using Stream
+    System.out.print("The string of a series of words is: [");
+    String result21 
+    = languages.stream()
+      .collect(Collectors.joining(", "));
+    System.out.println(result21 + "]");
     // Output: "Java, Python, Rust, R, Go"
+
         
     // 22. Find First and Any
     // Task: Given a list of integers, find the first number that is divisible by 3.
     List<Integer> ages22 = Arrays.asList(4, 7, 9, 12, 16, 21);
-            
+    int intDividedByThree22 = 0;
+    for (int age : ages22) {
+      if (age % 3 == 0) {
+        intDividedByThree22 = age;
+        break;
+      }
+    }
+    System.out.println("The first integer divisible by 3 is: " + intDividedByThree22);
+
+    // Find the first number divisible by 3
+    Integer intDividedByThree22a 
+      = ages22.stream()
+        .filter(age -> age % 3 == 0)
+        .findFirst()
+        .orElse(null); // or 0 if you prefer a default value
+    System.out.println("The first integer divisible by 3 is: " + intDividedByThree22a);
     // Output: 9
         
+    
     // 23. Limit and Skip
     // Task: Given a list of numbers, skip the first 3 elements and return the next 5 elements.
-            
     List<Integer> elements23 = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+    List<Integer> integerList23 = new ArrayList<>();
+    for (int i = 0; i < elements23.size(); i++) {
+      if (i < 3)                            continue;
+      integerList23.add(elements23.get(i));
+      if (i >= 7)       break;
+    }
+    System.out.println(integerList23);
+
+    List<Integer> integerList23a 
+      = elements23.stream()
+        .skip(3)                                   // Skip the first 3 elements
+        .limit(5)                                  // Limit to the next 5 elements
+        .collect(Collectors.toList());             // Collect the result into a list
+    System.out.println(integerList23a);
     // Output: [4, 5, 6, 7, 8]
             
+
     // 24. Peek
     // Task: Given a list of integers, double each element and use the peek method to log the
     // intermediate results to the console.
-            
     List<Integer> amounts24 = Arrays.asList(1, 2, 3, 4);
     List<Integer> doubledAmounts 
       = amounts24.stream()
@@ -1161,7 +1209,6 @@ public class StreamExercise {
     // 26. Custom Collector
     // Task: Create a custom collector that collects the elements of a stream and remove all duplicates
     List<Integer> duplicates = Arrays.asList(2, 1, 2, 3, 4, 3, 5, 5, 6);
-
     List<Integer> uniqueNumbers26 = new ArrayList<>();
 
     // Loop through each number in the duplicates list
