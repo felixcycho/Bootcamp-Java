@@ -150,8 +150,11 @@ public class DemoOptional {
     // 2. orElse()
     // The following orElse() and orElseThrow() 表示想拆盒.
     Book targetBook3 = findByBookName2("MNO").orElse(null);
+    System.out.println(targetBook3);
     Book targetBook4 = findByBookName2("MNO").orElse(new Book(LocalDate.of(1970, 1, 1), "DEFAULT"));
+    System.out.println(targetBook4);
     Book targetBook5 = findByBookName2("MNO").orElseThrow(() -> new RuntimeException("Book not found."));
+    System.out.println(targetBook5);
 
   }
 

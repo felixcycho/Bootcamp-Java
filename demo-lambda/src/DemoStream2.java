@@ -31,9 +31,24 @@ public class DemoStream2 {
       + ", department = " + this.department
       + ")";
     }
-
-
   }
+
+  public static class Member {
+    private List<String> addresses;           // 每位成員都有機會有多個地址
+
+    public Member() {
+      this.addresses = new ArrayList<>();
+    }
+
+    public boolean add(String address) {
+      return this.addresses.add(address);
+    }
+
+    public List<String> getAddresses() {
+      return this.addresses;
+    }
+  }
+
   public static void main(String[] args) {
     Employee e1 = new Employee(101, "IT");
     Employee e2 = new Employee(102, "Marketing");
@@ -114,6 +129,57 @@ public class DemoStream2 {
       // 一旦 stream 被 collected, 則 stream 生涯完結.
     // List --> stream()
 
+    // ! FlatMap
+    List<String> names1 = new ArrayList<>();
+    names1.add("John");
+    names1.add("Sally");
+    List<String> names2 = new ArrayList<>();
+    names2.add("Nico");
+    names2.add("Jennie");
+    List<List<String>> nameList = new ArrayList<>();
+    nameList.add(names1);
+    nameList.add(names2);
+
+    List<String> names 
+      = nameList.stream()
+        .flatMap(list -> list.stream())
+        .collect(Collectors.toList());
+
+    System.out.println(names);
+
+    List<Member> members = new ArrayList<>();
+    Member m1 = new Member();
+    m1.add("ABC");
+    m1.add("DEF");
+    Member m2 = new Member();
+    m2.add("ABC");
+    m2.add("DEF");
+    m2.add("DEF");
+    members.add(m1);
+    members.add(m2);
+
+    // ! Approach 1: flatMap
+    List<String> allAddresses 
+      = members.stream()
+        .flatMap(m -> m.getAddresses().stream())
+        .collect(Collectors.toList());
+    System.out.println(allAddresses);
+
+    // ! Approach 2: for loop + addAll()
+    allAddresses = new ArrayList<>();
+    for (Member member : members) {
+      allAddresses.addAll(member.getAddresses());
+    }
+    System.out.println(allAddresses);
+
+    // ! Approach 3: Nested Loop + add()
+    allAddresses = new ArrayList<>();
+    for (Member member : members) {
+      for (String address : member.getAddresses()) {
+        allAddresses.add(address);
+      }
+    }
+    System.out.println(allAddresses);
 
   }
 }
