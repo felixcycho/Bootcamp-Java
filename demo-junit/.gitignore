@@ -1,0 +1,9 @@
+# Skip the target folder
+target/
+
+# Skip all .class
+*.class
+
+.vscode/
+
+.DS_Store
