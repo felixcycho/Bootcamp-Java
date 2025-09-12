@@ -36,7 +36,15 @@ public Student(String name, MathOperation mathOperation) {
     // Unit test 單元測試 :  Just test a part of method
     // Integration test 穿透測試 :  Test a whole method
   public int operate(int x, int y) {
-    return this.mathOperation.operate(x, y) * x;
+    if (x > y) {
+      return this.mathOperation.operate(x, y) * x;
+    }
+    else if (x == y) {
+      return this.mathOperation.operate(x, y) * y;
+    }
+    else {
+      return this.mathOperation.operate(x, y) * this.mathOperation.operate(x, y) * x;
+    }
   }
   // ! Junit Framework provides Mock Test functions, so that we can assume the result of internal method call.
 
