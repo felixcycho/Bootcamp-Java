@@ -16,7 +16,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class StreamExercise {
-
   // if public class Student 另外 java sheet 再開, 則不用 static.
   // 否則, if public class Student 在 main method 同一張 sheet 開, 則要 static.
   public static class Student {
@@ -1260,7 +1259,6 @@ public class StreamExercise {
     }
     System.out.println(validCharacterCount);
     // Output: 28
-
-
   }
+
 }

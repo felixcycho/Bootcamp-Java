@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
@@ -76,21 +77,21 @@ public class DataStructureExercise1 {
     integers.add(40);
     integers.add(50);
     // 1c. Print all the elements in the list.
-    System.out.println(integers);
+    System.out.println(integers);                              // [10, 20, 30, 40, 50]
     // 1d. Remove the number 30 from the list.
-    // integers.remove(30);                       // invalid, index(30)
+    // integers.remove(30);                                    // invalid, index(30)
     int index30 = integers.indexOf(30);
     if (index30 != -1) {
       integers.remove(index30);
     }
     
     // 1e. Print the size of the list.
-    System.out.println(integers.size());
+    System.out.println(integers.size());                       // 4
 
     // Exercise 2: Search and Update
 
-    // 2a. Create an ArrayList of strings to store names of fruits: "Apple", "Banana", "Mango", and
-    // "Orange".
+    // 2a. Create an ArrayList of strings to store names of fruits: 
+    // "Apple", "Banana", "Mango", and "Orange".
     List<String> fruitNames = new ArrayList<String>();
     fruitNames.add("Apple");
     fruitNames.add("Banana");
@@ -99,7 +100,7 @@ public class DataStructureExercise1 {
 
     // 2b. Check if "Grapes" exists in the list.
     boolean containGrapes = fruitNames.contains("Grapes");
-    System.out.println(containGrapes);
+    System.out.println(containGrapes);                        // false
     // 2c. If it doesn’t exist, add it to the list.
     if (!containGrapes) {
       fruitNames.add("Grapes");
@@ -110,7 +111,7 @@ public class DataStructureExercise1 {
       fruitNames.set(indexMango, "Peach");
     }
     // 2e. Print the final list.
-    System.out.println(fruitNames);
+    System.out.println(fruitNames);                          // [Apple, Banana, Peach, Orange, Grapes]
 
     // Exercise 3: Remove Duplicates
 
@@ -128,10 +129,13 @@ public class DataStructureExercise1 {
     for (int i = 0; i < duplicateIntegers.size(); i++) {
       integerHashSet.add(duplicateIntegers.get(i));
     }
-    System.out.println(integerHashSet);
+    System.out.println(integerHashSet);                      // [50, 20, 40, 10, 30]
     // 3c. Print the list after removing duplicates.
-    List<Integer> uniquIntegers = new ArrayList<Integer>(integerHashSet);
-    System.out.println(uniquIntegers);
+    List<Integer> uniquIntegers 
+      = new ArrayList<Integer>(integerHashSet);
+    System.out.println(uniquIntegers);                       // [50, 20, 40, 10, 30]
+    Collections.sort(uniquIntegers);
+    System.out.println(uniquIntegers);                       // [10, 20, 30, 40, 50]
 
     // Exercise 4: HashSet Basic Operations
 

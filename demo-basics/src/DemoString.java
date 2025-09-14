@@ -158,7 +158,7 @@ public class DemoString {
     System.out.println(charArray13);             // 12345
 
     System.out.print("[");
-    for (int i = 0; 1 < charArray13.length; i++) {
+    for (int i = 0; i < charArray13.length; i++) {
       if (i < charArray13.length - 1) {
       System.out.print(charArray13[i] + ", ");
       } else {
