@@ -13,8 +13,8 @@ public class DemoBank {
   public static void main(String[] args) {
     
     Bank hsbc = new Bank();
-    hsbc.add(new Account(new AcctHolderInfo("John1234", "admin1234")));
-    hsbc.add(new Account(new AcctHolderInfo("Lucas9999", "admin9999")));
+    hsbc.add(new Account(new AccountHolder("John1234", "admin1234")));
+    hsbc.add(new Account(new AccountHolder("Lucas9999", "admin9999")));
     System.out.println(hsbc.noOfAccounts());
     System.out.println(hsbc.findAccount("Lucas9999").getAcctBalance());       // 0.0
 
@@ -71,12 +71,17 @@ public class DemoBank {
       if (functionInteger == 1) {
         System.out.println("Please input an amount: ");
         String amount = scanner.nextLine();
-        int amountToWithdraw = Integer.valueOf(amount);
-        if (!userAccount.debit(amountToWithdraw)) {      // !userAccount, means userAccount 已自我修改.
-          System.out.println("Insufficient balance.");
-          break;
-        } 
-        System.out.println("Withdrawal success. Outstanding balance = " + userAccount.getAcctBalance());
+        try {
+          int amountToWithdraw = Integer.valueOf(amount);
+          if (!userAccount.debit(amountToWithdraw)) {       // !userAccount, means userAccount 已自我修改.
+            System.out.println("Insufficient balance.");
+            break;
+           } 
+          System.out.println("Withdrawal success. Outstanding balance = " + userAccount.getAcctBalance());
+        } catch (NumberFormatException e) {
+          System.out.println("Invalid amount entered.");
+          continue;
+        }
         isFunctionValid = true;
       } else if (functionInteger == 2) {
           System.out.println("Please input an account number for fund transfer: ");

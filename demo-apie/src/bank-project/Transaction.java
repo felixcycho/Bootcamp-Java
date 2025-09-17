@@ -23,6 +23,4 @@ public class Transaction {
     this.trxAmount = trxAmount;
   }
 
-  
-
 }

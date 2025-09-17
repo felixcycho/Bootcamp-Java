@@ -1,3 +1,5 @@
+package src;
+
 public class DemoDataType {
   public static void main(String[] args) {
     // int, double, String, char, boolean, byte, short, long, float (Primitive)

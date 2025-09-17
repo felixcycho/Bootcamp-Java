@@ -7,20 +7,20 @@ public class Account {
   private static int acctIdCounter = 0;
   private int acctId;
   private double acctBalance;
-  private AcctHolderInfo acctHolderInfo;
+  private AccountHolder accountHolder;
   private Transaction[] transactions;
 
-  public Account(AcctHolderInfo acctHolderInfo) {
+  public Account(AccountHolder acctHolderInfo) {
     this.acctId = ++acctIdCounter;
     this.acctBalance = 0.0;
-    this.acctHolderInfo = acctHolderInfo;
+    this.accountHolder = acctHolderInfo;
     this.transactions = new Transaction[0];
   }
 
   // account --> accountholder information
   // because Account.class can be with method to check AcctHolderInfo.class
   public boolean validatePassword(String inputPassword) {
-    return this.acctHolderInfo.getPassword().equals(inputPassword);
+    return this.accountHolder.getPassword().equals(inputPassword);
   }
 
   public void add(Transaction newTransaction) {
@@ -38,7 +38,7 @@ public class Account {
   }
 
   public String getAcctHolderName() {
-    return this.acctHolderInfo.getAcctHolderName();
+    return this.accountHolder.getAcctHolderName();
   }
 
   public int getAcctId() {

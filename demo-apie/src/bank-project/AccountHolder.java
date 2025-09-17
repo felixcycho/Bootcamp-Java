@@ -1,9 +1,9 @@
-public class AcctHolderInfo {
+public class AccountHolder {
   // Account holder name -> bank.getAccount(this.name)
   private String acctHolderName;
   private String password;
 
-  public AcctHolderInfo(String acctHolderName, String password) {
+  public AccountHolder(String acctHolderName, String password) {
     this.acctHolderName = acctHolderName;
     this.password = password;
   }

@@ -87,7 +87,7 @@ public class Zoo<T extends Animal> {
     zoo.add(new Lion("Lion", "Jennie"));
     zoo.add(new Lion("Lion", "Steve"));
     zoo.add(new Tiger("Tiger", "Felix"));
-    zoo.add(new Panda("Panda", "Candice"));
+    zoo.add(new Panda("Panda", "Candace"));
 
     Zoo1 zoo1 = new Zoo1();
     zoo1.add(new Lion("Lion", "Jennie"));
@@ -95,7 +95,7 @@ public class Zoo<T extends Animal> {
 
     System.out.println(lionZoo);          // Zoo: Lion (John)
     System.out.println(animalZoo);        // Zoo: Lion (Lucas)
-    System.out.println(zoo);              // Zoo: Lion (Jennie), Lion (Steve), Tiger (Felix), Panda (Candice)
+    System.out.println(zoo);              // Zoo: Lion (Jennie), Lion (Steve), Tiger (Felix), Panda (Candace)
     System.out.println(zoo1);             // generic.Zoo1@8efb846 (without toString in Zoo1) /
                                              //  Zoo: Lion (Jennie), Lion (Steve) (with toString in Zoo1)
 

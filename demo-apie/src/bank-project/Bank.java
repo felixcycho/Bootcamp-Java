@@ -23,11 +23,10 @@ public class Bank {
   // Return Account by account holder name
   public Account findAccount(String acctHolderName) {
     for (Account account : this.accounts) {        // this.accounts 不可有 NULL.
-      // 1000 lines
-      if (account.getAcctHolderName().equals(acctHolderName)) {          
+      // 1000 lines.equals(acctHolderName)) {          
       // it means account relates to acctHolderName, 不等於 account 擁有 acctHolderName.
         return account;  
-      }
+      // }
     }
     return null;
   }
@@ -43,5 +42,5 @@ public class Bank {
     }
     return null;
   }
-
+  
 }
