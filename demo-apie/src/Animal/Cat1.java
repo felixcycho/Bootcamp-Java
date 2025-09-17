@@ -1,8 +1,6 @@
-package src.Animal;
-
 import java.util.Objects;
 
-public class Cat extends Animal {    // Child (Cat), Parent (Animal)
+public class Cat1 extends Animal1 {    // Child (Cat), Parent (Animal)
   // A = Abstraction (Interface) 抽象化
   // P = Polymorphism 多形態
   // I = Inheritance 繼承
@@ -17,7 +15,7 @@ public class Cat extends Animal {    // Child (Cat), Parent (Animal)
   // Do not inherit.
   // 1. Constructor
   //    Need to set up Constuctor
-  public Cat(String name, int age, double weight) {
+  public Cat1(String name, int age, double weight) {
     // New Java keyword: super
     super(name, age);    // Calling parent class (Animal) Constructor 
     this.weight = weight;
@@ -48,11 +46,11 @@ public class Cat extends Animal {    // Child (Cat), Parent (Animal)
     }
     // Step 2: if obj is not an Cat Object, return false.
     // ! instanceOf = asking if obj is an object of Cat
-    if (!(obj instanceof Cat)) {
+    if (!(obj instanceof Cat1)) {
       return false;
     }
     // Step 3: Because obj MUST be a cat object, this becomes non-risky.
-    Cat otherCat = (Cat) obj;
+    Cat1 otherCat = (Cat1) obj;
     // Step 4: this.name is stored in Parent Class, thus use super to call name.
     // return Objects.equals(super.toString(), this.toString());
     return Objects.equals(super.getName(), otherCat.getName()) //
@@ -81,10 +79,10 @@ public class Cat extends Animal {    // Child (Cat), Parent (Animal)
     }
   
   public static void main(String[] args) {
-    Cat c1 = new Cat("John", 8, 4.5);
+    Cat1 c1 = new Cat1("John", 8, 4.5);
     System.out.println(c1.getAge());
 
-    Cat c2 = new Cat("Peter", 9, 5.5);
+    Cat1 c2 = new Cat1("Peter", 9, 5.5);
     System.out.println(c2.getAge());
 
     System.out.println(c1);

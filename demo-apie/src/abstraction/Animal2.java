@@ -1,13 +1,11 @@
-package src.abstraction;
-
-public abstract class Animal implements Survivable {
+public abstract class Animal2 implements Survivable {
   private String name;
   private String gender;
   private String species;
   private String subSpecies;
   private int age;
 
-  public Animal(String species, String subSpecies, String name, String gender, int age) {
+  public Animal2(String species, String subSpecies, String name, String gender, int age) {
     this.species = species;
     this.subSpecies = subSpecies;
     this.name = name;

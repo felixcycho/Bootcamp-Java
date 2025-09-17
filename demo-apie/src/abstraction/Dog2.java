@@ -1,9 +1,7 @@
-package src.abstraction;
-
-public class Dog extends Animal implements Survivable {
+public class Dog2 extends Animal2 implements Survivable {
 
   // constructor
-  public Dog(String species, String subSpecies, String name, String gender, int age) {
+  public Dog2(String species, String subSpecies, String name, String gender, int age) {
     // super(name);                 // invalid
     // super(gender);               // invalid
     super(species, subSpecies, name, gender, age);
@@ -32,9 +30,9 @@ public class Dog extends Animal implements Survivable {
   public static void main(String[] args) {
 
     Survivable[] survivals = new Survivable[3];
-    survivals[0] = new Dog("Dog", "Alaskan Malamute", "Justin", "male", 4);
-    survivals[1] = new Dog("Dog", "Golden Retriever", "Felix", "male", 3);
-    survivals[2] = new Dog("Dog", "Husky", "Fucker", "female", 10);
+    survivals[0] = new Dog2("Dog", "Alaskan Malamute", "Justin", "male", 4);
+    survivals[1] = new Dog2("Dog", "Golden Retriever", "Felix", "male", 3);
+    survivals[2] = new Dog2("Dog", "Husky", "Fucker", "female", 10);
     for (Survivable survival : survivals) {
       survival.drink();             // Survivable has drink().
       survival.eat();               // Survivable has eat().
@@ -42,11 +40,11 @@ public class Dog extends Animal implements Survivable {
       // survival.run();            // invalid, because Survivable does not have run().
     }
 
-    Dog[] dogs = new Dog[3];
-    dogs[0] = new Dog("Dog", "Alaskan Malamute", "Justin", "male", 4);
-    dogs[1] = new Dog("Dog", "Golden Retriever", "Felix", "male", 3);
-    dogs[2] = new Dog("Dog", "Husky", "Fucker", "male", 10);
-    for (Dog dog : dogs) {
+    Dog2[] dogs = new Dog2[3];
+    dogs[0] = new Dog2("Dog", "Alaskan Malamute", "Justin", "male", 4);
+    dogs[1] = new Dog2("Dog", "Golden Retriever", "Felix", "male", 3);
+    dogs[2] = new Dog2("Dog", "Husky", "Fucker", "male", 10);
+    for (Dog2 dog : dogs) {
       dog.drink();             // Survivable has drink().
       dog.eat();               // Survivable has eat().
       dog.sleep();             // Survivable has sleep().

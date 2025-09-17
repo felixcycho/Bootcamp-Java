@@ -1,10 +1,8 @@
-package src.Shape;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Objects;
 
-public class Square extends Shape{
+public class Square extends Shape1{
   private double length;
 
   public Square(double length, String color) {
@@ -63,11 +61,6 @@ public class Square extends Shape{
       + ")";
    }
   
-  
-
-  public static void main(String[] args) {
-    
-  }
   
   
   

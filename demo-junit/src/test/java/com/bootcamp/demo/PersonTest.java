@@ -20,5 +20,8 @@ public class PersonTest {
     Assertions.assertEquals(false, p1 == p2);
     Assertions.assertEquals(true, p1.hashCode() == p2.hashCode());
     Assertions.assertEquals(true, p1.equals(p2));
+
+    p1.setAge(20);
+    Assertions.assertEquals(20, p1.getAge());
   }
 }

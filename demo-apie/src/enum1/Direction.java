@@ -1,5 +1,3 @@
-package src.enum1;
-
 public enum Direction {
   EAST(-1), 
   SOUTH(-2), 

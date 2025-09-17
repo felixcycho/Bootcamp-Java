@@ -1,5 +1,3 @@
-package src.enum1;
-
 // Monday --> String? int? char?
 // Direction --> String? int? char?
 // Color --> Red, Blue, Yellow --> String?  but how about yellow? Yellow? YELLOW? Yello?

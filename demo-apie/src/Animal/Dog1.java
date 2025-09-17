@@ -1,12 +1,10 @@
-package src.Animal;
-
 import java.util.Objects;
 
-public class Dog extends Animal {
+public class Dog1 extends Animal1 {
 
   private boolean isMale;
   
-  public Dog(String name, int age, boolean isMale) {
+  public Dog1(String name, int age, boolean isMale) {
     super(name, age);
     this.isMale = isMale;
   }
@@ -26,11 +24,11 @@ public class Dog extends Animal {
     }
     // Step 2: if obj is not an Dog Object, return false.
     // ! instanceOf = asking if obj is an object of Dog
-    if (!(obj instanceof Dog)) {
+    if (!(obj instanceof Dog1)) {
       return false;
     }
     // Step 3: Because obj MUST be a cat object, this becomes non-risky.
-    Dog otherDog = (Dog) obj;
+    Dog1 otherDog = (Dog1) obj;
     // Step 4: this.name is stored in Parent Class, thus use super to call name.
     return super.getName().equals(otherDog.getName())  //
         && super.getAge() == otherDog.getAge()       // check String 是否相等, 需要用 .equal()
@@ -54,8 +52,8 @@ public class Dog extends Animal {
   
 
   public static void main(String[] args) {
-    Dog d1 = new Dog("John", 3, false);
-    Dog d2 = new Dog("Peter", 4, true);
+    Dog1 d1 = new Dog1("John", 3, false);
+    Dog1 d2 = new Dog1("Peter", 4, true);
     System.out.println(d1.isMale());
 
     System.out.println(d1);

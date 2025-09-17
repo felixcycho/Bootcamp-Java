@@ -1,3 +1,5 @@
+package ExceptionExercise;
+
 import java.util.Scanner;
 
 public class ExceptionExercise4 {

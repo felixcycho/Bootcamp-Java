@@ -1,5 +1,3 @@
-package src.enum1;
-
 // enum has sequence.
 public enum OrderStatus {
   PAID(1), PREPARING(2), DELIVERING(3), DELIVERED(4), CANCELLED(99);

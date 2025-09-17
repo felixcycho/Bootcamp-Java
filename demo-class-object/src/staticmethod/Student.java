@@ -1,3 +1,5 @@
+package staticmethod;
+
 public class Student {
   private static int score = 100;    // this static 100 cannot be input into an object, thus cannot be called over.
   private String name;

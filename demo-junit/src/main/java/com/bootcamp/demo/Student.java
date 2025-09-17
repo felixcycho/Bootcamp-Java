@@ -12,6 +12,7 @@ import lombok.ToString;
 
 public class Student {       // Calculation skill
   private String name;
+  // private Calculator calculator;
   private MathOperation mathOperation;
 
 // ! Dependency Injection (DI)
@@ -35,15 +36,19 @@ public Student(String name, MathOperation mathOperation) {
   // ! For Junit Test (Student.class), to test operate(), the test cases only cover the value-added part.
     // Unit test 單元測試 :  Just test a part of method
     // Integration test 穿透測試 :  Test a whole method
+  // ! Junit Framework provides Mock test functions, so that we can assume the result of internal method call.
   public int operate(int x, int y) {
     if (x > y) {
-      return this.mathOperation.operate(x, y) * x;
-    }
-    else if (x == y) {
-      return this.mathOperation.operate(x, y) * y;
+    // ! Day 1
+      // return this.mathOperation.operate(x, y) * x;
+      // ! Day 2
+      return this.mathOperation.operate(x, y + 2) * x;
     }
     else {
-      return this.mathOperation.operate(x, y) * this.mathOperation.operate(x, y) * x;
+      // ! Day 1
+      // return this.mathOperation.operate(x, y) * this.mathOperation.operate(x, y) * x;
+      // ! Day 2
+      return this.mathOperation.operate(x, y + 3) * y;
     }
   }
   // ! Junit Framework provides Mock Test functions, so that we can assume the result of internal method call.

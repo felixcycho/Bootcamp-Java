@@ -1,5 +1,3 @@
-package src.abstraction;
-
 // Class name "implements" Interface name
 // Class Superman 履行 Flyable 合約.
 // ! Interface control the child class method availability at compile time.

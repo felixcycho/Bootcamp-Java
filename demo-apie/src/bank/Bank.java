@@ -1,5 +1,3 @@
-package src.Bank;
-
 public class Bank {
   // Open Account
   // 當我希望用 bank 找 account 之際, 可在 Class Bank 包含 private Account.

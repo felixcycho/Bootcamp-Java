@@ -1,5 +1,3 @@
-package src.abstraction;
-
 public class Student extends Human implements Eatable, Studiable {
 // or instead, public class Student extends Human implements Studiable {        is also OK.
 // because Human also has skill eat().

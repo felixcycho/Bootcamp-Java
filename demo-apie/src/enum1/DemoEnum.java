@@ -1,4 +1,3 @@
-package src.enum1;
 // Examples of enum:
 // 1. Gender (Male / Female)
 // 2. 香港 18 區

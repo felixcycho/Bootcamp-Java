@@ -1,5 +1,3 @@
-package src.Bank;
-
 import java.util.Scanner;
 
 // User can view bank account balance.

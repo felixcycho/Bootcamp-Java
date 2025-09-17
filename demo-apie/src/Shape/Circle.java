@@ -1,10 +1,8 @@
-package src.Shape;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Objects;
 
-public class Circle extends Shape {
+public class Circle extends Shape1 {
   private double radius;
 
   public Circle(double radius, String color) {
@@ -68,8 +66,6 @@ public class Circle extends Shape {
       + ")";
    }
   
-  public static void main(String[] args) {
-    
-  }
+
   
 }

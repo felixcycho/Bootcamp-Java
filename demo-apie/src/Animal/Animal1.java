@@ -1,5 +1,4 @@
-package src.Animal;
-public abstract class Animal {     // abstract 代表 虛構, 所以不能 add new Object.
+public abstract class Animal1 {     // abstract 代表 虛構, 所以不能 add new Object.
 
 // ! Abstract class
 // 1. can be extended
@@ -19,7 +18,7 @@ public abstract class Animal {     // abstract 代表 虛構, 所以不能 add n
   private String name;
   private int age;
   
-  public Animal(String name, int age) {
+  public Animal1(String name, int age) {
     this.age = age;
     this.name = name;
   }

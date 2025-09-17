@@ -1,4 +1,6 @@
-public class Player {
+package card;
+
+class Player {
   private Card[] cards;
 
   // Constructor

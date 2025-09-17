@@ -1,6 +1,4 @@
-package src.Shape;
-
-public abstract class Shape {
+public abstract class Shape1 {
   private String color;
   
   // method
@@ -8,7 +6,7 @@ public abstract class Shape {
   // because parent class has abstract method, @Override must be written in child class.
 
   // Constructor
-  public Shape(String color) {
+  public Shape1(String color) {
     this.color = color;
   }
 

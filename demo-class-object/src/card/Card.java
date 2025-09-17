@@ -1,3 +1,5 @@
+package card;
+
 public class Card {
   // attributes, i.e. rank, suit.
   private int rank;    // rank 代表 'A', '2', '3', '4', ...., 'J', 'Q', 'K'

@@ -1,4 +1,3 @@
-package src.abstraction;
 // public class 的 class, 是用於 new.
 // But, public interface 是不可 new.
 

@@ -1,5 +1,3 @@
-package src.Bank;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -78,9 +76,9 @@ public class Account {
     return true;
   }
 
-  public static void main(String[] args) {
+  // public static void main(String[] args) {
     // Account a1 = null;                會導致死機
     // a1.credit(100);                   // java.lang.NullPointerException
-  }
+  // }
   
 }

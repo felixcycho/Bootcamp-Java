@@ -1,5 +1,3 @@
-package src.enum1;
-
 public enum Currency {
   HKD ("Hong Kong Dollar", 1),
   USD ("US Dollar", 2),

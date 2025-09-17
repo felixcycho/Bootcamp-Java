@@ -1,3 +1,5 @@
+package card;
+
 import java.util.Arrays;
 
 public class Deck {
