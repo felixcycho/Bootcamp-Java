@@ -12,13 +12,12 @@ import java.util.List;
  */
 public class CommercialAccount extends Account {
 	private List<Person> authorizedUsers;
-	private Company company;
-	private Long accountNumber;
-	private int pin;
-	private double startingDeposit;
+	// private Company company;
+	// private Long accountNumber;
+	// private int pin;
+	// private double startingDeposit;
 
 	public CommercialAccount(Company company, Long accountNumber, int pin, double startingDeposit) {
-		// complete the function
 		super(company, accountNumber, pin, startingDeposit);
 		this.authorizedUsers = new ArrayList<>();
 	}
@@ -37,7 +36,6 @@ public class CommercialAccount extends Account {
 	 *         {@link #authorizedUsers}; otherwise, false.
 	 */
 	public boolean isAuthorizedUser(Person person) {
-		// complete the function
 		return this.authorizedUsers.contains(person);     // equals()
 	}
 	

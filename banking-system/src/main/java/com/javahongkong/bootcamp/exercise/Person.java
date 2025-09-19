@@ -5,10 +5,9 @@ import java.util.Objects;
 public class Person extends AccountHolder {
 	private String firstName;
 	private String lastName;
-	private int idNumber;
+	// private int idNumber;
 
 	public Person(String firstName, String lastName, int idNumber) {
-		// complete the function
 		super(idNumber);
 		if (firstName == null || lastName == null) {
         throw new IllegalArgumentException("Neither first name nor last name can be null.");
@@ -18,12 +17,10 @@ public class Person extends AccountHolder {
 	}
 
 	public String getFirstName() {
-		// complete the function
 		return this.firstName;
 	}
 
 	public String getLastName() {
-		// complete the function
 		return this.lastName;
 	}
 
@@ -39,7 +36,16 @@ public class Person extends AccountHolder {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(this.idNumber);
+		return Objects.hash(super.getIdNumber());
+	}
+
+	@Override
+	public String toString() {
+    return "(Person = "
+		       + "first name = " + firstName + ", "
+					 + "last name = " + lastName + ", "
+					 + "id = " + super.getIdNumber()
+					 + ")";
 	}
 
 }

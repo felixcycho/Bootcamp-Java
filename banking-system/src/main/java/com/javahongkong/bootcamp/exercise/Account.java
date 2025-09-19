@@ -8,20 +8,15 @@ public abstract class Account implements AccountInterface {
 	private int pin;
 	// private double startingDeposit;
 	private double balance;
-	private int accountCounter;
 
 	protected Account(AccountHolder accountHolder, Long accountNumber, int pin, double startingDeposit) {
-		// complete the constructor
 		this.accountHolder = accountHolder;
+		this.accountNumber = accountNumber;
 		this.pin = pin;
 		this.balance = startingDeposit;
-
-		accountCounter++; // Increment the counter for each new account
-    this.accountNumber = (long) (accountCounter * 1111); // Generate account number
 	}
 
 	public AccountHolder getAccountHolder() {
-		// complete the function
 		return this.accountHolder;
 	}
 
@@ -30,12 +25,10 @@ public abstract class Account implements AccountInterface {
 	}
 
 	public double getBalance() {
-		// complete the function
 		return this.balance;
 	}
 
 	public double getPin() {
-		// complete the function
 		return this.pin;
 	}
 
@@ -44,14 +37,13 @@ public abstract class Account implements AccountInterface {
 	}
 
 	public void creditAccount(double amount) {
-		this.balance = BigDecimal.valueOf(amount)
-		               .add(BigDecimal.valueOf(this.balance))
+		this.balance = BigDecimal.valueOf(this.balance)
+		               .add(BigDecimal.valueOf(amount))
 									 .doubleValue();
 	}
 
 	public boolean debitAccount(double amount) {
-		// complete the function
-		if (amount <= 0 || amount > this.balance) {
+		if (amount <= 0 || this.balance < amount) {
       return false;
     } else { 
       // this.balance -= amount;

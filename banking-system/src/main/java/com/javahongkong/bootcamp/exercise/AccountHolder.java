@@ -9,9 +9,8 @@ public abstract class AccountHolder {
 	 * @param idNumber The government-issued ID used during account setup.
 	 */
 	public AccountHolder(int idNumber) {
-		// complete the function
 		if (idNumber <= 0) {
-		  throw new IllegalArgumentException("Tax ID should be a valid integer.");
+		  throw new IllegalArgumentException("Personal ID should be a valid integer.");
 		}
 		this.idNumber = idNumber;
 	}
@@ -22,7 +21,6 @@ public abstract class AccountHolder {
   
 
 	public int getIdNumber() {
-		// complete the function
 		return this.idNumber;
 	}
 

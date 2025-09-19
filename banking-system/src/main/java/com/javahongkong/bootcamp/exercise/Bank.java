@@ -51,6 +51,7 @@ public class Bank implements BankInterface {
 	}
 
 	public static void main(String[] args) {
+		Long l1;
 		// Long l1 = 0L;
 		// ! The local variable l1 may not have been initialized.
 		// ! Both read and write not OK if no initialization.
