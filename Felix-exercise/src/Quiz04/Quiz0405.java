@@ -29,10 +29,10 @@ public class Quiz0405 {
   }
 
   public static void main(String[] args) {
-    addToCart(new Good(10.0, 10.0));
-    addToCart(new SmartPhone(20.0, 20.0, "Galaxy"));
-    // addToCart(new Solid());                 // compile error
-    addToCart(new Door(30.0, 30.0, 30.0));
-    addToCart(new Furniture(40.0, 40.0, "Red"));
+    addToCart(new Good(10.0, 10.0));                   // compile error
+    addToCart(new SmartPhone(20.0, 20.0, "Galaxy"));   // compile error
+    addToCart(new Solid(10.0));                            // compile error
+    addToCart(new Door(30.0, 30.0, 30.0));             // compile error
+    addToCart(new Furniture(40.0, 40.0, "Red"));       // compile error
   }
 }
