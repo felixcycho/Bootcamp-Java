@@ -9,7 +9,7 @@ public class CustomException extends Exception {
   }
 
   public static void test() throws CustomException {
-    throw new Exception();            // compile error, unhandled exception
+    throw new Exception();            // Compile error: unhandled exception
   }
 
   public static void main(String[] args) throws Exception {

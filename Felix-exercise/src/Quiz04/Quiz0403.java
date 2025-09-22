@@ -30,6 +30,7 @@ public class Quiz0403 {
     addAnimal(new Animal("Nope"));
 
     hashMap.remove(3);
-    System.out.println(hashMap.get(3).getName());        //NullPointerException, Map.get(Object) is null
+    System.out.println(hashMap.get(3).getName());        
+      //NullPointerException, Map.get(Object) is null
   }
 }

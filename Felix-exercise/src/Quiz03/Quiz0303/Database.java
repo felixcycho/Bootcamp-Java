@@ -19,11 +19,12 @@ class Quiz {
     String s1 = "ABC";
     String s2 = "ABC";
 
-    System.out.println(b1 == b2);
-    System.out.println(b2 == b3);
-    System.out.println(s1 == s2);
-    System.out.println(s1.equals(b1.getStrings()[1]));
-    System.out.println(s2.equals(s1));
+    System.out.println(b1 == b2);                            // true
+    System.out.println(b2 == b3);                            // false
+    System.out.println(s1 == s2);                            // true
+    System.out.println(s1.equals(b3.getStrings()[0]));       // true
+    System.out.println(s1.equals(b1.getStrings()[1]));       // false
+    System.out.println(s2.equals(s1));                       // true
 
   }
 }
