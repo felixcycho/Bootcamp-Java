@@ -2,7 +2,7 @@ package src;
 
 public class DemoHelloworld {
   public static void main(String[] args) {
-    System.out.println("hello world. welcome to bootcamp.");
+    System.out.println("hello world. welcome to bootcamp!!!");
     System.out.println("I'm Vincent");
 
     // Comment / Notes 你好
