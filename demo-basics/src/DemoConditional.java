@@ -1,5 +1,3 @@
-package src;
-
 public class DemoConditional {
   public static void main(String[] args) {
     // if else -> control program flow

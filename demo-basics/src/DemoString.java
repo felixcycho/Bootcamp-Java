@@ -1,5 +1,3 @@
-package src;
-
 public class DemoString {
   public static void main(String[] args) {
     // Data types:  8 Primitives, Class (String)
