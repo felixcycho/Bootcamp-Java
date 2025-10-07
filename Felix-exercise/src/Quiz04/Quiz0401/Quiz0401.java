@@ -1,3 +1,4 @@
+package Quiz0401;
 public class Quiz0401 {
   static byte counter = 5;
   int beCareful = 2;

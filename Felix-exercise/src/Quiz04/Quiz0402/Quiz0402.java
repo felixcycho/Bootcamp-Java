@@ -1,3 +1,4 @@
+package Quiz0402;
 import java.util.LinkedList;
 
 public class Quiz0402 {
