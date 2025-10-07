@@ -758,8 +758,10 @@ public class StreamExercise {
     // Custom output formatting for the Map
     String staffMapOutput10
       = staffMap10.entrySet().stream()
-        .map(entry -> entry.getKey() + " = " + entry.getValue())
-        .collect(Collectors.joining(", ", "{", "}"));
+        .map(entry -> {
+          String genderLabel = entry.getKey() == Gender.MALE ? "Male" : "Female";   // Replace true/false with Male/Female
+          return genderLabel + " = " + entry.getValue();
+         }).collect(Collectors.joining(", ", "{", "}"));
         
     System.out.println(staffMapOutput10);
     // Output: {false=[Alice], true=[Bob, Charlie]} (Map)
@@ -890,7 +892,7 @@ public class StreamExercise {
     String formattedAmount15 = currencyFormat.format(totalAmount15);
         
     System.out.println("Total amount of all products is: " + formattedAmount15); 
-    // Output: 1,623.00
+    // Output: HK$9,903,000.00
     // Convert back to double
     try {
       Number parsedNumber15 = currencyFormat.parse(formattedAmount15);
@@ -907,7 +909,7 @@ public class StreamExercise {
       double doubleValue15 = parsedNumber15.doubleValue();
       // Print just the double value formatted to two decimal places
       System.out.printf("%.2f%n", doubleValue15);                           // 9903000.00
-      // Output: 1623.00
+      // Output: 9903000.00
     } catch (ParseException e) {
         e.printStackTrace();
     }
@@ -977,7 +979,7 @@ public class StreamExercise {
     List<List<Integer>> listOfIntegers18 = Arrays.asList( //
     Arrays.asList(1, 2, 3), //
     Arrays.asList(4, 5, 6), //
-    Arrays.asList(7, 8, 9) //
+    Arrays.asList(9, 8, 7) //
     );
             
     Set<Integer> uniqueIntegerSet18 
@@ -985,13 +987,13 @@ public class StreamExercise {
         .flatMap(List::stream)              // Flatten the list of lists
         .filter(num -> num > 5)             // Filter numbers greater than 5
         .collect(Collectors.toSet());       // Collect results into a Set
-    System.out.println("The list of unique integers: " + uniqueIntegerSet18);
+    System.out.println("The list of unique integers: " + uniqueIntegerSet18);     // [6, 7, 8, 9]
         
     List<Integer> sortedIntegerList18
       = uniqueIntegerSet18.stream()
         .sorted()                           // sort the results
         .collect(Collectors.toList());
-    System.out.println("The list of sorted integers: " + sortedIntegerList18);
+    System.out.println("The list of sorted integers: " + sortedIntegerList18);    // [6, 7, 8, 9]
     // Output: [6, 7, 8, 9]
         
         
