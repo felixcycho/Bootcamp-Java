@@ -13,8 +13,15 @@ enum Color {
 
 public class Quiz0304 {
   public static void main(String[] args) {
+  try {
     System.out.println(Color.counter);
-      // Compile error, 
+  } catch (Error e) {
+    System.out.println("Unresolved compilation problem: " //
+    + "Cannot refer to the static enum field Color.counter within an initializer");
+  }
+      // Compile error: 
         // cannot refer to the static enum field Color.counter within an initializer
+
+    System.out.println(1 + 1);                   // 2
   }
 }

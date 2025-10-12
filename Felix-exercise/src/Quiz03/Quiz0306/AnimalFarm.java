@@ -13,8 +13,10 @@ public class AnimalFarm {
   public static void main(String[] args) {
     Animal cow = new Cow();
     cow.eat("something");                      // Compile error
+      // The method eat() in the type Animal is not applicable for the arguments (String)
 
     Animal cow2 = new Animal();
     cow2.eat("something");                     // Compile error
+      // The method eat() in the type Animal is not applicable for the arguments (String)
   }
 }

@@ -21,7 +21,7 @@ enum ColorC {
 public class Quiz0304c {
     public static void main(String[] args) {
       try {
-        System.out.println(ColorC.getCounter());  // 3
+        System.out.println(ColorC.getCounter());       // 3
       } catch (NoSuchMethodError e) {
         System.out.println("No such method.");
       }

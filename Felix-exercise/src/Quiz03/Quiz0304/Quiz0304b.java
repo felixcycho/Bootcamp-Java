@@ -16,7 +16,7 @@ enum ColorB {
 
 public class Quiz0304b {
   public static void main(String[] args) {
-    System.out.println(ColorB.getCounter()); // 3
+    System.out.println(ColorB.getCounter());        // 3
   }
 
 }

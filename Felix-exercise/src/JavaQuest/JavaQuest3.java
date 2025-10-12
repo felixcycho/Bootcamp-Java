@@ -14,7 +14,7 @@ public class JavaQuest3 {
 
     String str = "I love Java. I love coding";
     if (str.length() == 27) {
-      System.out.println("str length=27");
+      System.out.println("str length = 27");
     } else if (str.length() < 27) { // code here ... add the condition
       System.out.println("str length < 27");
     } else if (str.length() > 27) { // code here ... complete the code

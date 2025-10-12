@@ -17,7 +17,7 @@ enum Color {
 public class Quiz0304d {
   public static void main(String[] args) {
     try {
-      System.out.println(Color.getCounter());  // java.lang.NoSuchMethodError
+      System.out.println(Color.getCounter());  // java.lang.Error
     } catch (NoSuchMethodError e) {
       System.out.println("No such method.");   // No such method.
     }

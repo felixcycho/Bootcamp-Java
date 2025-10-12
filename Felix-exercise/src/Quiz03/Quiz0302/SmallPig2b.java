@@ -11,6 +11,7 @@ class SmallPig2b {
   }
 
   public static void main(String[] args) {
-    System.out.println(SmallPig2b.normalMethod(4));       // compile error
+    System.out.println(SmallPig2b.normalMethod(4));       // java.lang.Error: Unresolved compilation problem: 
+      // Cannot make a static (class) reference to the non-static method normalMethod(int) from the type SmallPig2b
   }
 }

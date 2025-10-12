@@ -18,6 +18,7 @@ enum ColorA {
 
 public class Quiz0304a {
   public static void main(String[] args) {
-    System.out.println(ColorA.counter); // Compile error
+    System.out.println(ColorA.counter); // Compile error:
+      // Cannot refer to the static enum field ColorA.counter within an initializer
   }
 }
